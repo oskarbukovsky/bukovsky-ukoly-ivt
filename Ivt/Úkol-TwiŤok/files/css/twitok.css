@@ -295,6 +295,37 @@ html[data-theme="dark"] .scroll {
     background-color: #240B1E;
 }
 
+.jscroll-added {
+    border-radius: 4px;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    border: 2px solid #ddf5f0;
+    margin-bottom: 3px;
+}
+
+html[data-theme="dark"] .jscroll-added {
+    border: 2px solid #220a0f;
+}
+
+.jscroll-added:nth-child(even) {
+    background-color: #d1fcf5;
+}
+
+html[data-theme="dark"] .jscroll-added:nth-child(even) {
+    background-color: #2e030a;
+}
+
+.jscroll-added:nth-child(odd) {
+    background-color: #d7faef;
+}
+
+html[data-theme="dark"] .jscroll-added:nth-child(odd) {
+    background-color: #280510;
+}
+
 .post {
     display: block;
     width: 100%;
@@ -304,7 +335,7 @@ html[data-theme="dark"] .scroll {
 }
 
 .post-content {
-    height: 400px;
+    height: 350px;
     padding: 10px 5px;
 }
 
