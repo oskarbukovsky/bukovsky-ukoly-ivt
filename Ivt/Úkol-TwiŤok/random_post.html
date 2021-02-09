@@ -12,7 +12,8 @@
     var script = document.scripts[document.scripts.length - 1];
 
     //Fill content
-    div.innerHTML += '<span clacc="post-author">' + randName() + '</span>'
+    div.innerHTML += '<span class="post-author">' + randName() + '</span>'
+    div.innerHTML += '<span class="post-time"> ∙ ' + getRandomInt(59) + ' min</span>'
     div.innerHTML += '<iframe src="' + newRandomVideo(current) + '" id="' + current + '" class="post" type="text/html" height="300" width="100%" frameborder="0" allow="autoplay; encrypted-media; fullscreen;"></iframe>';
 
     //Place content

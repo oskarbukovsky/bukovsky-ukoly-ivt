@@ -340,7 +340,11 @@ html[data-theme="dark"] .jscroll-added:nth-child(odd) {
 }
 
 .post-author {
-    position: absolute;
+    margin-left: 3%;
+}
+
+.post-time {
+    margin-left: 25px;
 }
 
 .twitok-main {
