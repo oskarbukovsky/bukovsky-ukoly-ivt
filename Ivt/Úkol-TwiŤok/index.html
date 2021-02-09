@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>TwíŤok v0.2 (Alpha)</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="cs">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jan Oskar Bukovský">
+
+    <base href="">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="files/css/font-awesome.min.css">
+    <link rel="stylesheet" href="files/css/basic.css">
+    <link rel="stylesheet" href="files/css/twitok.css">
+    <link rel="icon" href="files/imgs/twitok.png" type="image/gif" sizes="256x256">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="files/js/webcam.js"></script>
+
+    <script defer src="files/js/twitok.js"></script>
+    <script src="https://sdk.morphcast.com/mphtools/v1.0/mphtools.js"></script>
+    <script src="https://ai-sdk.morphcast.com/v1.14/ai-sdk.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+
+</head>
+
+<body bgcolor="white">
+    <div class="content" theme="dark">
+        <div class="twitok-left">
+            <div class="title-container" id="title-container"
+                style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+                unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                <div class="title-icon" style="background-image: url('files/imgs/twitok.png');">
+                </div>
+                <span class="big-font">TwíŤok</span>
+            </div>
+            <div class="twitok-navigation"
+                style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+                unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                <p class="needless3">Hlavní stránka</p>
+                <hr class="needless3">
+                <p class="needless5">Prozkoumat</p>
+                <hr class="needless5">
+                <p class="needless4">Oznámení</p>
+                <hr class="needless4">
+                <p class="needless6">Zprávy</p>
+                <hr class="needless6">
+                <p class="needless1">Záložky</p>
+                <hr class="needless1">
+                <p class="needless2">Seznamy</p>
+                <hr class="needless2">
+                <p>Profil</p>
+                <hr>
+                <p>Víc</p>
+            </div>
+            <span class="big-font twiik"
+                style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+                unselectable="on" onselectstart="return false;" onmousedown="return false;" data-toggle="modal"
+                data-target="#addTwiik">TwííK</span>
+            <div class="change-theme" id="change-theme">
+            </div>
+        </div>
+        <div class="twitok-right"
+            style="background-image: url('https://mailbakery.s3.amazonaws.com/wp-content/uploads/2016/02/26175914/Boden-backpack-email-template.gif');">
+        </div>
+        <div class="twitok-main">
+
+        </div>
+        <script>
+            //Random hexnum gen;
+            const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+        </script>
+        <div class="scroll" id="post-content" data-ui="jscroll-default"
+            style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+            unselectable="on" onselectstart="return false;" onmousedown="return false;">
+            <div data-simplebar="true">
+                <div class="jscroll-inner" id="simple-bar">
+                    <div data-simplebar="true"></div>
+                    <a href="random_post.html">Loading... (When too long use http:// instead file:///)</a>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addTwiik" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="my_camera" style="overflow: hidden; width: 100%; height: 100%;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <span class="btn btn-default twitok-close-modal" data-dismiss="modal">Zpět</span>
+                        <span id="add-error">Nevidím obličej :)</span>
+                        <span class="big-font send-twiik">TwííK</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,460 @@
+<!doctype html>
+<html>
+<head>
+<title>NetOS v0.8</title>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta http-equiv=Content-Language content=cs>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name=author content="Jan Oskar BukovskÃ½">
+<meta name=google-signin-scope content="profile email">
+<meta name=google-signin-client_id content=823167154939-kq1pa2a8574vviapcj6m7jukqnff41g8.apps.googleusercontent.com>
+<link rel=stylesheet href=files/css/font-awesome.min.css>
+<link rel=stylesheet href=files/css/netos.css>
+<link rel=icon href=https://winaero.com/blog/wp-content/uploads/2019/06/WIndows-Terminal-icon.png type=image/gif sizes=256x256>
+<script src=files/js/spipa.js type=module></script>
+<script defer src=https://apis.google.com/js/api.js onreadystatechange="if (this.readyState === 'complete') {this.onload();gapi.load('client:auth2', initClient);}" type=module></script>
+<script async>function initClient(){gapi.client.init({apiKey:API_KEY,clientId:CLIENT_ID,discoveryDocs:DISCOVERY_DOCS,scope:SCOPES}).then(function(){authorizeButton.onclick=handleAuthClick;signoutButton.onclick=handleSignoutClick},function(a){appendPre(JSON.stringify(a,null,2))})};</script>
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
+<script src=https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js></script>
+<script src=files/js/vigenere.js></script>
+<script src=files/js/rsa.js></script>
+<script src=files/js/base64.js></script>
+<script src=files/js/hex.js></script>
+<script src=files/js/keygen.js></script>
+<script defer src=files/js/netos.js></script>
+<script src=https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js></script>
+</head>
+<body onload=gettime() bgcolor=white id=login>
+<canvas id=spipa></canvas>
+<div class=container>
+<div class=services>
+<div data-driver=Web data-offset=0 class=active style=-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;-o-user-select:none unselectable=on onselectstart="return false;" onmousedown="return false">NetOS v0.8</div>
+</div>
+<div class=container__inner>
+<iframe name=hiddenFrame class=hide url></iframe>
+<iframe id=hiddenFrame class=hide></iframe>
+<form id=form method=POST onsubmit=login() target=hiddenFrame>
+<div class=forms>
+<div class=web>
+<div class=form-group>
+<label for=username style=-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;-o-user-select:none unselectable=on onselectstart="return false;" onmousedown="return false">
+UÅ¾ivatel
+</label>
+<input type=text class=form-control name=user id=username value=Guest>
+</div>
+<div class=form-group>
+<label for=password style=-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;-o-user-select:none unselectable=on onselectstart="return false;" onmousedown="return false">
+Heslo
+</label>
+<input type=password class=form-control id=password value=Guest123!>
+</div>
+<input type=text id=hidden-hashed name=security style=display:none value>
+<input type=text name=data style=display:none value=.>
+<div class=form-group>
+<button type=submit class="btn btn-primary" id=btn-login onclick="beforelogin();frameSource();openFullscreen();return false">PÅ™ihlÃ¡sit</button>
+</div>
+<div class=g-signin2 data-onsuccess=onSignIn data-theme=dark></div>
+<br>
+<pre id=content style=white-space:pre-wrap></pre>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class=navbar id=navbar>
+<div id=dragbar></div>
+<button class="startbtn fa" id=start-open style=-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;-o-user-select:none unselectable=on onselectstart="return false;" onmousedown="return false"></button>
+<input type=text class=search-open id=search-open placeholder="Sem zadejte hledanÃ½ vÃ½raz" value>
+<div class=list>
+<ul id=original_items>
+<li id=task-1 class="active running" ondrop=droptaskbar(event) ondragover=allowDrop(event)></li>
+<li id=task-2 class=running ondrop=droptaskbar(event) ondragover=allowDrop(event)></li>
+<li id=task-3 ondrop=droptaskbar(event) ondragover=allowDrop(event)></li>
+<li id=task-4 ondrop=droptaskbar(event) ondragover=allowDrop(event)></li>
+<li id=task-5 ondrop=droptaskbar(event) ondragover=allowDrop(event)></li>
+<li id=task-6 class=running ondrop=droptaskbar(event) ondragover=allowDrop(event)></li>
+<li id=task-7 ondrop=droptaskbar(event) ondragover=allowDrop(event)></li>
+</ul>
+<ul id=cloned_items>
+</ul>
+</div>
+<span class=datetime id=datetime style=-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;-o-user-select:none unselectable=on onselectstart="return false;" onmousedown="return false"></span>
+</div>
+<div id=search-box class=search-box>
+<div class=search-box-content id=search-box-content>
+<a href=#>Link 1</a>
+<a href=#>Link 2</a>
+<a href=#>Link 3</a>
+</div>
+</div>
+<div class=start-box id=start-box>
+<div class=start-box-content id=start-box-content>
+<a href=#>Link 1</a>
+<a href=#>Link 2</a>
+<a href=#>Link 3</a>
+</div>
+</div>
+<div class=windows-holder id=windows-holder>
+<div id=elem onmousedown='mydragg.startMoving(this,"desktop",event)' onmouseup='mydragg.stopMoving(this,"desktop")' style=width:200px;height:100px;z-index:8>
+<div style=width:100%;height:100%;padding:10px>
+<select>
+<option value=1>first</option>
+<option value=2>second</option>
+</select>
+<input type=text value=123>
+</div>
+</div>
+</div>
+<table ondrop=drop(event) ondragover=allowDrop(event) class=desktop id=desktop>
+<tr>
+<td draggable=false>
+<div id=drag1 draggable=true ondragstart=drag(event) class=desktop-icon style="background-image:url('./files/imgs/google.png')">
+<p class=desktop-info ondblclick="this.contentEditable=true;this.className='inEdit desktop-info'" onblur="this.contentEditable=false;this.className='desktop-info'" contenteditable=false>
+Popis slovy popis slovÃ­Äky</p>
+</div>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<div id=drag2 draggable=true ondragstart=drag(event) class=desktop-icon style="background-image:url('./files/imgs/word.png')"></div>
+</td>
+<td>
+<div id=drag3 draggable=true ondragstart=drag(event) class=desktop-icon style="background-image:url('./files/imgs/calc.png')"></div>
+</td>
+<td>
+<div id=drag4 draggable=true ondragstart=drag(event) class=desktop-icon style="background-image:url('./files/imgs/file-manager.png')"></div>
+</td>
+<td>
+<div id=drag5 draggable=true ondragstart=drag(event) class=desktop-icon style="background-image:url('./files/imgs/calendar.png')"></div>
+</td>
+<td>
+<div id=drag6 draggable=true ondragstart=drag(event) class=desktop-icon style="background-image:url('./files/imgs/alarms.png')"></div>
+</td>
+<td>
+<div id=drag7 draggable=true ondragstart=drag(event) class=desktop-icon style="background-image:url('./files/imgs/maps.png')"></div>
+</td>
+<td>
+<div id=drag8 draggable=true ondragstart=drag(event) class=desktop-icon style="background-image:url('./files/imgs/whiteboard.png')"></div>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<div style=display:none>
+<input type=text id=hidden-adress name=hidden-adress value=$\)ZMAHz3#+a\!7q,SXT3EO3.Bz,F>
+<input type=text id=hidden-secret name=hidden-secret value>
+<input type=text id=minASCII name=minASCII value=32>
+<input type=text id=maxASCII name=maxASCII value=123>
+</div>
+</body>
+</html>

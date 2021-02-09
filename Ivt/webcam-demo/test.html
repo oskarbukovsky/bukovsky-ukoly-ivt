@@ -1,0 +1,100 @@
+<head>
+    <meta name="mphtools-feature" content="compatibilityUI, cameraPrivacyPopup, compatibilityAutoCheck">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="files/js/webcam.js"></script>
+    <script src="https://sdk.morphcast.com/mphtools/v1.0/mphtools.js"></script>
+    <script src="https://ai-sdk.morphcast.com/v1.14/ai-sdk.js"></script>
+    <style>
+        .slidecontainer {
+            display: grid;
+            width: 100%;
+        }
+
+        .slider {
+            position: relative;
+            left: 50px;
+            width: calc(100% - 100px);
+            height: 25px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Face emotions</h1>
+    <br>
+    <div id="my_camera"></div>
+    <input type=button value="Take Snapshot" onclick="take_snapshot()">
+    <div id="results"></div>
+    <br>
+    <div class="slidecontainer">
+        <span>Angry</span><input type="range" min="0" max="100" value="50" class="slider" id="slider-angry"><br>
+        <span>Disgust</span><input type="range" min="0" max="100" value="50" class="slider" id="slider-disgust"><br>
+        <span>Fear</span><input type="range" min="0" max="100" value="50" class="slider" id="slider-fear"><br>
+        <span>Happy</span><input type="range" min="0" max="100" value="50" class="slider" id="slider-happy"><br>
+        <span>Neutral</span><input type="range" min="0" max="100" value="50" class="slider" id="slider-neutral">
+    </div>
+    <br>
+
+    <script>
+
+        // Configure a few settings and attach camera
+        Webcam.set({
+            width: 320,
+            height: 240,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+        Webcam.attach('#my_camera');
+
+        function take_snapshot() {
+
+            // take snapshot and get image data
+            Webcam.snap(function (data_uri) {
+                // display results in page
+                document.getElementById('results').innerHTML =
+                    '<img src="' + data_uri + '"/>';
+            });
+        }
+
+        const config = { smoothness: 0.30, enableBalancer: false, multiFace: true };
+        const customSource = CY.createSource.fromVideoElement(document.getElementById("my_video"));
+        loader = CY.loader()
+            .addModule(CY.modules().FACE_EMOTION.name, config)
+            .addModule(CY.modules().FACE_DETECTOR.name, config)
+            .source(customSource)
+            .powerSave(0)
+            .load()
+            .then(({ start, stop }) => start());
+
+        window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
+            //console.log('Emotion result', evt.detail.output.emotion);
+
+            value = "background-color: rgb(" + 255 * evt.detail.output.emotion.Angry + ", " + 255 * evt.detail.output.emotion.Happy + ", " + 255 * evt.detail.output.emotion.Neutral + ");";
+            document.documentElement.setAttribute("style", value);
+
+            document.getElementById("slider-angry").value = evt.detail.output.emotion.Angry * 100;
+            document.getElementById("slider-disgust").value = evt.detail.output.emotion.Disgust * 100;
+            document.getElementById("slider-fear").value = evt.detail.output.emotion.Fear * 100;
+            document.getElementById("slider-happy").value = evt.detail.output.emotion.Happy * 100;
+            document.getElementById("slider-neutral").value = evt.detail.output.emotion.Neutral * 100;
+            if (evt.detail.output.emotion.Happy > (+evt.detail.output.emotion.Angry * 0.75 + +evt.detail.output.emotion.Neutral * 0.65) - 15) {
+                console.log("Smile :)");
+            } else {
+                console.log("Only smile pictures xd");
+            };
+        });
+
+        window.addEventListener(CY.modules().FACE_DETECTOR.eventName, (evt) => {
+            if (evt.detail.totalFaces == 0) {
+                img_error = 1;
+                document.getElementById('results').innerHTML = "Musi byt videt oblicej :/";
+            } else {
+                document.getElementById('results').innerHTML = "Pohled dobry :D";
+            }
+        });
+    </script>
+</body>
+
+</html>

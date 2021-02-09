@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="cs">
+
+<head>
+    <title>&#9762 Dark Web &#9763 J.O.B. | 2021 &#9888</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="cs">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jan Oskar Bukovský">
+    <link rel="icon" href="https://winaero.com/blog/wp-content/uploads/2019/06/WIndows-Terminal-icon.png"
+        type="image/gif" sizes="256x256">
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js'></script>
+    <script src="spipa.js"></script>
+    <script src="vigenere.js"></script>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        document.onkeydown = function(e) {
+            if(event.keyCode == 123) {
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+               return false;
+            }
+        }
+        function hash() {
+            var input_md5 = document.getElementById("password").value;
+            var hash = CryptoJS.MD5(input_md5);
+            document.getElementById("hidden-hashed").value = hash;
+        }
+        function decrypt() {
+            decrip(
+                document.getElementById('hidden-secret'),
+                document.getElementById('hidden-hashed'),
+                document.getElementById('hidden-adress')
+            )
+            var add = document.createElement("iframe");
+            var att = document.createAttribute("frameborder");
+            att.value = "0";
+            add.setAttributeNode(att);
+            var att = document.createAttribute("style");
+            att.value = "z-index:2;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px";
+            add.setAttributeNode(att);
+            var att = document.createAttribute("height");
+            att.value = "100%";
+            add.setAttributeNode(att);
+            var att = document.createAttribute("width");
+            att.value = "100%";
+            add.setAttributeNode(att);
+            var att = document.createAttribute("src");
+            var adress = document.getElementById("hidden-secret").value;
+            att.value = adress;
+            add.setAttributeNode(att);
+            document.body.appendChild(add);
+        }
+    </script>
+
+</head>
+
+<body id="login" oncontextmenu="return false">
+    <canvas id="spipa"></canvas>
+    <div class="container">
+        <div class="services">
+            <div data-driver="Web" data-offset="0" class="active" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">Web</div>
+        </div>
+        <div class="container__inner">
+            <iframe name="hiddenFrame" class="hide"></iframe>
+            <form id="form" onsubmit="decrypt()" target="hiddenFrame">
+                <div class="forms">
+                    <div class="web">
+                        <div class="form-group">
+                            <label for="username" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                                Uživatel
+                            </label>
+                            <input type="text" class="form-control" name="username" id="username" value="Guest">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                                Heslo
+                            </label>
+                            <input type="password" class="form-control" name="password" id="password" value="Guest123!">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" onclick="hash()" class="btn btn-primary"
+                                id="btn-login" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">Přihlásit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="display: none">
+        <input type="text" id="hidden-adress" name="hidden-adress" value="$\)ZMAHz3#+a\!7q,SXT3EO3.Bz,F">
+        <input type="text" id="hidden-hashed" name="hidden-hashed" value="">
+        <input type="text" id="hidden-secret" name="hidden-secret" value="">
+        <input type="text" id="minASCII" name="minASCII" value="32">
+        <input type="text" id="maxASCII" name="maxASCII" value="123">
+    </div>
+    </body>
+
+</html>

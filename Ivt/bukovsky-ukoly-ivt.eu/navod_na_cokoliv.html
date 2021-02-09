@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <title>SCEditor Demo</title>
+
+    <link rel="stylesheet" href="./files/css/default.min.css" id="theme-style" />
+
+    <script src="./files/js/sceditor.min.js"></script>
+    <script src="./files/js/monocons.js"></script>
+    <script src="./files/js/bbcode.js"></script>
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+        document.onkeydown = function (e) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+        }
+    </script>
+    <style>
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+
+        .sceditor-grip {
+            display: none;
+        }
+
+        form div {
+            padding: .5em;
+        }
+
+        code:before {
+            position: absolute;
+            content: 'Code:';
+            top: -1.35em;
+            left: 0;
+        }
+
+        code {
+            margin-top: 1.5em;
+            position: relative;
+            background: #eee;
+            border: 1px solid #aaa;
+            white-space: pre;
+            padding: .25em;
+            min-height: 1.25em;
+        }
+
+        code:before,
+        code {
+            display: block;
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+<body bgcolor="white">
+<h1 all: none;>
+			Content of /<a href="index.html">home</a>/<a href="navod_na_cokoliv.html">Návod na cokoliv.html</a></h1>
+		<hr />
+
+    <form action="" method="post">
+        <div style="margin:0px;padding:0px;overflow:hidden">
+            <textarea id="example"
+                style="height:100vh;width:100%;resize:none;" height="100%" width="100%">
+[center][size=5][font=Verdana][u]:ninja:Kopírování stránek do posledního detailu :devil:[/u][/font][/size][/center]
+[left][ul]
+[li][u][b]Co všechno je potřeba pro zmatení návštěvníka[/b][/u][/li]
+[/ul]
+[ol]
+[li][b]Kvalitní doména[/b]
+Pokud chceme krást návštěvníky například stránce [url=http://www.zsmeteo.cz/]zsmeteo.cz[/url], tak se nabízí například doména [url=https://www.zsmeteo.eu/]zsmeteo.eu[/url].[/li]
+[li][b]Věrnost kopie[/b][/li]
+Pro naše návštěvníky se musí na první pohled jednat o stejné stránky, které očekává že navštěvuje, proto u jednodusších stránek lze vše kopírovat ručně, ale u větších projektů doporučuji využít některý z nástrojů k tomu určených. Osobně mohu doporučit HTTrack Website Copier, který umí projít celou stránku a vše stáhnout. Problém nastává v případě, pokud narazíme na rozsáhlou galerii, poté kvalita kopie záleží na vašich nervech.
+[li][b]Využití vyhledávacích nástrojů pro lepší výsledky než originál[/b][/li]
+Jestli myslíme naše rybaření na lidi opravdu vážně, tak vás musí zajímat praktiky SEO a analýzy naší kopie stránky. Google je silná zbraň a pokud se poštěstí přeskočit ve výsledcích originál, máme skoro vyhráno. Základ je si zřídit https certifikát a doplnit si chybějící údaje z kopírované stránky.
+[li][b]Získání dat vlastního zájmu[/b][/li]
+Tahle část je jenom třesnička na dortu, zábava by měla spočívat v učení se novým technikám a ne škození druhé straně. Ale každá příležitost je trénink a je na vás jak ji využít.[/ol]
+[ul]
+[li][u][b]Jak využít svého postavení[/b][/u][/li]
+[/ul]
+[ol]
+[li][b]Vydělat si něco málo na reklamách[/b][/li]
+Pokud je cílem pouze vydělat pár kačet tak to je nejlepší způsob. Stačí někam na stránku nerušivě vložit reklamní banner z reklamou a pokud reklam nebude moc a návštěvnost bude dobrá, tak se opravdu dá něco vydělat. Čím známější stránku kopírujete, tím bude výdělek snazší, větší a rychlejší.[li][b]Přístup do zákoutí pro normální uživatele nepřístupná[/b][/li]
+Jestli chcete zkusit například najít způsob si ve vaší oblíbené hře přidat trochu kreditů a nechcete za to platit, tak nejlepší cesta vede přes administrátory, jsou to jenom lidé a někteří si neskontrolují koncovku, zadají údaje na vaší stránku a vy si poté můžete na pravé stránce s jejich údaji dělat téměř vše. :D[/ol]
+[ul]
+[li][u][b]Kdy vše ukončit[/b][/u][/li]
+Když je po práci je správné po sobě řádně uklidit. Problém s internetem je takový, že se rád archivuje a různé cachuje. Někde se dá využit GDPR práva být zapomenut, ale to není všespásné. Pořád zůstane dost stop a pokud způsobíte něco velkého a problémového, tak skoro s určitou jistotou můžu říct, že si vás to najde. Pokud si hrajeme na českém písečku a použijeme selský rozum v uzpůsobeném režimu pro zábavu, tak není důvod, aby menší hlouposti prošli. Nikdo se nebude chtít hádat kvůli kravině, buď napište přimo originálnímu autorovi, nebo zmizte jako duchové. :alien:[/ul]
+
+[/left]
+
+
+
+
+
+
+
+
+</textarea>
+</form>   
+<script>
+        var textarea = document.getElementById('example');
+        sceditor.create(textarea, {
+            format: 'bbcode',
+            icons: 'monocons',
+            style: '../minified/themes/content/default.min.css'
+        });
+
+
+        var themeInput = document.getElementById('theme');
+        themeInput.onchange = function () {
+            var theme = '../minified/themes/' + themeInput.value + '.min.css';
+
+            document.getElementById('theme-style').href = theme;
+        };
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<script>
+    //"Unique" post id
+    var current = "post-" + genRanHex(6);
+
+    //Create element
+    var div = document.createElement('div');
+
+    //Customize element
+    div.classList.add("post-content");
+
+    //Find element:after location
+    var script = document.scripts[document.scripts.length - 1];
+
+    //Fill content
+    div.innerHTML += '<span clacc="post-author">' + randName() + '</span>'
+    div.innerHTML += '<iframe src="' + newRandomVideo(current) + '" id="' + current + '" class="post" type="text/html" height="300" width="100%" frameborder="0" allow="autoplay; encrypted-media; fullscreen;"></iframe>';
+
+    //Place content
+    script.parentElement.insertBefore(div, script);
+
+    //Video hover handler
+    $("#" + current).hover(function () {
+        this.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
+        this.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*')
+    }, function () {
+        this.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*')
+    });
+</script>
+
+<div class="next"><a href="random_post.html">Loading... (When too long use http:// instead file:///)</a></div>

@@ -1,0 +1,542 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>NetOS v0.8 (Beta)</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="cs">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jan Oskar Bukovský">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="823167154939-kq1pa2a8574vviapcj6m7jukqnff41g8.apps.googleusercontent.com">
+
+    <link rel="stylesheet" href="files/css/font-awesome.min.css">
+    <link rel="stylesheet" href="files/css/netos.css">
+    <link rel="icon" href="https://winaero.com/blog/wp-content/uploads/2019/06/WIndows-Terminal-icon.png" type="image/gif" sizes="256x256">
+
+    <script src="files/js/spipa.js" type="module"></script>
+    <script src="https://apis.google.com/js/platform.js" type="module"></script>
+    <script src="https://apis.google.com/js/client:plusone.js"></script>
+
+    <script defer src="https://apis.google.com/js/api.js" onreadystatechange="if (this.readyState === 'complete') {this.onload();gapi.load('client:auth2', initClient);}" type="module"></script>
+    <script async>
+        /**
+         *  Initializes the API client library and sets up sign-in state
+         *  listeners.
+         */
+        function initClient() {
+            gapi.client.init({
+                apiKey: API_KEY,
+                clientId: CLIENT_ID,
+                discoveryDocs: DISCOVERY_DOCS,
+                scope: SCOPES
+            }).then(function() {
+                authorizeButton.onclick = handleAuthClick;
+                signoutButton.onclick = handleSignoutClick;
+            }, function(error) {
+                appendPre(JSON.stringify(error, null, 2));
+            });
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="files/js/vigenere.js"></script>
+    <script src="files/js/rsa.js"></script>
+    <script src="files/js/base64.js"></script>
+    <script src="files/js/hex.js"></script>
+    <script src="files/js/keygen.js"></script>
+    <script defer src="files/js/netos.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+
+    <!--<script src="https://unpkg.com/@isomorphic-git/lightning-fs"></script>
+    <script src="https://unpkg.com/isomorphic-git"></script>
+    <script type="module">
+        import http from 'https://unpkg.com/isomorphic-git@beta/http/web/index.js'; const fs = new LightningFS('fs'); const dir = '/test-clone'; git.clone({ fs, http, dir, url: 'https://github.com/isomorphic-git/lightning-fs', corsProxy: 'https://cors.isomorphic-git.org'}).then(console.log);
+    </script>-->
+
+</head>
+
+<body bgcolor="white" id="login">
+    <canvas id="spipa"></canvas>
+    <div class="container">
+        <iframe name="hiddenFrame" class="hide" url=""></iframe>
+        <div class="services">
+            <div data-driver="Web" data-offset="0" class="active" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">NetOS v0.8 (Beta)</div>
+            <div style="position:relative;right:10px;"><a href="javascript:void(0)" onclick="location.href='index.html'">/home/</a></div>
+        </div>
+        <div class="container__inner">
+            <form id="form" method="POST" onsubmit="login();" target="hiddenFrame">
+                <div class="forms">
+                    <div class="web">
+                        <div class="form-group">
+                            <label for="username" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                                Uživatel
+                            </label>
+                            <input type="text" class="form-control" name="user" id="username" value="Guest">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                                Heslo
+                            </label>
+                            <input type="password" class="form-control" id="password" value="Guest123!">
+                        </div>
+                        <input type="text" id="hidden-hashed" name="security" style="display:none;" value="">
+                        <input type="text" name="data" style="display:none;" value=".">
+                        <div class="form-group" style="display:flex;">
+                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                            <button type="submit" class="btn btn-primary" id="btn-login" onclick="beforelogin();frameSource();openFullscreen(); return false;" style="margin-left:10px;">Přihlásit</button>
+                        </div>
+                        <!--<pre id="content" style="white-space: pre-wrap;"></pre>-->
+                        <p>
+                            Testováno na FullHD, win10: Edge 81, Firefox 72, Chrome 85, Opera 71; Yandex a Safari nefungujou a starší verze jsem neskoušel. Novější by neměly mít problém (snad).
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <iframe id="hiddenFrame" class="hide"></iframe>
+    <div class="navbar" id="navbar">
+        <div id="dragbar"></div>
+        <button class="startbtn fa" id="start-open" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;"></button>
+
+        <input type="text" class="search-open" id="search-open" placeholder="Sem zadejte hledaný výraz" value="">
+
+        <div class="list">
+            <ul id="original_items">
+                <li id="task-1" class="active running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)">
+                    <div class="desktop-icon" style="background-image: url('./files/imgs/word.png');background-position: 50% 50%;" onclick="fademe('#word', '#task-1');">
+                    </div>
+                </li>
+                <!--<li id="task-2" class="running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
+                <li id="task-3" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
+                <li id="task-4" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
+                <li id="task-5" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
+                <li id="task-6" class="running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
+                <li id="task-7" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>-->
+            </ul>
+
+            <ul id="cloned_items">
+            </ul>
+<script async src="https://cse.google.com/cse.js?cx=010483982743340827757:18ymhnmgcjq"></script>
+<div class="gcse-search"></div>
+        </div>
+
+        <span class="datetime" id="datetime" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;"></span>
+
+    </div>
+
+    <!-- The Search box -->
+    <div id="search-box" class="search-box">
+        <!-- Search box content -->
+        <div id="search-box-content" class="search-box-content">
+            <iframe src="https://www.google.com/search?igu=1&q=aa#search" style="height:100%;width:100%;"></iframe>
+        </div>
+    </div>
+
+    <div class="start-box" id="start-box">
+        <div class="start-box-content" id="start-box-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    <div class="windows-holder" id="windows-holder">
+        <!--<div id="elem" onmousedown='mydragg.startMoving(this,"desktop",event);' onmouseup='mydragg.stopMoving(this,"desktop");' style="width: 200px;height: 100px;z-index:8;">
+            <div style='width:100%;height:100%;padding:10px'>
+                <select>
+                    <option value="1">first</option>
+                    <option value="2">second</option>
+                </select>
+                <input type="text" value="123">
+            </div>
+        </div>-->
+        <div id="word" class="window">
+            <div id="word-header" class="window-header">
+                Net Word
+                <div class="window-close" onclick="fademe('#word', '#task-1');">&#10006;</div>
+            </div>
+            <div class="window-content">
+                <iframe src="word.html" style="height:80vh;width:60vw;"></iframe>
+            </div>
+        </div>
+    </div>
+    <table ondrop="drop(event)" ondragover="allowDrop(event)" class="desktop" id="desktop">
+
+        <tr>
+            <td draggable="false">
+                <div id="drag1" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/google.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        Net Search</p>
+                </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div id="drag2" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/word.png');" onclick="doubleclick(this, function(){}, function(){fademe('#word', '#task-1');})">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        Net Word</p>
+                </div>
+            </td>
+            <td>
+                <div id="drag3" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/calc.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        Net Calc</p>
+                </div>
+            </td>
+            <td>
+                <div id="drag4" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/file-manager.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        Net files</p>
+                </div>
+            </td>
+            <td>
+                <div id="drag5" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/calendar.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        Net Calendar</p>
+                </div>
+            </td>
+            <td>
+                <div id="drag6" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/alarms.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        Net Alarms</p>
+                </div>
+            </td>
+            <td>
+                <div id="drag7" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/maps.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        Net Maps</p>
+                </div>
+            </td>
+            <td>
+                <div id="drag8" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/whiteboard.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        Net Paint</p>
+                </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <div style="display: none">
+        <input type="text" id="hidden-adress" name="hidden-adress" value="$\)ZMAHz3#+a\!7q,SXT3EO3.Bz,F">
+        <input type="text" id="hidden-secret" name="hidden-secret" value="">
+        <input type="text" id="minASCII" name="minASCII" value="32">
+        <input type="text" id="maxASCII" name="maxASCII" value="123">
+    </div>
+
+</body>
+
+</html>

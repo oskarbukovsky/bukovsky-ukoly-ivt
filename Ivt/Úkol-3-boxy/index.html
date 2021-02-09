@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Úkol-3-boxy</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="cs">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jan Oskar Bukovský">
+
+    <link rel="stylesheet" href="files/css/font-awesome.min.css">
+    <link rel="stylesheet" href="files/css/basic.css">
+
+    <style>
+        ul {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            list-style-type: none;
+            margin: 0px;
+            padding: 0;
+            width: 100%;
+            background-color: rgb(8, 64, 16);
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li span {
+            display: grid;
+            padding: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+        
+        li span:hover {
+            background-color: rgb(16, 128, 32);
+        }
+        
+        .dropdown {
+            display: none;
+            position: absolute;
+        }
+        
+        #drop:hover .dropdown {
+            display: block;
+            background-color: rgb(32, 255, 64);
+        }
+        
+        .sloupec img {
+            width: 10vw;
+        }
+        
+        .sloupec {
+            display: table;
+            width: 33.3333%;
+            float: left;
+            background-color: turquoise;
+            text-align: center;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body bgcolor="white">
+    <div class="navbar" id="navbar">
+        <div>
+            <ul>
+                <li><span>Tohle</span></li>
+                <li><span>Bylo</span></li>
+                <li><span>Dělaný</span></li>
+                <li id="drop"><span>Hodně</span>
+                    <div class="dropdown">
+                        <span>Ale</span>
+                        <span>Hodně</span>
+                        <span>Narychlo</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div class="sloupec">
+            <h1>1</h1>
+            <img src="https://img.icons8.com/color/452/money-heist-dali.png">
+        </div>
+        <div class="sloupec">
+            <h1>2</h1>
+            <img src="https://img.icons8.com/color/452/money-heist-dali.png">
+        </div>
+        <div class="sloupec">
+            <h1>3</h1>
+            <img src="https://img.icons8.com/color/452/money-heist-dali.png">
+        </div>
+    </div>
+
+</body>
+
+</html>

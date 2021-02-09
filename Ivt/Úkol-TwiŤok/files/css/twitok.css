@@ -1,0 +1,702 @@
+* {
+    Font-size: 14px;
+    font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
+    -webkit-transition: color 0.4s linear;
+    -moz-transition: color 0.4s linear;
+    -o-transition: color 0.4s linear;
+    -ms-transition: color 0.4s linear;
+    transition: color 0.4s linear;
+    color: #000000;
+}
+
+html[data-theme="dark"] * {
+    color: #ffffff;
+}
+
+body {
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-color: #D5F5DE;
+}
+
+html[data-theme="dark"] body {
+    background-color: #140317;
+}
+
+.modal-dialog {
+    top: 5vh;
+    left: 5vw;
+    margin: 0;
+}
+
+.modal-body {
+    height: calc(100% - 64px);
+}
+
+.modal-content {
+    width: 90vw;
+    height: 80vh;
+    border-radius: 32px;
+    background-color: #ffe4c4;
+}
+
+html[data-theme="dark"] .modal-content {
+    background-color: #4b0082;
+}
+
+.modal-footer {
+    height: 64px;
+}
+
+#my_camera {
+    border-radius: 32px;
+}
+
+#add-error {
+    position: relative;
+    top: 0px;
+    left: calc(-28% + 8px);
+    width: 45%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.send-twiik {
+    padding: 8px;
+    width: 25%;
+    text-align: center;
+    border-radius: 64px;
+    filter: invert(100%);
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-color: #e56e25;
+    cursor: pointer;
+}
+
+html[data-theme="dark"] .send-twiik {
+    background-color: #0505E1;
+}
+
+.twitok-close-modal {
+    position: absolute;
+    left: 8px;
+    padding: 8px;
+    width: 25%;
+    text-align: center;
+    border-radius: 64px;
+    border: 0px transparent none;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-color: #e56e25;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.send-twiik {
+    position: absolute;
+    padding: 8px;
+    width: 25%;
+    text-align: center;
+    border-radius: 64px;
+    filter: invert(100%);
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-color: #e56e25;
+    cursor: pointer;
+}
+
+.btn-default {
+    color: #252525;
+}
+
+::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background: radial-gradient(circle, #f9d4ff 14%, #c7ceff 64%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background: radial-gradient(circle, #c7ceff 14%, #f9d4ff 64%);
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 12px;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background: #ffffff;
+    box-shadow: inset 7px 10px 12px #D5f5De;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(197deg, #001eff 0%, #dd00ff 100%);
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: radial-gradient(circle, #001eff 0%, #dd00ff 100%);
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: #240b1e;
+    box-shadow: inset 30px 5px 30px #3b1331;
+}
+
+.title-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    padding: 12px;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    border-bottom: 2px solid #D2D8DA;
+}
+
+html[data-theme="dark"] .title-container {
+    border-bottom: 2px solid #2d2725;
+}
+
+.twitok-navigation {
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    width: 100%;
+    height: fit-content;
+    display: block;
+    padding: 12px;
+}
+
+.twitok-navigation p {
+    cursor: pointer;
+}
+
+.title-icon {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 36px;
+    width: 36px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 16px;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    filter: invert(0%);
+}
+
+html[data-theme="dark"] .title-icon {
+    filter: invert(100%);
+}
+
+.big-font {
+    Font-size: 24px;
+    font-weight: bold;
+}
+
+.twiik {
+    position: absolute;
+    top: calc(100vh - 128px);
+    left: 10%;
+    padding: 8px;
+    width: 80%;
+    text-align: center;
+    border-radius: 64px;
+    filter: invert(100%);
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-color: #e56e25;
+    cursor: pointer;
+}
+
+html[data-theme="dark"] .twiik {
+    background-color: #0505E1;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+html[data-theme="dark"] hr {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}
+
+.scroll {
+    position: absolute;
+    top: 0px;
+    left: 360px;
+    border: 0px solid #aaaaaa;
+    height: 100vh;
+    width: calc(100vw - 720px);
+    min-width: 300px;
+    overflow-y: scroll;
+    z-index: 8;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-color: #D5F5DE;
+}
+
+html[data-theme="dark"] .scroll {
+    background-color: #240B1E;
+}
+
+.post {
+    display: block;
+    width: 100%;
+    min-width: 280px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.post-content {
+    height: 400px;
+    padding: 10px 5px;
+}
+
+.post-author {
+    position: absolute;
+}
+
+.twitok-main {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 360px;
+    height: 64px;
+    width: calc(100vw - 720px);
+    min-width: 300px;
+    padding: 10px 16px;
+    z-index: 9;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-color: #D5F5DE;
+    border-bottom: 2px solid #D2D8DA;
+    border-right: 2px solid #D2D8DA;
+}
+
+html[data-theme="dark"] .twitok-main {
+    background-color: #240B1E;
+    border-bottom: 2px solid #2d2725;
+    border-right: 2px solid #2d2725;
+}
+
+.twitok-left {
+    position: absolute;
+    top: 0px;
+    left: 85px;
+    height: 100vh;
+    width: 275px;
+    z-index: 10;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-color: #D5F5DE;
+    border-right: 2px solid #D2D8DA;
+}
+
+html[data-theme="dark"] .twitok-left {
+    background-color: #240B1E;
+    border-right: 2px solid #2d2725;
+    ;
+}
+
+.twitok-right {
+    position: absolute;
+    top: 0px;
+    right: 85px;
+    height: 100vh;
+    width: 275px;
+    min-width: 128px;
+    z-index: 7;
+    border-radius: 3px;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    background-color: #D5F5DE;
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+}
+
+html[data-theme="dark"] .twitok-right {
+    background-color: #240B1E;
+}
+
+.change-theme {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 64px;
+    width: 100%;
+    padding: 0 0 2px 2px;
+    cursor: pointer;
+    background-image: url(../imgs/change-theme.jpg);
+    background-position: 38% 100%;
+    background-repeat: no-repeat;
+    border-top: 2px solid #2d2725;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    filter: invert(100%);
+}
+
+html[data-theme="dark"] .change-theme {
+    filter: invert(0%);
+}
+
+@media screen and (max-width:2166px) {
+    .twitok-left {
+        left: 412px;
+        width: 330px;
+    }
+    .twitok-right {
+        right: 412px;
+        width: 330px;
+    }
+    .twitok-main {
+        left: 742px;
+        width: calc(100vw - 1424px);
+    }
+    .scroll {
+        left: 742px;
+        width: calc(100vw - 1424px);
+    }
+}
+
+@media screen and (max-width:1966px) {
+    .twitok-left {
+        left: 312px;
+        width: 330px;
+    }
+    .twitok-right {
+        right: 312px;
+        width: 330px;
+    }
+    .twitok-main {
+        left: 642px;
+        width: calc(100vw - 1224px);
+    }
+    .scroll {
+        left: 642px;
+        width: calc(100vw - 1224px);
+    }
+}
+
+@media screen and (max-width:1666px) {
+    .twitok-left {
+        left: 112px;
+        width: 300px;
+    }
+    .twitok-right {
+        right: 112px;
+        width: 300px;
+    }
+    .twitok-main {
+        left: 412px;
+        width: calc(100vw - 824px);
+    }
+    .scroll {
+        left: 412px;
+        width: calc(100vw - 824px);
+    }
+    iframe.post {
+        width: calc(100vw - 824px - 11px);
+    }
+}
+
+@media screen and (max-width:1366px) {
+    .twitok-left {
+        left: 32px;
+        width: 192px;
+        height: 100vh;
+    }
+    .twitok-right {
+        visibility: visible;
+        right: 32px;
+        width: 192px;
+    }
+    .twitok-main {
+        visibility: hidden;
+    }
+    .scroll {
+        left: 224px;
+        width: calc(100vw - 448px);
+        height: 100vh;
+    }
+    .post {
+        width: calc(100vw - 448px - 11px);
+    }
+    #title-container {
+        visibility: visible;
+        display: flex;
+        left: 0px;
+        border: 0px transparent none;
+        cursor: pointer;
+    }
+    iframe.post {
+        width: 100%;
+    }
+    #change-theme {
+        visibility: visible;
+        height: 48px;
+        width: 176px;
+        background-position: 10% 50%;
+        border: 0px transparent none;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .twitok-left {
+        left: 0px;
+        width: 224px;
+        height: 100vh;
+    }
+    .twitok-right {
+        visibility: visible;
+        right: 0px;
+        width: 224px;
+    }
+    .twitok-main {
+        visibility: hidden;
+    }
+    .scroll {
+        top: 0px;
+        left: 224px;
+        width: calc(100vw - 448px);
+        height: 100vh;
+    }
+    .post {
+        width: calc(100vw - 448px - 11px);
+    }
+    #title-container {
+        visibility: visible;
+        display: flex;
+        top: 0px;
+        left: 0px;
+        border: 0px transparent none;
+    }
+    iframe.post {
+        width: 100%;
+    }
+    #change-theme {
+        visibility: visible;
+        height: 48px;
+        width: 176px;
+        background-position: 10% 50%;
+        border: 0px transparent none;
+    }
+}
+
+@media screen and (max-width:823px) {
+    .twitok-left {
+        left: 0px;
+        width: 196px;
+        height: 100vh;
+    }
+    .twitok-right {
+        visibility: hidden;
+    }
+    .twitok-main {
+        visibility: hidden;
+    }
+    .scroll {
+        top: 0px;
+        left: 196px;
+        width: calc(100vw - 196px);
+        height: 100vh;
+    }
+    .post {
+        width: calc(100vw - 196px - 11px);
+    }
+    #title-container {
+        visibility: visible;
+        display: flex;
+        top: 0px;
+        left: 0px;
+        border: 0px transparent none;
+    }
+    iframe.post {
+        width: 100%;
+    }
+    #change-theme {
+        visibility: visible;
+        height: 48px;
+        width: 176px;
+        background-position: 10% 50%;
+        border: 0px transparent none;
+    }
+}
+
+@media screen and (max-width:540px) {
+    .twitok-left {
+        visibility: hidden;
+    }
+    .twitok-right {
+        visibility: hidden;
+    }
+    .twitok-main {
+        visibility: visible;
+        left: 0px;
+        width: 100vw;
+        border-right: 0px transparent none;
+    }
+    .scroll {
+        top: 64px;
+        left: 0px;
+        width: 100vw;
+        height: calc(100vh - 64px);
+    }
+    .post {
+        width: calc(100vw - 64px - 11px);
+    }
+    #title-container {
+        visibility: visible;
+        top: 0px;
+        left: 64px;
+    }
+    .twiik {
+        visibility: visible;
+        top: 6px;
+        left: 67vw;
+        width: 30vw;
+        height: 50px;
+    }
+    iframe.post {
+        width: 100%;
+    }
+    #change-theme {
+        visibility: visible;
+        top: 6px;
+        height: 48px;
+        width: 48px;
+        background-position: 10% 50%;
+        border: 0px transparent none;
+        border-radius: 32px;
+    }
+    #add-error {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:440px) {
+    #add-error {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    #add-error {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-height:672px) {
+    .needless1 {
+        height: 0px;
+        visibility: hidden;
+        margin: 0px;
+    }
+}
+
+@media screen and (max-height:608px) {
+    .needless2 {
+        height: 0px;
+        visibility: hidden;
+        margin: 0px;
+    }
+}
+
+@media screen and (max-height:544px) {
+    .needless3 {
+        height: 0px;
+        visibility: hidden;
+        margin: 0px;
+    }
+}
+
+@media screen and (max-height:488px) {
+    .needless4 {
+        height: 0px;
+        visibility: hidden;
+        margin: 0px;
+    }
+}
+
+@media screen and (max-height:424px) {
+    .needless5 {
+        height: 0px;
+        visibility: hidden;
+        margin: 0px;
+    }
+}
+
+@media screen and (max-height:348px) {
+    .needless6 {
+        height: 0px;
+        visibility: hidden;
+        margin: 0px;
+    }
+}

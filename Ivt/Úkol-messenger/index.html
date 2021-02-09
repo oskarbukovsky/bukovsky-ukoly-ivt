@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html>
+<!--Oproti starší verzi pouze bugfix-->
+
+<head>
+    <title>Messenger v0.3 (Alpha)</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="cs">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jan Oskar Bukovský">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="files/css/font-awesome.min.css">
+    <link rel="stylesheet" href="files/css/basic.css">
+    <link rel="stylesheet" href="files/css/messenger.css">
+    <link rel="icon" href="files/imgs/favicon.webp" type="image/gif" sizes="256x256">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script defer src="files/js/messenger.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body bgcolor="white" style="background-image:linear-gradient(white,white);" onload="resized()">
+    <div class="content">
+        <div id="chat-left" class="chat-left">
+            <div class="chat-user-controll">
+                <div class="chat-small-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/small.jpg');"></div>
+                <p style="font-size:23px;font-weight: bold;color: black;margin: 0 0 0 10px;">Chaty</p>
+            </div>
+            <span id="chat-username" class="chat-username"></span>
+            <input type="text" class="chat-search" placeholder="Hledejte na Messengeru ">
+            <div class="chat-contacts" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                <table>
+                    <tr>
+                        <td id="active">
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/3c.jpg');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    <img height="16" width="16" alt="🌵" src="files/imgs/cactus.png"> 3.C
+                                    <img height="16" width="16" alt="🌵" src="files/imgs/cactus.png">
+                                </span>
+                                <br>
+                                <p class="chat-last-msg" id="chat-active-last-msg">average joe: Přijďte na ní</p>
+                                <span class="chat-last-time" id="chat-active-last-time">&#8729 6 hod</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/hyena02.jpg');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    Hyena O2
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">Dobrý den! Řekněte nám, jak vám O2 ublížilo..</p>
+                                <span class="chat-last-time">&#8729 2 t</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/aliexpress.jpg');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    Aliexpress
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">Vypnul jste zprávy</p>
+                                <span class="chat-last-time">&#8729 3 t</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/hackers.jpg');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    Hackers
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">Petr Světlík opustil(a) skupinu.</p>
+                                <span class="chat-last-time">&#8729 6 t</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/coc.jpg');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    CoC rpg Kampaň SOYS
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">Nebo jestli vás nepadá lepší čas napište</p>
+                                <span class="chat-last-time">&#8729 23 t</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/dementi.jpg');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    Dementi
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">Opustil jste skupinu</p>
+                                <span class="chat-last-time">&#8729 46 t</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/banggood.png');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    Banggood
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">Banggood s vámi chce být ve spojení</p>
+                                <span class="chat-last-time">&#8729 1 r</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/evropa2.png');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    Evropa 2
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">My na Evropě si nejvíc vážíme právě TEBE!👈 Našeho posluchače a fanouška. A protože jsme jedna velká rodina, máme pro tebe super ceny! Jen tak.🤩Stačí, aby sis změnil profilovou fotku pomocí našeho speciálního rámečku a
+                                    dal nám o tom vědět tady: http://bit.ly/2EdtLbJ a můžeš vyhrát např. iPhone 8 nebo 2 lístky na Colours of Ostrava. Tak si změň profilovku a ukažme společně celému světu, které rádio ti vždycky DRŽÍ FLEK!✌</p>
+                                <span class="chat-last-time">&#8729 1 r</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/plaza.jpg');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    Obchodní centrum Novo Plaza
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">Dejte šanci přátelům. Přepošlete zprávu níže pomocí tlačítka pro sdílení.</p>
+                                <span class="chat-last-time">&#8729 1 r</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/8ball.jpg');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    8 Ball Pool Game
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">8 Ball Pool: How about playing with Vladimír Sádovský?</p>
+                                <span class="chat-last-time">&#8729 2 r</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/techcraft.jpg');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    TechCraft
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">Ne, to jsem ti psal, že dům byl smazán. Ty si mi psal, ať ti nechám forum, že se domluvíš s někým jiným, ne se mnou. Ale co ti tam vyfotí, když tam nic není?</p>
+                                <span class="chat-last-time">&#8729 2 r</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chat-medium-icon rounded-circle vertical-center-rel" style="background-image: url('files/imgs/bigfish.png');"></div>
+                            <div class="chat-conversation-info">
+                                <span class="chat-conversation-name">
+                                    Bigfish
+                                </span>
+                                <br>
+                                <p class="chat-last-msg">Zprávy máte zapnuté</p>
+                                <span class="chat-last-time">&#8729 2 r</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="chat-right" class="chat-right ">
+
+        </div>
+
+        <div class="chat-top ">
+            <svg class="chat-icon-info vertical-center " height="28px " width="28px " fill="#0099FF " viewBox="0 0 36 36 "><path clip-rule="evenodd " d="M18 29c6.075 0 11-4.925 11-11S24.075 7 18 7 7 11.925 7 18s4.925 11 11 11zm1.75-16.25a1.75 1.75 0
+                                11-3.5 0 1.75 1.75 0 013.5 0zM16.5 17.5a1 1 0 011-1h1a1 1 0 011 1V24a1 1 0 01-1 1h-1a1 1 0 01-1-1v-6.5z " fill-rule="evenodd "></path></svg>
+
+            <div class="chat-icon-conversation rounded-circle vertical-center" style="background-image: url('files/imgs/3c.jpg');"></div>
+            <div class="chat-conversation-info vertical-center">
+                <span class="chat-conversation-name">
+                    <img height="16" width="16" alt="🌵" src="files/imgs/cactus.png"> 3.C
+                    <img height="16" width="16" alt="🌵" src="files/imgs/cactus.png">
+                </span>
+                <br>
+                <p class="chat-last-msg">Aktivní před 1 hod</p>
+            </div>
+        </div>
+
+        <div class="chat-conversation " id="chat-conversation">
+            <br>
+
+            <div class="chat-msg-own">
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </div>
+
+            <div class="chat-msg-other">
+                bbbbbbbb
+            </div>
+            <div class="chat-msg-other">
+                bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbb
+            </div>
+            <div class="chat-msg-other">
+                bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbb
+            </div>
+            <div class="chat-msg-other">
+                bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbb
+            </div>
+            <div class="chat-msg-other">
+                bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbb
+            </div>
+            <div class="chat-msg-other">
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </div>
+            <div class="chat-msg-other">
+                bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbaaaavbbb
+            </div>
+            <div class="chat-msg-other">
+                bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbb
+            </div>
+            <div class="chat-msg-other">
+                bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbb
+            </div>
+            <div class="chat-msg-other">
+                bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadjjsjssjjaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbb
+            </div>
+            <div class="chat-msg-own">
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </div>
+            <div class="chat-msg-other" id="chat-last-msg">
+                bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbb
+            </div>
+        </div>
+
+        <div class="chat-send " style="display: inline-flex;">
+            <label for="file-upload" class="custom-file-upload" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                &#128194
+            </label>
+            <input type="file" id="file-upload" />
+            <input type="text" id="chat-send-text" class="chat-send-text" placeholder="Aa" value="" />
+            <label for="chat-send-submit" style="cursor: pointer;">
+                <svg height="32px" width="32px" style="position: absolute;top: 5px; right: 15px" viewBox="0 0 24 24"><path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 C22.8132856,11.0605983 22.3423792,10.4322088 21.714504,10.118014 L4.13399899,1.16346272 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.8376543,3.0486314 1.15159189,3.99121575 L3.03521743,10.4322088 C3.03521743,10.5893061 3.34915502,10.7464035 3.50612381,10.7464035 L16.6915026,11.5318905 C16.6915026,11.5318905 17.1624089,11.5318905 17.1624089,12.0031827 C17.1624089,12.4744748 16.6915026,12.4744748 16.6915026,12.4744748 Z" fill-rule="evenodd" stroke="none" fill="#0084ff"></path></svg>
+            </lavel>
+            <input id="chat-send-submit" type="button" class="chat-send-button" / onclick="addmessage()">
+        </div>
+
+
+    </div>
+</body>
+
+</html>
