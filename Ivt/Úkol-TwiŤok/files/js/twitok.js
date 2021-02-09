@@ -69,6 +69,10 @@ var finalName = ""
 $(document).ready(function () {
     detectColorScheme();
     randomad();
+    if (document.location.protocol != "https:") {
+        alert("Načítání dokumentů kvůli CORS na file:/// nepůjde, a některým prohlížečum občas vadí přístup ke kameře na http://, takže nejlépe https:// všude. Proto tě teď přesměruju na stránku, kde by vše snad mělo jít :D")
+        window.location.href = "https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9Akol-Twi%C5%A4ok/";
+    }
 });
 
 //Random Ad every 30s 
