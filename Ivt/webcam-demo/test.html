@@ -23,9 +23,7 @@
 
 <body>
     <h1>Face emotions</h1>
-    <br>
     <div id="my_camera"></div>
-    <input type=button value="Take Snapshot" onclick="take_snapshot()">
     <div id="results"></div>
     <br>
     <div class="slidecontainer">
@@ -48,16 +46,6 @@
         });
         Webcam.attach('#my_camera');
 
-        function take_snapshot() {
-
-            // take snapshot and get image data
-            Webcam.snap(function (data_uri) {
-                // display results in page
-                document.getElementById('results').innerHTML =
-                    '<img src="' + data_uri + '"/>';
-            });
-        }
-
         const config = { smoothness: 0.30, enableBalancer: false, multiFace: true };
         const customSource = CY.createSource.fromVideoElement(document.getElementById("my_video"));
         loader = CY.loader()
@@ -79,19 +67,18 @@
             document.getElementById("slider-fear").value = evt.detail.output.emotion.Fear * 100;
             document.getElementById("slider-happy").value = evt.detail.output.emotion.Happy * 100;
             document.getElementById("slider-neutral").value = evt.detail.output.emotion.Neutral * 100;
-            if (evt.detail.output.emotion.Happy > (+evt.detail.output.emotion.Angry * 0.75 + +evt.detail.output.emotion.Neutral * 0.65) - 15) {
-                console.log("Smile :)");
+            if (evt.detail.output.emotion.Happy > (evt.detail.output.emotion.Angry * 0.75 + evt.detail.output.emotion.Neutral * 0.65)) {
+                document.getElementById('results').innerHTML = "Super fotka :D";
             } else {
-                console.log("Only smile pictures xd");
+                document.getElementById('results').innerHTML = "Usmivej se :)";
             };
         });
 
         window.addEventListener(CY.modules().FACE_DETECTOR.eventName, (evt) => {
             if (evt.detail.totalFaces == 0) {
-                img_error = 1;
-                document.getElementById('results').innerHTML = "Musi byt videt oblicej :/";
+                document.getElementById('results').innerHTML = "Nevidim oblicej :(";
             } else {
-                document.getElementById('results').innerHTML = "Pohled dobry :D";
+                document.getElementById('results').innerHTML = "Usmivej se :)";
             }
         });
     </script>

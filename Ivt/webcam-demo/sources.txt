@@ -1,0 +1,2 @@
+https://github.com/jhuckaby/webcamjs
+https://ai-sdk.morphcast.com/latest/index.html
