@@ -1,2 +1,6 @@
 https://github.com/jhuckaby/webcamjs
 https://ai-sdk.morphcast.com/latest/index.html
+
+
+https hosted demo:
+https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/webcam-demo/test.html
