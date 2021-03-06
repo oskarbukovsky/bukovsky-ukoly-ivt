@@ -135,50 +135,23 @@ function getHighestWindow(query) {
 //Check if window is running
 function checkWindow(ele0) {
     title = ele0.firstChild.nextSibling.innerHTML;
-    newWindow("task-" + ele0.id + "_" + (getHighestWindow(ele0.id) + 1), title.trimStart(), ele0.getAttribute("data"));
-    if (!document.getElementById("task-" + ele0.id)) {
-        var li = document.createElement('li');
-        li.id = ele0.id;
-        li.classList.add("active");
-        li.classList.add("running");
-        li.classList.add("ui-sortable-handle");
-        li.setAttribute("ondrop", "droptaskbar(event)");
-        li.setAttribute("ondragover", "allowDrop(event)");
-        li.innerHTML = '<div class="desktop-icon" style="background-image: url(\"./files/imgs/word.png\');background-position: 50% 50%;" onclick="checkWindow();"></div>';
-        document.getElementById("original_items").appendChild(li);
-        $("#original_items li:last").each(function () {
-            var item = $(this);
-            var item_clone = item.clone();
-            item.data("clone", item_clone);
-            var position = item.position();
-            item_clone.css("left", position.left);
-            item_clone.css("top", position.top);
-            $("#cloned_items").append(item_clone);
-        });
-    } else {
-        document.getElementById("task-" + ele0.id).classList.add("active");
-    }
+    newWindow("task-" + ele0.id + "_" + (getHighestWindow(ele0.id) + 1), title.trimStart(), "task-" + ele0.id, ele0.getAttribute("data"));
 }
 
-//Fade window function
 function fadeWindow(ele0) {
     $(ele0).fadeToggle(150);
     $(ele0).css("z-index", parseInt(getHighestZ(".window")) + 1);
-    $(ele0.split('_')[0]).toggleClass("active");
 }
 
 //Window fading function
 function fademe(ele0, ele1) {
     $(ele0).fadeToggle(150);
-    $("li").each(function () {
-        this.classList.remove("active");
-    })
     $(ele1).toggleClass("active");
     $(ele0).css("z-index", parseInt(getHighestZ(".window")) + 1);
 }
 
 //Create new window
-function newWindow(identifier, title, url) {
+function newWindow(identifier, title, task, url) {
     var div = document.createElement('div');
     div.id = identifier;
     div.classList.add("window");
@@ -189,8 +162,30 @@ function newWindow(identifier, title, url) {
     var script = document.createElement('script');
     script.innerHTML = "window.addEventListener('mousedown', function (e) {\nif (document.getElementById('" + identifier + "').contains(e.target)) {\n$('#" + identifier + "').css('z-index', parseInt(getHighestZ('.window')) + 1);\n}\n})";
     document.getElementById(identifier).appendChild(script);
-    $("li").each(function () {
+    if (!document.getElementById("task-" + task.split("_").pop())) {
+        var li = document.createElement('li');
+        li.id = task;
+        li.classList.add("active");
+        li.classList.add("running");
+        li.classList.add("ui-sortable-handle");
+        li.setAttribute("ondrop", "droptaskbar(event)");
+        li.setAttribute("ondragover", "allowDrop(event)");
+        li.innerHTML = '<div class="desktop-icon" style="background-image: url(\"./files/imgs/word.png\');background-position: 50% 50%;" onclick="checkWindow();"></div>';
+        document.getElementById("original_items").appendChild(li);
+        jQuery("#original_items li:last").each(function () {
+            var item = jQuery(this);
+            var item_clone = item.clone();
+            item.data("clone", item_clone);
+            var position = item.position();
+            item_clone.css("left", position.left);
+            item_clone.css("top", position.top);
+            jQuery("#cloned_items").append(item_clone);
+        });
+    }
+    $("#original_items li").each(function () {
+        console.log(this);
         this.classList.remove("active");
+        console.log(this);
     })
 }
 
@@ -605,15 +600,15 @@ function doubleclick(el, onsingle, ondouble) {
 
 //Taskbar moving elements script
 function taskbarDrag() {
-    $(function () {
+    jQuery(function () {
 
         // loop through the original items...
-        $("#original_items li").each(function () {
+        jQuery("#original_items li").each(function () {
 
 
             // clone the original items to make their
             // absolute-positioned counterparts...
-            var item = $(this);
+            var item = jQuery(this);
             var item_clone = item.clone();
             // 'store' the clone for later use...
             item.data("clone", item_clone);
@@ -628,12 +623,12 @@ function taskbarDrag() {
             item_clone.css("top", position.top);
 
             // append the clone...
-            $("#cloned_items").append(item_clone);
+            jQuery("#cloned_items").append(item_clone);
         });
 
         // create our sortable as usual...
         // with some event handler extras...
-        $("#original_items").sortable({
+        jQuery("#original_items").sortable({
             axis: "x",
 
             // on sorting start, hide the original items...
@@ -643,7 +638,7 @@ function taskbarDrag() {
                 // loop through the items, except the one we're
                 // currently dragging, and hide it...
                 ui.helper.addClass("exclude-me");
-                $("#original_items li:not(.exclude-me)")
+                jQuery("#original_items li:not(.exclude-me)")
                     .css("visibility", "hidden");
 
                 // get the clone that's under it and hide it...
@@ -653,8 +648,8 @@ function taskbarDrag() {
             stop: function (e, ui) {
                 // get the item we were just dragging, and
                 // its clone, and adjust accordingly...
-                $("#original_items li.exclude-me").each(function () {
-                    var item = $(this);
+                jQuery("#original_items li.exclude-me").each(function () {
+                    var item = jQuery(this);
                     var clone = item.data("clone");
                     var position = item.position();
 
@@ -668,15 +663,15 @@ function taskbarDrag() {
                 });
 
                 // make sure all our original items are visible again...
-                $("#original_items li").css("visibility", "visible");
+                jQuery("#original_items li").css("visibility", "visible");
             },
 
             // here's where the magic happens...
             change: function (e, ui) {
                 // get all invisible items that are also not placeholders
                 // and process them when ordering changes...
-                $("#original_items li:not(.exclude-me, .ui-sortable-placeholder)").each(function () {
-                    var item = $(this);
+                jQuery("#original_items li:not(.exclude-me, .ui-sortable-placeholder)").each(function () {
+                    var item = jQuery(this);
                     var clone = item.data("clone");
 
                     // stop current clone animations...

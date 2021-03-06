@@ -2,25 +2,35 @@
 <html>
 
 <head>
-    <title>NetOS v0.8 (Beta)</title>
+    <title>NetOS v0.10</title>
 
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8; X-Content-Type-Options=nosniff">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="cs">
+    <meta http-equiv="Cache-control" content="private">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Jan Oskar Bukovský">
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="823167154939-kq1pa2a8574vviapcj6m7jukqnff41g8.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="823167154939-kq1pa2a8574vviapcj6m7jukqnff41g8.apps.googleusercontent.com">
+    <meta name="referrer" content="unsafe-url">
 
-    <link rel="stylesheet" href="files/css/font-awesome.min.css">
-    <link rel="stylesheet" href="files/css/netos.css">
-    <link rel="icon" href="https://winaero.com/blog/wp-content/uploads/2019/06/WIndows-Terminal-icon.png" type="image/gif" sizes="256x256">
+    <link rel="stylesheet" type="text/css" href="files/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="files/css/netos.css">
+    <link rel="icon" href="https://winaero.com/blog/wp-content/uploads/2019/06/WIndows-Terminal-icon.png"
+        type="image/gif" sizes="256x256">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="files/js/spipa.js" type="module"></script>
-    <script src="https://apis.google.com/js/platform.js" type="module"></script>
-    <script src="https://apis.google.com/js/client:plusone.js"></script>
-
-    <script defer src="https://apis.google.com/js/api.js" onreadystatechange="if (this.readyState === 'complete') {this.onload();gapi.load('client:auth2', initClient);}" type="module"></script>
+    <script src="https://apis.google.com/js/platform.js" type="module" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://apis.google.com/js/client:plusone.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://apis.google.com/js/api.js"
+        onreadystatechange="if (this.readyState === 'complete') {this.onload();gapi.load('client:auth2', initClient);}"
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script async>
         /**
          *  Initializes the API client library and sets up sign-in state
@@ -32,34 +42,38 @@
                 clientId: CLIENT_ID,
                 discoveryDocs: DISCOVERY_DOCS,
                 scope: SCOPES
-            }).then(function() {
+            }).then(function () {
                 authorizeButton.onclick = handleAuthClick;
                 signoutButton.onclick = handleSignoutClick;
-            }, function(error) {
+            }, function (error) {
                 appendPre(JSON.stringify(error, null, 2));
             });
         }
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
     <script src="files/js/vigenere.js"></script>
     <script src="files/js/rsa.js"></script>
     <script src="files/js/base64.js"></script>
     <script src="files/js/hex.js"></script>
     <script src="files/js/keygen.js"></script>
     <script defer src="files/js/netos.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-
-    <!--<script src="https://unpkg.com/@isomorphic-git/lightning-fs"></script>
-    <script src="https://unpkg.com/isomorphic-git"></script>
-    <script type="module">
-        import http from 'https://unpkg.com/isomorphic-git@beta/http/web/index.js'; const fs = new LightningFS('fs'); const dir = '/test-clone'; git.clone({ fs, http, dir, url: 'https://github.com/isomorphic-git/lightning-fs', corsProxy: 'https://cors.isomorphic-git.org'}).then(console.log);
-    </script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"
+        integrity="sha512-PQsdzDthPKtp230uD7lunTQw6CwNTPnd5LP3e3/+afg9cNkrL7UsfWXT3EW5Ar9XZ5SdADcPDXs1BAWNa9OZ7Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/md5.min.js"
+        integrity="sha512-VLDQac8zlryHkFvL1HIH9KKjkPNdsNLEXM/vImKGMaNkEXbNtb+dyhnyXFkxai1RVNtwrD5L7vffgtzYzeKI3A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"
+        integrity="sha512-uxtUCZ+gIIpqJVZe/0IgmHq5yqW+2gzo3zsSqRXSlUBEM2IYxxnuyg7+i7j9SCv1R74/Zixdx0v8OiyShPWbkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -68,34 +82,46 @@
     <div class="container">
         <iframe name="hiddenFrame" class="hide" url=""></iframe>
         <div class="services">
-            <div data-driver="Web" data-offset="0" class="active" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">NetOS v0.8 (Beta)</div>
-            <div style="position:relative;right:10px;"><a href="javascript:void(0)" onclick="location.href='index.html'">/home/</a></div>
+            <div data-driver="Web" data-offset="0" class="active"
+                style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+                unselectable="on" onselectstart="return false;" onmousedown="return false;">NetOS v0.8 (Beta)</div>
+            <div style="position:relative;right:10px;"><a href="javascript:void(0)"
+                    onclick="location.href='index.html'">/home/</a></div>
         </div>
         <div class="container__inner">
             <form id="form" method="POST" onsubmit="login();" target="hiddenFrame">
                 <div class="forms">
                     <div class="web">
                         <div class="form-group">
-                            <label for="username" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                            <label for="username"
+                                style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+                                unselectable="on" onselectstart="return false;" onmousedown="return false;">
                                 Uživatel
                             </label>
-                            <input type="text" class="form-control" name="user" id="username" value="Guest">
+                            <input type="text" class="form-control" name="user" id="username" value="Guest"
+                                autocomplete="username">
                         </div>
                         <div class="form-group">
-                            <label for="password" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                            <label for="password"
+                                style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+                                unselectable="on" onselectstart="return false;" onmousedown="return false;">
                                 Heslo
                             </label>
-                            <input type="password" class="form-control" id="password" value="Guest123!">
+                            <input type="password" class="form-control" id="password" value="Guest123!"
+                                autocomplete="current-password">
                         </div>
                         <input type="text" id="hidden-hashed" name="security" style="display:none;" value="">
                         <input type="text" name="data" style="display:none;" value=".">
                         <div class="form-group" style="display:flex;">
                             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                            <button type="submit" class="btn btn-primary" id="btn-login" onclick="beforelogin();frameSource();openFullscreen(); return false;" style="margin-left:10px;">Přihlásit</button>
+                            <button type="submit" class="btn btn-primary" id="btn-login"
+                                onclick="beforelogin();frameSource();openFullscreen(); return false;"
+                                style="margin-left:10px;">Přihlásit</button>
                         </div>
                         <!--<pre id="content" style="white-space: pre-wrap;"></pre>-->
                         <p>
-                            Testováno na FullHD, win10: Edge 81, Firefox 72, Chrome 85, Opera 71; Yandex a Safari nefungujou a starší verze jsem neskoušel. Novější by neměly mít problém (snad).
+                            Testováno na FullHD, win10: Edge 81, Firefox 72, Chrome 85, Opera 71; Yandex a Safari
+                            nefungujou a starší verze jsem neskoušel. Novější by neměly mít problém (snad).
                         </p>
                     </div>
                 </div>
@@ -105,18 +131,27 @@
     <iframe id="hiddenFrame" class="hide"></iframe>
     <div class="navbar" id="navbar">
         <div id="dragbar"></div>
-        <button class="startbtn fa" id="start-open" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;"></button>
+        <button class="startbtn fa" id="start-open"
+            style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+            unselectable="on" onselectstart="return false;" onmousedown="return false;"></button>
 
         <input type="text" class="search-open" id="search-open" placeholder="Sem zadejte hledaný výraz" value="">
 
         <div class="list">
             <ul id="original_items">
                 <li id="task-1" class="active running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)">
-                    <div class="desktop-icon" style="background-image: url('./files/imgs/word.png');background-position: 50% 50%;" onclick="fademe('#word', '#task-1');">
+                    <div class="desktop-icon"
+                        style="background-image: url('./files/imgs/word.png');background-position: 50% 50%;"
+                        onclick="fademe('#word', '#task-1');">
                     </div>
                 </li>
-                <!--<li id="task-2" class="running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
-                <li id="task-3" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
+                <li id="task-90" class="running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)">
+                    <div class="desktop-icon"
+                        style="background-image: url('https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9Akol-messenger/files/imgs/favicon.webp');background-position: 50% 50%;"
+                        onclick="fademe('#task-90_1', '#task-90');">
+                    </div>
+                </li>
+                <!--<li id="task-3" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
                 <li id="task-4" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
                 <li id="task-5" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
                 <li id="task-6" class="running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
@@ -125,19 +160,21 @@
 
             <ul id="cloned_items">
             </ul>
-<script async src="https://cse.google.com/cse.js?cx=010483982743340827757:18ymhnmgcjq"></script>
-<div class="gcse-search"></div>
+            <script async src="https://cse.google.com/cse.js?cx=010483982743340827757:18ymhnmgcjq"></script>
+            <div class="gcse-search"></div>
         </div>
 
-        <span class="datetime" id="datetime" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;"></span>
+        <span class="datetime" id="datetime"
+            style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+            unselectable="on" onselectstart="return false;" onmousedown="return false;"></span>
 
     </div>
 
-    <!-- The Search box -->
     <div id="search-box" class="search-box">
-        <!-- Search box content -->
         <div id="search-box-content" class="search-box-content">
-            <iframe src="https://www.google.com/search?igu=1&q=aa#search" style="height:100%;width:100%;"></iframe>
+            <!--<iframe src="https://www.google.com/search?igu=1&q=aa#search" style="height:100%;width:100%;"></iframe>-->
+            <div style="height:100%;width:100%">
+            </div>
         </div>
     </div>
 
@@ -149,31 +186,30 @@
         </div>
     </div>
     <div class="windows-holder" id="windows-holder">
-        <!--<div id="elem" onmousedown='mydragg.startMoving(this,"desktop",event);' onmouseup='mydragg.stopMoving(this,"desktop");' style="width: 200px;height: 100px;z-index:8;">
-            <div style='width:100%;height:100%;padding:10px'>
-                <select>
-                    <option value="1">first</option>
-                    <option value="2">second</option>
-                </select>
-                <input type="text" value="123">
-            </div>
-        </div>-->
-        <div id="word" class="window">
-            <div id="word-header" class="window-header">
-                Net Word
-                <div class="window-close" onclick="fademe('#word', '#task-1');">&#10006;</div>
+        <div id="word" class="window" style="z-index: 10;left: 300px;">
+            <div class="window-header">
+                Word
+                <div class="window-close" onclick="fadeWindow('#word');">&#10006;</div>
             </div>
             <div class="window-content">
-                <iframe src="word.html" style="height:80vh;width:60vw;"></iframe>
+                <iframe src="word.html" style="height:80vh;width:60vw;" class="content"></iframe>
             </div>
+            <script>
+                window.addEventListener('mousedown', function (e) {
+                    if (document.getElementById("word").contains(e.target)) {
+                        $('#word').css("z-index", parseInt(getHighestZ(".window")) + 1);
+                    }
+                })
+            </script>
         </div>
     </div>
     <table ondrop="drop(event)" ondragover="allowDrop(event)" class="desktop" id="desktop">
-
         <tr>
-            <td draggable="false">
-                <div id="drag1" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/google.png');">
-                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+            <td>
+                <div id="1" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('./files/imgs/google.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Search</p>
                 </div>
             </td>
@@ -206,44 +242,59 @@
         </tr>
         <tr>
             <td>
-                <div id="drag2" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/word.png');" onclick="doubleclick(this, function(){}, function(){fademe('#word', '#task-1');})">
-                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                <div id="2" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('./files/imgs/word.png');"
+                    onclick="doubleclick(this, function(){}, function(){fademe('#word', '#task-1');})">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Word</p>
                 </div>
             </td>
             <td>
-                <div id="drag3" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/calc.png');">
-                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                <div id="3" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('./files/imgs/calc.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Calc</p>
                 </div>
             </td>
             <td>
-                <div id="drag4" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/file-manager.png');">
-                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                <div id="4" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('./files/imgs/file-manager.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net files</p>
                 </div>
             </td>
             <td>
-                <div id="drag5" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/calendar.png');">
-                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                <div id="5" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('./files/imgs/calendar.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Calendar</p>
                 </div>
             </td>
             <td>
-                <div id="drag6" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/alarms.png');">
-                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                <div id="6" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('./files/imgs/alarms.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Alarms</p>
                 </div>
             </td>
             <td>
-                <div id="drag7" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/maps.png');">
-                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                <div id="7" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('./files/imgs/maps.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Maps</p>
                 </div>
             </td>
             <td>
-                <div id="drag8" draggable="true" ondragstart="drag(event)" class="desktop-icon" style="background-image: url('./files/imgs/whiteboard.png');">
-                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';" onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                <div id="8" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('./files/imgs/whiteboard.png');">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Paint</p>
                 </div>
             </td>
@@ -269,9 +320,27 @@
             <td></td>
         </tr>
         <tr>
+            <td>
+                <div id="9" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('./files/imgs/twitok.png');"
+                    onclick="temp=this;doubleclick(this, function(){}, function(){checkWindow(temp)})"
+                    data="https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9Akol-Twi%C5%A4ok/">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        TwíŤok</p>
+                </div>
+            </td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>
+                <div id="90" draggable="true" ondragstart="drag(event)" class="desktop-icon"
+                    style="background-image: url('https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9Akol-messenger/files/imgs/favicon.webp');"
+                    onclick="temp=this;doubleclick(this, function(){}, function(){checkWindow(temp)})"
+                    data="https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9Akol-messenger/">
+                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                        onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
+                        Messenger</p>
+                </div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
