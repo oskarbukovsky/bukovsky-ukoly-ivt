@@ -904,9 +904,9 @@ ul li {
 }
 
 .window-header {
-    padding: 6px;
+    padding: 4px 6px 6px 6px;
     z-index: 10;
-    background-color: #2196F3;
+    background-color: #000000d5;
     color: #fff;
     display: flex;
     height: 34px;
@@ -916,11 +916,36 @@ ul li {
     cursor: pointer;
     position: absolute;
     right: 0px;
-    padding: 0px 11px 0px 10px;
+    padding: 2px 11px 2px 10px;
+    margin-right: 4px;
 }
 
 .window-close:hover {
-    background-color: #c70707;
+    background-color: #e81123e2;
+}
+
+.window-max {
+    cursor: pointer;
+    position: absolute;
+    right: 32px;
+    padding: 2px 11px 2px 10px;
+    margin-right: 4px;
+}
+
+.window-max:hover {
+    background-color: #5a5a5ab2;
+}
+
+.window-min {
+    cursor: pointer;
+    position: absolute;
+    right: 65px;
+    padding: 2px 11px 2px 10px;
+    margin-right: 4px;
+}
+
+.window-min:hover {
+    background-color: #5a5a5ab2;
 }
 
 .window-content {

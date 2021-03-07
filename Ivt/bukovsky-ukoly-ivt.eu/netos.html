@@ -144,13 +144,13 @@
                     pointer="2">
                     <div class="desktop-icon"
                         style="background-image: url('./files/imgs/word.png');background-position: 50% 50%;"
-                        onclick="fademe('#task-2_1', '#task-2');">
+                        onclick="fademe(this);">
                     </div>
                 </li>
                 <li id="task-90" class="running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)" pointer="90">
                     <div class="desktop-icon"
                         style="background-image: url('https://www.google.com/s2/favicons?domain=https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9Akol-messenger');background-position: 50% 50%;"
-                        onclick="fademe('#task-90_1', '#task-90');">
+                        onclick="fademe(this);">
                     </div>
                 </li>
                 <!--<li id="task-3" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"></li>
@@ -191,6 +191,8 @@
         <div id="task-2_1" class="window" style="z-index: 10;left: 300px;">
             <div class="window-header">
                 Word
+                <div class="window-min" onclick="fadeWindow(this);">&#9866;</div>
+                <div class="window-max" onclick="fadeWindow('#task-2_1');">&#128471;&#xFE0E</div>
                 <div class="window-close" onclick="fadeWindow('#task-2_1');">&#10006;</div>
             </div>
             <div class="window-content">

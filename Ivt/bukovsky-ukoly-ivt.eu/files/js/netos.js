@@ -174,13 +174,15 @@ function fadeWindow(ele0) {
 }
 
 //Window fading function
-function fademe(ele0, ele1) {
-    $(ele0).fadeToggle(150);
-    $(ele0).css("z-index", parseInt(getHighestZ(".window")) + 1);
-    $(ele1).toggleClass("active");
+function fademe(ele0) {
+    $('*[id^="task-' + ele0.parentElement.getAttribute("pointer") + '_"]').each(function () {
+        $(this).fadeToggle(150);
+        $(this).css("z-index", parseInt(getHighestZ(".window")) + 1);
+    });
+    $(ele0).toggleClass("active");
     $("li").each(function () {
         this.classList.remove("active");
-    })
+    });
 }
 
 //Create new window
@@ -233,7 +235,7 @@ function resizeWindow(elmnt) {
         },
         minHeight: 256,
         minWidth: 352,
-        containment: "document",
+        containment: "#windows-holder",
         handles: {
             "ne": ".negrip",
             "se": ".segrip",
