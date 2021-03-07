@@ -135,16 +135,22 @@ function getHighestWindow(query) {
 //Check if window is running
 function checkWindow(ele0) {
     title = ele0.firstChild.nextSibling.innerHTML;
-    newWindow("task-" + ele0.id + "_" + (getHighestWindow(ele0.id) + 1), title.trimStart(), ele0.getAttribute("data"));
+    if ($('*[id^="task-' + ele0.id + '_"]')) {
+        newWindow("task-" + ele0.id + "_" + (getHighestWindow(ele0.id) + 1), title.trimStart(), ele0.getAttribute("data"));
+    } else {
+        console.log($('*[id^="task-' + ele0.id + '_"]'));
+    }
+
     if (!document.getElementById("task-" + ele0.id)) {
         var li = document.createElement('li');
-        li.id = ele0.id;
+        li.id = "task-" + ele0.id;
         li.classList.add("active");
         li.classList.add("running");
         li.classList.add("ui-sortable-handle");
         li.setAttribute("ondrop", "droptaskbar(event)");
         li.setAttribute("ondragover", "allowDrop(event)");
-        li.innerHTML = '<div class="desktop-icon" style="background-image: url(\"./files/imgs/word.png\');background-position: 50% 50%;" onclick="checkWindow();"></div>';
+        li.setAttribute("pointer", ele0.id);
+        li.innerHTML = '<div class="desktop-icon" style="background-image: url(\'https://www.google.com/s2/favicons?domain=' + ele0.getAttribute("data") + '\');background-position: 50% 50%;" onclick="checkWindow();"></div>';
         document.getElementById("original_items").appendChild(li);
         $("#original_items li:last").each(function () {
             var item = $(this);
@@ -170,11 +176,11 @@ function fadeWindow(ele0) {
 //Window fading function
 function fademe(ele0, ele1) {
     $(ele0).fadeToggle(150);
+    $(ele0).css("z-index", parseInt(getHighestZ(".window")) + 1);
+    $(ele1).toggleClass("active");
     $("li").each(function () {
         this.classList.remove("active");
     })
-    $(ele1).toggleClass("active");
-    $(ele0).css("z-index", parseInt(getHighestZ(".window")) + 1);
 }
 
 //Create new window
@@ -183,15 +189,121 @@ function newWindow(identifier, title, url) {
     div.id = identifier;
     div.classList.add("window");
     div.style.zIndex = parseInt(getHighestZ(".window")) + 1;
-    div.innerHTML = "<div class='window-header'>" + title + "<div class='window-close' onclick=\"fadeWindow(\'#" + identifier + "\');\">&#10006;</div></div><div class='window-content' style='height:80vh;width:60vw;'><iframe src='" + url + "' style='height:100%;width:100%;' class='content'></iframe></div>";
+    div.style.width = "40vw";
+    div.style.height = "60vh";
+    div.innerHTML = "<div class='window-header'>" + title + "<div class='window-close' onclick=\"fadeWindow(\'#" + identifier + "\');\">&#10006;</div></div><div class='window-content' style='height:80vh;width:100%;'><div class='iframe-blocker' style='position: absolute;height: 100px;width:100%;background: rgba(255, 0,0,0.5);top: 34px;'></div><iframe src='" + url + "' style='height:100%;width:100%;' class='content'></iframe></div>";
     document.getElementById("windows-holder").appendChild(div);
     dragElement(document.getElementById(identifier));
-    var script = document.createElement('script');
-    script.innerHTML = "window.addEventListener('mousedown', function (e) {\nif (document.getElementById('" + identifier + "').contains(e.target)) {\n$('#" + identifier + "').css('z-index', parseInt(getHighestZ('.window')) + 1);\n}\n})";
+    console.log(document.getElementById(identifier));
+    $(div.children[1].children[0]).fadeOut(0);
+    var side = ["nw", "ne", "sw", "se", "n", "e", "s", "w"];
+    side.forEach(function (item, index) {
+        var grip = document.createElement("div");
+        grip.classList.add("ui-resizable-handle");
+        grip.classList.add("ui-resizable-" + item);
+        grip.classList.add(item + "grip");
+        document.getElementById(identifier).appendChild(grip);
+    });
+    resizeWindow(document.getElementById(identifier));
+    var script = document.createElement("script");
+    script.innerHTML = `
+    window.addEventListener('mousedown', function (e) {
+        if (document.getElementById("` + identifier + `").contains(e.target)) {
+            $('#` + identifier + `').css("z-index", parseInt(getHighestZ(".window")) + 1);
+        }
+    })`;
     document.getElementById(identifier).appendChild(script);
     $("li").each(function () {
         this.classList.remove("active");
     })
+}
+
+//Make the DIV element draggagle:
+dragElement(document.getElementById("task-2_1"));
+resizeWindow(document.getElementById("task-2_1"))
+
+//Resize elements
+function resizeWindow(elmnt) {
+    $(elmnt).resizable({
+        start: function (event, ui) {
+            $(".iframe-blocker").fadeIn(0);
+        },
+        stop: function (event, ui) {
+            $(".iframe-blocker").fadeOut(0);
+        },
+        minHeight: 256,
+        minWidth: 352,
+        containment: "document",
+        handles: {
+            "ne": ".negrip",
+            "se": ".segrip",
+            "sw": ".swgrip",
+            "nw": ".nwgrip",
+            "n": ".ngrip",
+            "e": ".egrip",
+            "s": ".sgrip",
+            "w": ".wgrip"
+        },
+        resize: function (event, ui) {
+            ui.element[0].children[1].style.height = ui.size.height - 34 + "px";
+            ui.element[0].children[1].children[0].style.height = ui.size.height - 34 + "px";
+        }
+    });
+}
+
+window.addEventListener('mouseup', function (e) {
+    document.onmouseup = null;
+    document.onmousemove = null;
+    $(".iframe-blocker").fadeOut(0)
+})
+function dragElement(elmnt) {
+    var pos1 = 0,
+        pos2 = 0,
+        pos3 = 0,
+        pos4 = 0;
+    elmnt.children[1].style.height = getPosition(elmnt).height - 34 + "px";
+    elmnt.children[1].children[0].style.height = getPosition(elmnt).height - 34 + "px";
+    elmnt.children[0].onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        $(".iframe-blocker").fadeIn(0);
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // set the element's new position:
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        var contentWidth = [...document.body.children].reduce(
+            (a, el) => Math.max(a, el.getBoundingClientRect().right), 0)
+            - document.body.getBoundingClientRect().x;
+        if (getPosition(elmnt).top <= 0) {
+            elmnt.style.top = "0px";
+        }
+        if (getPosition(elmnt).left <= 0) {
+            elmnt.style.left = "0px";
+        }
+        if (getPosition(elmnt).right >= Math.min(document.body.scrollWidth, contentWidth)) {
+            elmnt.style.left = Math.min(document.body.scrollWidth, contentWidth) - getPosition(elmnt).width + "px";
+        }
+        if (getPosition(elmnt).bottom >= document.body.scrollHeight - getPosition(document.getElementById("navbar")).height) {
+            elmnt.style.top = document.body.scrollHeight - getPosition(document.getElementById("navbar")).height - getPosition(elmnt).height + "px";
+        }
+    }
+
 }
 
 //Defect window inside click and move to top
@@ -306,62 +418,6 @@ function appendPre(message) {
 //None making function, timeouting
 function none() {
     return 0;
-}
-
-//Make the DIV element draggagle:
-dragElement(document.getElementById("word"));
-
-window.addEventListener('mouseup', function (e) {
-    document.onmouseup = null;
-    document.onmousemove = null;
-})
-function dragElement(elmnt) {
-    var pos1 = 0,
-        pos2 = 0,
-        pos3 = 0,
-        pos4 = 0;
-    if (document.getElementById(elmnt.id + "-header")) {
-        /* if present, the header is where you move the DIV from:*/
-        document.getElementById(elmnt.id + "-header").onmousedown = dragMouseDown;
-    } else {
-        /* otherwise, move the DIV from anywhere inside the DIV:*/
-        elmnt.onmousedown = dragMouseDown;
-    }
-
-    function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // get the mouse cursor position at startup:
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        // call a function whenever the cursor moves:
-        document.onmousemove = elementDrag;
-    }
-
-    function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // calculate the new cursor position:
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        // set the element's new position:
-        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-        if (getPosition(elmnt).top <= 0) {
-            elmnt.style.top = "0px";
-        }
-        if (getPosition(elmnt).left <= 0) {
-            elmnt.style.left = "0px";
-        }
-        if (getPosition(elmnt).right >= document.body.scrollWidth) {
-            elmnt.style.left = document.body.scrollWidth - getPosition(elmnt).width + "px";
-        }
-        if (getPosition(elmnt).bottom >= document.body.scrollHeight - getPosition(document.getElementById("navbar")).height) {
-            elmnt.style.top = document.body.scrollHeight - getPosition(document.getElementById("navbar")).height - getPosition(elmnt).height + "px";
-        }
-    }
 }
 
 //GApi print files

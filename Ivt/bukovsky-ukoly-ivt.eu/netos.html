@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" type="text/css" href="files/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="files/css/netos.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="icon" href="https://winaero.com/blog/wp-content/uploads/2019/06/WIndows-Terminal-icon.png"
         type="image/gif" sizes="256x256">
 
@@ -62,7 +63,7 @@
     <script src="files/js/hex.js"></script>
     <script src="files/js/keygen.js"></script>
     <script defer src="files/js/netos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"
@@ -139,15 +140,16 @@
 
         <div class="list">
             <ul id="original_items">
-                <li id="task-1" class="active running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)">
+                <li id="task-2" class="active running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"
+                    pointer="2">
                     <div class="desktop-icon"
                         style="background-image: url('./files/imgs/word.png');background-position: 50% 50%;"
-                        onclick="fademe('#word', '#task-1');">
+                        onclick="fademe('#task-2_1', '#task-2');">
                     </div>
                 </li>
-                <li id="task-90" class="running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)">
+                <li id="task-90" class="running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)" pointer="90">
                     <div class="desktop-icon"
-                        style="background-image: url('https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9Akol-messenger/files/imgs/favicon.webp');background-position: 50% 50%;"
+                        style="background-image: url('https://www.google.com/s2/favicons?domain=https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9Akol-messenger');background-position: 50% 50%;"
                         onclick="fademe('#task-90_1', '#task-90');">
                     </div>
                 </li>
@@ -186,21 +188,33 @@
         </div>
     </div>
     <div class="windows-holder" id="windows-holder">
-        <div id="word" class="window" style="z-index: 10;left: 300px;">
+        <div id="task-2_1" class="window" style="z-index: 10;left: 300px;">
             <div class="window-header">
                 Word
-                <div class="window-close" onclick="fadeWindow('#word');">&#10006;</div>
+                <div class="window-close" onclick="fadeWindow('#task-2_1');">&#10006;</div>
             </div>
             <div class="window-content">
-                <iframe src="word.html" style="height:80vh;width:60vw;" class="content"></iframe>
+                <div class="iframe-blocker"
+                    style="position: absolute;height: 100px;width:100%;background: rgba(255, 0,0,0.5);top: 34px;">
+                </div>
+                <iframe src="word.html" style="height:100%;width:100%;" class="content"></iframe>
             </div>
             <script>
                 window.addEventListener('mousedown', function (e) {
-                    if (document.getElementById("word").contains(e.target)) {
-                        $('#word').css("z-index", parseInt(getHighestZ(".window")) + 1);
+                    if (document.getElementById("task-2_1").contains(e.target)) {
+                        $('#task-2_1').css("z-index", parseInt(getHighestZ(".window")) + 1);
                     }
                 })
+                $(".iframe-blocker").fadeOut(0);
             </script>
+            <div class="ui-resizable-handle ui-resizable-nw nwgrip"></div>
+            <div class="ui-resizable-handle ui-resizable-ne negrip"></div>
+            <div class="ui-resizable-handle ui-resizable-sw swgrip"></div>
+            <div class="ui-resizable-handle ui-resizable-se segrip"></div>
+            <div class="ui-resizable-handle ui-resizable-n ngrip"></div>
+            <div class="ui-resizable-handle ui-resizable-e egrip"></div>
+            <div class="ui-resizable-handle ui-resizable-s sgrip"></div>
+            <div class="ui-resizable-handle ui-resizable-w wgrip"></div>
         </div>
     </div>
     <table ondrop="drop(event)" ondragover="allowDrop(event)" class="desktop" id="desktop">
@@ -244,7 +258,7 @@
             <td>
                 <div id="2" draggable="true" ondragstart="drag(event)" class="desktop-icon"
                     style="background-image: url('./files/imgs/word.png');"
-                    onclick="doubleclick(this, function(){}, function(){fademe('#word', '#task-1');})">
+                    onclick="temp=this;doubleclick(this, function(){}, function(){checkWindow(temp)})" data="word.html">
                     <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
                         onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Word</p>
