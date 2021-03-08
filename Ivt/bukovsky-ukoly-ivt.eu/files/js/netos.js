@@ -152,7 +152,7 @@ function checkWindow(ele0) {
         li.setAttribute("ondrop", "droptaskbar(event)");
         li.setAttribute("ondragover", "allowDrop(event, this)");
         li.setAttribute("pointer", ele0.id);
-        li.innerHTML = '<div class="desktop-icon active" style="background-image: url(\'https://www.google.com/s2/favicons?domain=' + ele0.getAttribute("data").split("?")[0] + '\');background-position: 50% 50%;" onclick="fademe(this);"></div>';
+        li.innerHTML = '<div class="desktop-icon active" style="background-image: url(\'https://www.google.com/s2/favicons?sz=256&domain=' + ele0.getAttribute("data").split("?")[0] + '\');background-position: 50% 50%;" onclick="fademe(this);"></div>';
         document.getElementById("original_items").appendChild(li);
     } else {
         deactiveTasks();
