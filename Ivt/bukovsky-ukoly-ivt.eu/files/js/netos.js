@@ -91,6 +91,13 @@ $(document).ready(function () {
         document.getElementById("search-open").value = "";
     });
 
+    //Minimiza all windows and deactive taskbar icons
+    $("#minimize-all").click(function () {
+        $(".window").each(function () {
+            fadeWindow("#" + this.id);
+        });
+    });
+
     //Variable taskbar script
     var i = 0;
     $('#dragbar').mousedown(function () {
@@ -121,6 +128,9 @@ $(window).resize(function () {
     var dragbar = getPosition(document.getElementById("dragbar"));
     $('#desktop').css("height", dragbar.top);
     $('#windows-holder').css("height", dragbar.top);
+    $(".window-content").each(function () {
+        this.style.height = this.parentElement.offsetHeight - 34 + "px";
+    })
 });
 
 //Find highest window inde
@@ -181,10 +191,16 @@ function fadeWindow(ele0) {
     $(ele0.split('_')[0]).children().removeClass("active");
 }
 
+//FUnction to generate number in range
+function randomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+}
+
 //Function to maximize window
 function minmaxWindow(ele0) {
-    console.log($(ele0).children().eq(0).children().eq(1));
-    if ($(ele0).css("height") != $("#windows-holder").height() + "px") {
+    if (($(ele0).css("height") != $("#windows-holder").height() + "px") && ($(ele0).css("width") != $("#windows-holder").width() + "px")) {
         $(ele0).css("top", "0px");
         $(ele0).css("left", "0px");
         $(ele0).css("width", "100vw");
@@ -195,6 +211,17 @@ function minmaxWindow(ele0) {
         $(ele0).children().eq(0).children()[1].innerHTML = "&#128471&#xFE0E";
     } else {
         console.log("již maximální");
+
+        $(ele0).css("width", randomNumber(352, 512));
+        var height = randomNumber(256, 512);
+        $(ele0).css("height", height - 44 + "px");
+        $(ele0).children().eq(1).css("height", height - 78 + "px");
+        $(ele0).children().eq(1).children().eq(0).css("height", height - 78 + "px");
+        $(ele0).children().eq(1).children().eq(1).css("height", height + 78 + "px");
+        $(ele0).css("top", randomNumber(16, $("#windows-holder").height() / 5));
+        $(ele0).css("left", randomNumber(16, $("#windows-holder").width() / 5));
+
+
         $(ele0).children().eq(0).children()[1].innerHTML = '<i class="far fa-window-maximize"></i>';
     }
 }
@@ -239,7 +266,7 @@ function newWindow(identifier, title, url) {
     div.style.zIndex = parseInt(getHighestZ(".window")) + 1;
     div.style.width = "40vw";
     div.style.height = "60vh";
-    div.innerHTML = "<div class='window-header'>" + title + "<div class='window-min' onclick=\"fadeWindow(\'#" + identifier + "\')\">&#9866;</div><div class='window-max' onclick=\"minmaxWindow(\'#" + identifier + "\')\"><i class='far fa-window-maximize'></i></div><div class='window-close' onclick=\"document.getElementById('windows-holder').removeChild(document.getElementById(\'" + identifier + "\'));$('#" + identifier.split("_")[0] + "').removeClass('running').children().removeClass('active');taskbarFix();\">&#10006;</div></div><div class='window-content' style='height:80vh;width:100%;'><div class='iframe-blocker' style='position: absolute;height: 100px;width:100%;background: rgba(0,0,0,0.001);top: 34px;'></div><iframe src='" + url + "' style='height:100%;width:100%;' class='content'></iframe></div>";
+    div.innerHTML = "<div class='window-header'>" + title + "<div class='window-min' onclick=\"fadeWindow(\'#" + identifier + "\')\">&#9866;</div><div class='window-max' onclick=\"minmaxWindow(\'#" + identifier + "\')\"><i class='far fa-window-maximize'></i></div><div class='window-close' onclick=\"document.getElementById('windows-holder').removeChild(document.getElementById(\'" + identifier + "\'));$('#" + identifier.split("_")[0] + "').removeClass('running').children().removeClass('active');taskbarFix();\">&#10006;</div></div><div class='window-content' style='height:80vh;width:100%;'><div class='iframe-blocker' style='position: absolute;height: calc(100% - 34px);width:100%;background: rgba(0,0,0,0.001);top: 34px;'></div><iframe src='" + url + "' style='height:100%;width:100%;' class='content'></iframe></div>";
     document.getElementById("windows-holder").appendChild(div);
     dragElement(document.getElementById(identifier));
     $(div.children[1].children[0]).fadeOut(0);
@@ -293,7 +320,6 @@ function resizeWindow(elmnt) {
         },
         resize: function (event, ui) {
             ui.element[0].children[1].style.height = ui.size.height - 34 + "px";
-            ui.element[0].children[1].children[0].style.height = ui.size.height - 34 + "px";
         }
     });
 }
@@ -309,7 +335,6 @@ function dragElement(elmnt) {
         pos3 = 0,
         pos4 = 0;
     elmnt.children[1].style.height = getPosition(elmnt).height - 34 + "px";
-    elmnt.children[1].children[0].style.height = getPosition(elmnt).height - 34 + "px";
     elmnt.children[0].onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
