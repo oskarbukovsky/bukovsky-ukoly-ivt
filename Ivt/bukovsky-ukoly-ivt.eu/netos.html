@@ -277,8 +277,10 @@
             </td>
             <td>
                 <div id="7" draggable="true" ondragstart="drag(event)" class="desktop-icon"
-                    style="background-image: url('./files/imgs/maps.png');">
-                    <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
+                    style="background-image: url('./files/imgs/maps.png');"
+                    onclick="temp=this;doubleclick(this, function(){}, function(){checkWindow(temp)})" data="maps.html">
+                    <p class=" desktop-info"
+                        ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
                         onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Maps</p>
                 </div>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Net Maps</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="icon" href="files/imgs/maps.png" type="image/gif" sizes="256x256">
+    <style type="text/css">
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .gm-style .controls {
+            font-size: 28px;
+            /* this adjusts the size of all the controls */
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+            box-sizing: border-box;
+            border-radius: 2px;
+            cursor: pointer;
+            font-weight: 300;
+            height: 1em;
+            margin: 6px;
+            text-align: left;
+            user-select: none;
+            padding: 2px;
+            width: 1em;
+            z-index: 99999999 !important;
+            left: 0px !important;
+            bottom: -2px !important;
+        }
+
+        .gm-style .controls button {
+            border: 0;
+            background-color: white;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .gm-style .controls button:hover {
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .gm-style .controls.maptype-control {
+            display: flex;
+            flex-direction: row;
+            width: auto;
+        }
+
+        .gm-style .controls.maptype-control button {
+            display: inline-block;
+            font-size: 0.5em;
+            margin: 0 1px;
+            padding: 0 6px;
+        }
+
+        .gm-style .controls.maptype-control.maptype-control-is-map .maptype-control-map {
+            font-weight: 700;
+        }
+
+        .gm-style .controls.maptype-control.maptype-control-is-terrain .maptype-control-terrain {
+            font-weight: 700;
+        }
+
+        .gm-style .controls.maptype-control.maptype-control-is-satellite .maptype-control-satellite {
+            font-weight: 700;
+        }
+
+        .gm-style .controls.fullscreen-control button {
+            display: block;
+            font-size: 1em;
+            height: 100%;
+            width: 100%;
+        }
+
+        #description {
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        #infowindow-content .title {
+            font-weight: bold;
+        }
+
+        #infowindow-content {
+            display: none;
+        }
+
+        #map #infowindow-content {
+            display: inline;
+        }
+
+        .pac-card {
+            margin: 10px 10px 0 0;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+        }
+
+        #pac-container {
+            padding-bottom: 12px;
+            margin-right: 12px;
+        }
+
+        .pac-controls {
+            display: inline-block;
+            padding: 5px 11px;
+        }
+
+        .pac-controls label {
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        #pac-input {
+            position: absolute;
+            z-index: 10;
+            background-color: #fff;
+            padding: 10px;
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin: 5px 0px 0px 6px;
+            padding: 15px 11px 15px 13px;
+            text-overflow: ellipsis;
+            width: 296px;
+            background: #f1f1f1;
+            outline: 0px solid transparent;
+            border: 1px solid transparent;
+        }
+
+        #pac-input:focus {
+            border: 1px solid rgba(128, 128, 128, 0.5);
+        }
+
+        #title {
+            color: #fff;
+            background-color: #4d90fe;
+            font-size: 25px;
+            font-weight: 500;
+            padding: 6px 12px;
+        }
+
+        #target {
+            width: 345px;
+        }
+    </style>
+    <script>
+        function initMap() {
+            const myLatLng = {
+                lat: 49.8175,
+                lng: 15.473
+            };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 7,
+                center: myLatLng,
+                zoomControl: true,
+                mapTypeControl: false,
+                fullscreenControl: false,
+                scaleControl: true,
+                streetViewControl: true,
+                rotateControl: true,
+                gestureHandling: "greedy",
+            });
+            initMapTypeControl(map);
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById("pac-input");
+            console.log(document.getElementById("pac-input"));
+            console.log(input);
+            const searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener("bounds_changed", () => {
+                searchBox.setBounds(map.getBounds());
+            });
+            let markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener("places_changed", () => {
+                const places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+                // Clear out the old markers.
+                markers.forEach((marker) => {
+                    marker.setMap(null);
+                });
+                markers = [];
+                // For each place, get the icon, name and location.
+                const bounds = new google.maps.LatLngBounds();
+                places.forEach((place) => {
+                    if (!place.geometry || !place.geometry.location) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    const icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25),
+                    };
+                    // Create a marker for each place.
+                    markers.push(
+                        new google.maps.Marker({
+                            map,
+                            icon,
+                            title: place.name,
+                            position: place.geometry.location,
+                        })
+                    );
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        }
+        function initMapTypeControl(map) {
+            const mapTypeControlDiv = document.querySelector(".maptype-control");
+
+            document.querySelector(".maptype-control-map").onclick = function () {
+                mapTypeControlDiv.classList.add("maptype-control-is-map");
+                mapTypeControlDiv.classList.remove("maptype-control-is-terrain");
+                mapTypeControlDiv.classList.remove("maptype-control-is-satellite");
+                map.setMapTypeId("roadmap");
+            };
+
+            document.querySelector(".maptype-control-terrain").onclick = function () {
+                mapTypeControlDiv.classList.add("maptype-control-is-terrain");
+                mapTypeControlDiv.classList.remove("maptype-control-is-map");
+                mapTypeControlDiv.classList.remove("maptype-control-is-satellite");
+                map.setMapTypeId("terrain");
+            };
+
+            document.querySelector(".maptype-control-satellite").onclick = function () {
+                mapTypeControlDiv.classList.add("maptype-control-is-satellite");
+                mapTypeControlDiv.classList.remove("maptype-control-is-map");
+                mapTypeControlDiv.classList.remove("maptype-control-is-terrain");
+                map.setMapTypeId("hybrid");
+            };
+            map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(mapTypeControlDiv);
+        }
+    </script>
+</head>
+
+<body>
+    <div style="display: none">
+        <input id="pac-input" class="controls" type="text" placeholder="Vyhledej místo na mapách" />
+    </div>
+    <div id="map"></div>
+    <!-- Hide controls until they are moved into the map. -->
+    <div style="display: none">
+        <div class="controls maptype-control maptype-control-is-map">
+            <button class="maptype-control-map" title="Zobrazit základní mapu">Základní</button>
+            <button class="maptype-control-terrain" title="Zobrazit terénní mapu">Terénní</button>
+            <button class="maptype-control-satellite" title="Zombrazit satelitní mapu">Satelitní</button>
+        </div>
+    </div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATGHwXQFEZaidzwkfqhyOMw7cAEBwKcDI&callback=initMap&libraries=places&v=weekly"
+        async></script>
+</body>
+
+</html>
