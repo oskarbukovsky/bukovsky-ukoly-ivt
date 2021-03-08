@@ -150,10 +150,7 @@ function checkWindow(ele0) {
     if ($('*[id^="task-' + ele0.id + '_"]')) {
         newWindow("task-" + ele0.id + "_" + (getHighestWindow(ele0.id) + 1), title.trimStart(), ele0.getAttribute("data"));
         deactiveTasks();
-    } else {
-        console.log($('*[id^="task-' + ele0.id + '_"]'));
     }
-
     if (!document.getElementById("task-" + ele0.id)) {
         var li = document.createElement('li');
         li.id = "task-" + ele0.id;
@@ -210,18 +207,14 @@ function minmaxWindow(ele0) {
         $(ele0).children().eq(1).children().eq(1).css("height", "calc(100vh - 78px)");
         $(ele0).children().eq(0).children()[1].innerHTML = "&#128471&#xFE0E";
     } else {
-        console.log("již maximální");
-
         $(ele0).css("width", randomNumber(352, 512));
         var height = randomNumber(256, 512);
         $(ele0).css("height", height - 44 + "px");
         $(ele0).children().eq(1).css("height", height - 78 + "px");
-        $(ele0).children().eq(1).children().eq(0).css("height", height - 78 + "px");
-        $(ele0).children().eq(1).children().eq(1).css("height", height + 78 + "px");
+        $(ele0).children().eq(1).children().eq(0).css("height", "calc(100% - 34px)");
+        $(ele0).children().eq(1).children().eq(1).css("height", "100%");
         $(ele0).css("top", randomNumber(16, $("#windows-holder").height() / 5));
         $(ele0).css("left", randomNumber(16, $("#windows-holder").width() / 5));
-
-
         $(ele0).children().eq(0).children()[1].innerHTML = '<i class="far fa-window-maximize"></i>';
     }
 }
@@ -264,8 +257,10 @@ function newWindow(identifier, title, url) {
     div.id = identifier;
     div.classList.add("window");
     div.style.zIndex = parseInt(getHighestZ(".window")) + 1;
-    div.style.width = "40vw";
-    div.style.height = "60vh";
+    div.style.width = randomNumber(352, 512) + "px";
+    div.style.height = randomNumber(256, 512) + "px";
+    div.style.top = randomNumber(16, $("#windows-holder").height() / 5) + "px";
+    div.style.left = randomNumber(16, $("#windows-holder").width() / 5) + "px";
     div.innerHTML = "<div class='window-header'>" + title + "<div class='window-min' onclick=\"fadeWindow(\'#" + identifier + "\')\">&#9866;</div><div class='window-max' onclick=\"minmaxWindow(\'#" + identifier + "\')\"><i class='far fa-window-maximize'></i></div><div class='window-close' onclick=\"document.getElementById('windows-holder').removeChild(document.getElementById(\'" + identifier + "\'));$('#" + identifier.split("_")[0] + "').removeClass('running').children().removeClass('active');taskbarFix();\">&#10006;</div></div><div class='window-content' style='height:80vh;width:100%;'><div class='iframe-blocker' style='position: absolute;height: calc(100% - 34px);width:100%;background: rgba(0,0,0,0.001);top: 34px;'></div><iframe src='" + url + "' style='height:100%;width:100%;' class='content'></iframe></div>";
     document.getElementById("windows-holder").appendChild(div);
     dragElement(document.getElementById(identifier));
@@ -375,7 +370,6 @@ function dragElement(elmnt) {
             elmnt.style.top = document.body.scrollHeight - getPosition(document.getElementById("navbar")).height - getPosition(elmnt).height + "px";
         }
     }
-
 }
 
 //Detect iframe click and move to top
@@ -438,21 +432,14 @@ function showCoords(event) {
 function onSignIn(googleUser) {
     // Useful data for your client-side scripts:
     var profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId());
     document.getElementById("password").value = profile.getId() + profile.getEmail();
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
     document.getElementById("username").value = profile.getFamilyName();
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
 
     //TODO
     //listFiles();
 
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
 
     /*
     beforelogin();
@@ -659,9 +646,7 @@ function hasChildren(att) {
 
 //Drag and drop setup function
 function allowDrop(ev, elemnt) {
-    if (elemnt.children.length > 0) {
-        console.log("Unable to fill, already occupied.");
-    } else {
+    if (!elemnt.children.length > 0) {
         ev.preventDefault();
     }
 }
@@ -688,26 +673,15 @@ function droptaskbar(ev) {
     if (isEmpty(document.getElementById(data))) {
         return 0;
     }
-
-    console.log(ev.target);
-    console.log(document.getElementById(data));
-
     var cln = document.getElementById(data).cloneNode(true);
     document.getElementById(data).parentElement.className += " populated";
-
     ev.target.appendChild(cln);
-
-    console.log(cln);
 }
 
 //Drag and drop drop function for desktop
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-
-    console.log(ev.target);
-    console.log(document.getElementById(data));
-
     if (isEmpty(document.getElementById(data))) {
         return 0;
     }
