@@ -1156,7 +1156,7 @@ canvas#login {
 }
 
 #spipa {
-    z-index: 999;
+    z-index: 99999;
     display: none;
     position: absolute;
     top: 0px;
