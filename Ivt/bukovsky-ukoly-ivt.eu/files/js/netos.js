@@ -592,7 +592,7 @@ function login() {
 //Testing frame work function
 function frameSource() {
     var hiddenFrame = document.getElementById("hiddenFrame");
-    hiddenFrame.src = "http://bukovsky-ukoly-ivt.eu/netos.html?user=" + document.getElementById("username").value + "&security=" + document.getElementById("hidden-hashed").value + "&data=.";
+    hiddenFrame.src = window.location.href.split("?")[0] + "?user=" + document.getElementById("username").value + "&security=" + document.getElementById("hidden-hashed").value + "&data=.";
     history.pushState({}, null, hiddenFrame.src);
     var att = document.createAttribute("frameborder");
     att.value = "0";
