@@ -360,6 +360,7 @@ function dragElement(elmnt) {
         if (getPosition(elmnt).top <= 0) {
             elmnt.style.top = "0px";
         }
+        /* If you don't want to move windows outside other sides remove this comment
         if (getPosition(elmnt).left <= 0) {
             elmnt.style.left = "0px";
         }
@@ -368,7 +369,7 @@ function dragElement(elmnt) {
         }
         if (getPosition(elmnt).bottom >= document.body.scrollHeight - getPosition(document.getElementById("navbar")).height) {
             elmnt.style.top = document.body.scrollHeight - getPosition(document.getElementById("navbar")).height - getPosition(elmnt).height + "px";
-        }
+        }*/
     }
 }
 

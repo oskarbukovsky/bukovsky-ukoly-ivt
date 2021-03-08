@@ -645,9 +645,10 @@ li.active {
     height: 44px;
     min-height: 40px;
     max-height: 88px;
-    margin: 0 0 0 0;
+    margin: 0px;
     border: none;
-    border-radius: 0 0 0 0;
+    border-radius: 0px;
+    z-index: 9999;
 }
 
 .navbar button {

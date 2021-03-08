@@ -246,7 +246,9 @@
             </td>
             <td>
                 <div id="3" draggable="true" ondragstart="drag(event)" class="desktop-icon"
-                    style="background-image: url('./files/imgs/calc.png');">
+                    style="background-image: url('./files/imgs/calc.png');"
+                    onclick="temp=this;doubleclick(this, function(){}, function(){checkWindow(temp)})"
+                    data="https://www.geogebra.org/calculator#ggbApplet">
                     <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
                         onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Kalkulačka</p>
