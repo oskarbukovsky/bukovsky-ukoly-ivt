@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>NetOS v0.10</title>
+    <title>NetOS v0.14</title>
+    <!--15 dní po 2-5h práce :)))))))-->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8; X-Content-Type-Options=nosniff">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,9 +16,13 @@
         content="823167154939-kq1pa2a8574vviapcj6m7jukqnff41g8.apps.googleusercontent.com">
     <meta name="referrer" content="unsafe-url">
 
-    <link rel="stylesheet" type="text/css" href="files/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="files/css/netos.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+        integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+        crossorigin="anonymous" />
     <link rel="icon" href="https://winaero.com/blog/wp-content/uploads/2019/06/WIndows-Terminal-icon.png"
         type="image/gif" sizes="256x256">
 
@@ -140,14 +145,13 @@
 
         <div class="list">
             <ul id="original_items">
-                <li id="task-2" class="active running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)"
-                    pointer="2">
+                <li id="task-2" class="" ondrop="droptaskbar(event)" ondragover="allowDrop(event)" pointer="2">
                     <div class="desktop-icon"
                         style="background-image: url('./files/imgs/word.png');background-position: 50% 50%;"
                         onclick="fademe(this);">
                     </div>
                 </li>
-                <li id="task-90" class="running" ondrop="droptaskbar(event)" ondragover="allowDrop(event)" pointer="90">
+                <li id="task-90" class="" ondrop="droptaskbar(event)" ondragover="allowDrop(event)" pointer="90">
                     <div class="desktop-icon"
                         style="background-image: url('https://www.google.com/s2/favicons?domain=https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9Akol-messenger');background-position: 50% 50%;"
                         onclick="fademe(this);">
@@ -169,6 +173,7 @@
         <span class="datetime" id="datetime"
             style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
             unselectable="on" onselectstart="return false;" onmousedown="return false;"></span>
+        <i class="home fas fa-home"></i>
 
     </div>
 
@@ -188,42 +193,14 @@
         </div>
     </div>
     <div class="windows-holder" id="windows-holder">
-        <div id="task-2_1" class="window" style="z-index: 10;left: 300px;">
-            <div class="window-header">
-                Word
-                <div class="window-min" onclick="fadeWindow(this);">&#9866;</div>
-                <div class="window-max" onclick="fadeWindow('#task-2_1');">&#128471;&#xFE0E</div>
-                <div class="window-close" onclick="fadeWindow('#task-2_1');">&#10006;</div>
-            </div>
-            <div class="window-content">
-                <div class="iframe-blocker"
-                    style="position: absolute;height: 100px;width:100%;background: rgba(255, 0,0,0.5);top: 34px;">
-                </div>
-                <iframe src="word.html" style="height:100%;width:100%;" class="content"></iframe>
-            </div>
-            <script>
-                window.addEventListener('mousedown', function (e) {
-                    if (document.getElementById("task-2_1").contains(e.target)) {
-                        $('#task-2_1').css("z-index", parseInt(getHighestZ(".window")) + 1);
-                    }
-                })
-                $(".iframe-blocker").fadeOut(0);
-            </script>
-            <div class="ui-resizable-handle ui-resizable-nw nwgrip"></div>
-            <div class="ui-resizable-handle ui-resizable-ne negrip"></div>
-            <div class="ui-resizable-handle ui-resizable-sw swgrip"></div>
-            <div class="ui-resizable-handle ui-resizable-se segrip"></div>
-            <div class="ui-resizable-handle ui-resizable-n ngrip"></div>
-            <div class="ui-resizable-handle ui-resizable-e egrip"></div>
-            <div class="ui-resizable-handle ui-resizable-s sgrip"></div>
-            <div class="ui-resizable-handle ui-resizable-w wgrip"></div>
-        </div>
     </div>
-    <table ondrop="drop(event)" ondragover="allowDrop(event)" class="desktop" id="desktop">
+    <table class="desktop" id="desktop">
         <tr>
             <td>
                 <div id="1" draggable="true" ondragstart="drag(event)" class="desktop-icon"
-                    style="background-image: url('./files/imgs/google.png');">
+                    style="background-image: url('./files/imgs/google.png');"
+                    onclick="temp=this;doubleclick(this, function(){}, function(){checkWindow(temp)})"
+                    data="https://www.google.com/search?igu=1">
                     <p class="desktop-info" ondblclick="this.contentEditable=true;this.className='inEdit desktop-info';"
                         onblur="this.contentEditable=false;this.className='desktop-info';" contenteditable="false">
                         Net Search</p>

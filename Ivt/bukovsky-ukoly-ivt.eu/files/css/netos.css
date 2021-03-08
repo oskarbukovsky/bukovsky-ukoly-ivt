@@ -816,11 +816,19 @@ ul li {
 
 .datetime {
     position: absolute;
-    right: 3%;
+    right: 2.85%;
     bottom: 6px;
     text-align: center;
     color: white;
     font-size: 11px;
+}
+
+.home {
+    position: absolute;
+    right: 1%;
+    top: 14px;
+    color: #e6e6e6;
+    transform: scale(1.8);
 }
 
 #dragbar {

@@ -46,10 +46,12 @@ $(document).ready(function () {
         animateSpipa = 0;
     };
 
-    //Populate table>td with populated class
+    //Specify table>tr>td
     var i = 1
     $('td').each(function (index) {
         $(this).attr("id", ("desktop-" + index));
+        this.setAttribute("ondrop", "drop(event)");
+        this.setAttribute("ondragover", "allowDrop(event, this)");
         if (document.getElementById("desktop-" + index).children.length > 0) {
             this.classList.add("populated");
         }
@@ -137,6 +139,7 @@ function checkWindow(ele0) {
     title = ele0.firstChild.nextSibling.innerHTML;
     if ($('*[id^="task-' + ele0.id + '_"]')) {
         newWindow("task-" + ele0.id + "_" + (getHighestWindow(ele0.id) + 1), title.trimStart(), ele0.getAttribute("data"));
+        deactiveTasks();
     } else {
         console.log($('*[id^="task-' + ele0.id + '_"]'));
     }
@@ -144,44 +147,87 @@ function checkWindow(ele0) {
     if (!document.getElementById("task-" + ele0.id)) {
         var li = document.createElement('li');
         li.id = "task-" + ele0.id;
-        li.classList.add("active");
-        li.classList.add("running");
         li.classList.add("ui-sortable-handle");
+        li.classList.add("running");
         li.setAttribute("ondrop", "droptaskbar(event)");
-        li.setAttribute("ondragover", "allowDrop(event)");
+        li.setAttribute("ondragover", "allowDrop(event, this)");
         li.setAttribute("pointer", ele0.id);
-        li.innerHTML = '<div class="desktop-icon" style="background-image: url(\'https://www.google.com/s2/favicons?domain=' + ele0.getAttribute("data") + '\');background-position: 50% 50%;" onclick="checkWindow();"></div>';
+        li.innerHTML = '<div class="desktop-icon active" style="background-image: url(\'https://www.google.com/s2/favicons?domain=' + ele0.getAttribute("data").split("?")[0] + '\');background-position: 50% 50%;" onclick="fademe(this);"></div>';
         document.getElementById("original_items").appendChild(li);
-        $("#original_items li:last").each(function () {
-            var item = $(this);
-            var item_clone = item.clone();
-            item.data("clone", item_clone);
-            var position = item.position();
-            item_clone.css("left", position.left);
-            item_clone.css("top", position.top);
-            $("#cloned_items").append(item_clone);
-        });
     } else {
-        document.getElementById("task-" + ele0.id).classList.add("active");
+        deactiveTasks();
+        document.getElementById("task-" + ele0.id).classList.add("running");
+        document.getElementById("task-" + ele0.id).children[0].classList.add("active");
     }
+    taskbarFix();
+}
+
+//Function to repair move and dragable taskbar
+function taskbarFix() {
+    $("#original_items li").each(function () {
+        var item = $(this);
+        var item_clone = item.clone();
+        item.data("clone", item_clone);
+        var position = item.position();
+        item_clone.css("left", position.left);
+        item_clone.css("top", position.top);
+        $("#cloned_items").append(item_clone);
+    });
 }
 
 //Fade window function
 function fadeWindow(ele0) {
     $(ele0).fadeToggle(150);
-    $(ele0).css("z-index", parseInt(getHighestZ(".window")) + 1);
-    $(ele0.split('_')[0]).toggleClass("active");
+    $(ele0.split('_')[0]).children().removeClass("active");
+}
+
+//Function to maximize window
+function minmaxWindow(ele0) {
+    console.log($(ele0).children().eq(0).children().eq(1));
+    if ($(ele0).css("height") != $("#windows-holder").height() + "px") {
+        $(ele0).css("top", "0px");
+        $(ele0).css("left", "0px");
+        $(ele0).css("width", "100vw");
+        $(ele0).css("height", "calc(100vh - 44px)");
+        $(ele0).children().eq(1).css("height", "calc(100vh - 78px)");
+        $(ele0).children().eq(1).children().eq(0).css("height", "calc(100vh - 78px)");
+        $(ele0).children().eq(1).children().eq(1).css("height", "calc(100vh - 78px)");
+        $(ele0).children().eq(0).children()[1].innerHTML = "&#128471&#xFE0E";
+    } else {
+        console.log("již maximální");
+        $(ele0).children().eq(0).children()[1].innerHTML = '<i class="far fa-window-maximize"></i>';
+    }
 }
 
 //Window fading function
 function fademe(ele0) {
+    if (!$(ele0.parentElement).hasClass("running")) {
+        var help = ele0.parentElement.getAttribute("pointer");
+        newWindow("task-" + help + "_" + (parseInt(getHighestWindow(ele0.id)) + 1), $("#" + help).text().trimStart(), document.getElementById(help).getAttribute("data"));
+        $(ele0.parentElement).toggleClass("running");
+        deactiveTasks();
+        $(ele0).addClass("active");
+        return;
+    }
     $('*[id^="task-' + ele0.parentElement.getAttribute("pointer") + '_"]').each(function () {
-        $(this).fadeToggle(150);
-        $(this).css("z-index", parseInt(getHighestZ(".window")) + 1);
+        if ($(ele0).hasClass("active")) {
+            $(this).fadeToggle(150);
+            $(ele0).removeClass("active");
+        } else {
+            if (!$(this).is(":visible")) {
+                $(this).fadeToggle(150);
+            }
+            $(this).css("z-index", parseInt(getHighestZ(".window")) + 1);
+            deactiveTasks();
+            $(ele0).addClass("active");
+        }
     });
-    $(ele0).toggleClass("active");
-    $("li").each(function () {
-        this.classList.remove("active");
+}
+
+//Remove active class from all li tags in taskbar
+function deactiveTasks() {
+    $("li.ui-sortable-handle").each(function () {
+        $(this.children[0]).removeClass("active");
     });
 }
 
@@ -193,10 +239,9 @@ function newWindow(identifier, title, url) {
     div.style.zIndex = parseInt(getHighestZ(".window")) + 1;
     div.style.width = "40vw";
     div.style.height = "60vh";
-    div.innerHTML = "<div class='window-header'>" + title + "<div class='window-close' onclick=\"fadeWindow(\'#" + identifier + "\');\">&#10006;</div></div><div class='window-content' style='height:80vh;width:100%;'><div class='iframe-blocker' style='position: absolute;height: 100px;width:100%;background: rgba(255, 0,0,0.5);top: 34px;'></div><iframe src='" + url + "' style='height:100%;width:100%;' class='content'></iframe></div>";
+    div.innerHTML = "<div class='window-header'>" + title + "<div class='window-min' onclick=\"fadeWindow(\'#" + identifier + "\')\">&#9866;</div><div class='window-max' onclick=\"minmaxWindow(\'#" + identifier + "\')\"><i class='far fa-window-maximize'></i></div><div class='window-close' onclick=\"document.getElementById('windows-holder').removeChild(document.getElementById(\'" + identifier + "\'));$('#" + identifier.split("_")[0] + "').removeClass('running').children().removeClass('active');taskbarFix();\">&#10006;</div></div><div class='window-content' style='height:80vh;width:100%;'><div class='iframe-blocker' style='position: absolute;height: 100px;width:100%;background: rgba(0,0,0,0.001);top: 34px;'></div><iframe src='" + url + "' style='height:100%;width:100%;' class='content'></iframe></div>";
     document.getElementById("windows-holder").appendChild(div);
     dragElement(document.getElementById(identifier));
-    console.log(document.getElementById(identifier));
     $(div.children[1].children[0]).fadeOut(0);
     var side = ["nw", "ne", "sw", "se", "n", "e", "s", "w"];
     side.forEach(function (item, index) {
@@ -212,6 +257,8 @@ function newWindow(identifier, title, url) {
     window.addEventListener('mousedown', function (e) {
         if (document.getElementById("` + identifier + `").contains(e.target)) {
             $('#` + identifier + `').css("z-index", parseInt(getHighestZ(".window")) + 1);
+            deactiveTasks();
+            $("#` + identifier.split("_")[0] + `").children().eq(0).addClass("active");
         }
     })`;
     document.getElementById(identifier).appendChild(script);
@@ -221,8 +268,6 @@ function newWindow(identifier, title, url) {
 }
 
 //Make the DIV element draggagle:
-dragElement(document.getElementById("task-2_1"));
-resizeWindow(document.getElementById("task-2_1"))
 
 //Resize elements
 function resizeWindow(elmnt) {
@@ -308,13 +353,15 @@ function dragElement(elmnt) {
 
 }
 
-//Defect window inside click and move to top
+//Detect iframe click and move to top
 var monitor = setInterval(intervals, 1);
 function intervals() {
     var elem = document.activeElement;
     if (elem && elem.tagName == 'IFRAME' && elem.className == 'content') {
         $('#' + elem.parentElement.parentElement.id).css("z-index", parseInt(getHighestZ(".window")) + 1);
         clearInterval(monitor);
+        deactiveTasks();
+        $("#" + elem.parentElement.parentElement.id.split("_")[0]).children().eq(0).addClass("active");
         monitor = setInterval(exitIframe.bind(null, elem), 1);
     }
 }
@@ -328,7 +375,7 @@ function exitIframe(iframe) {
 
 //Find higher window z-index
 function getHighestZ(query) {
-    var tempZ = 0;
+    var tempZ = 10;
     $.each($(query), function () {
         if (this.style.zIndex > tempZ) {
             tempZ = this.style.zIndex;
@@ -586,8 +633,12 @@ function hasChildren(att) {
 }
 
 //Drag and drop setup function
-function allowDrop(ev) {
-    ev.preventDefault();
+function allowDrop(ev, elemnt) {
+    if (elemnt.children.length > 0) {
+        console.log("Unable to fill, already occupied.");
+    } else {
+        ev.preventDefault();
+    }
 }
 
 //Drag and drop drag function for desktop
