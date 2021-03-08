@@ -577,7 +577,7 @@
                         args[0].message + " " + args[0].toString();
                 }
 
-                // default error handler if no custom one specified
+                //default error handler if no custom one specified
                 console.log("Webcam.js Error: " + message);
             }
 
