@@ -16,6 +16,10 @@ html {
     -webkit-text-size-adjust: 100%
 }
 
+#hiddenFrame {
+    z-index: 100009 !important;
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block
 }
@@ -1038,7 +1042,7 @@ canvas {
 }
 
 #login>.container {
-    z-index: 1000;
+    z-index: 100000;
     width: 380px;
     max-width: 80%;
     position: absolute;
@@ -1156,7 +1160,7 @@ canvas#login {
 }
 
 #spipa {
-    z-index: 999;
+    z-index: 99999;
     display: none;
     position: absolute;
     top: 0px;

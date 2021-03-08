@@ -49,8 +49,8 @@ $(document).ready(function () {
 
     //Transfer user to hosted working version
     if (document.location.protocol == "file:") {
-        alert("Na file:/// to nepůjde, spusť alespoň na http://, nejlépe na https://. Proto tě teď přesměruju na stránku, kde by vše snad mělo jít :D");
-        window.location.href = "https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/%C3%9kol-html-final/netos.html";
+        alert("Na file:/// to nepujde, spust alespon na http://, nejlepe na https://. Proto te ted presmeruji na stranku, kde by vve snad melo jit :D");
+        window.location.href = "https://oskarbukovsky.github.io/bukovsky-ukoly-ivt.github.io/Ivt/Úkol-html-final/netos.html";
         //Backup http url: "http://bukovsky-ukoly-ivt.eu/netos.html";
     }
 
