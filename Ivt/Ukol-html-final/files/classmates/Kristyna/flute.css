@@ -1,0 +1,161 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif ;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    color: white;
+}
+/*HEAD*/
+.header{
+    z-index: 2;
+    background-color:rgb(83, 178, 255) ;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+ }
+ .header h1 , .header h3{
+    color: rgba(255, 255, 255, 0.788);
+ }
+/*MENU*/
+.menu ul{
+    z-index: 1;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0;
+    width:100%;
+    background-color: rgb(0, 140, 255) ;
+    position: fixed;
+    top: 0px;
+}
+.menu li{
+    float:left;
+    width:16.66%;
+}
+.menu li a{
+    display: block;
+    padding:20px;
+    
+    text-decoration: none;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+.menu li a:hover{
+    background-color: rgb(0, 110, 201);
+}
+#dropdown{
+    display: none;
+    position: absolute;
+    width: 16.66%;
+    box-shadow: 0px 9px 15px 0px rgba(0,0,0,0.4);
+    z-index: 1;
+}
+#drop:hover #dropdown{
+    display: block;
+    float:unset;
+    background-color: rgb(0, 140, 255) ;
+}
+/*TABULKA*/
+table{
+    background-color: rgb(0, 140, 255);
+    padding: 3px;
+    width:100%;
+    text-align: center;
+}
+th, td{
+    border: solid 3px rgb(255, 255, 255);
+    border-collapse: collapse;
+}
+table img{
+    height: 400px;
+}
+/*navigace*/
+.navigace ul{
+    z-index: 1;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(0, 140, 255) ;
+    position: fixed;
+    left: 0px;
+    height: 70%;
+}
+.navigace li{
+    padding: 5px 20px;
+    text-align:left;
+    border:solid rgb(255, 255, 255);
+    border-collapse: collapse;
+    height: 16.66%;
+}
+/*OBSAH*/
+#nadpis{
+    background-color: rgb(0, 110, 201);
+    text-align: center;
+    margin: 0px;
+    padding-top: 2px;
+}
+#uvod{
+    padding: 5px; ;
+    margin-top: 0%;
+    text-align: center;
+    background-color: rgb(0, 110, 201) ;
+}
+.center{
+    position: absolute;
+    background-color:  rgb(0, 140, 255);
+    width:100%;
+    text-align: center;
+}
+.center img{
+    padding-top:20px;
+    width:80%;
+}
+.center button{
+    width: 50%;
+}
+/*FOOTER*/
+.footer{
+    position: fixed;
+    bottom: 0px;
+    background-color: rgb(0, 110, 201);
+    width: 100%;
+    text-align: center;
+}
+/*ROW*/
+.sloupec{
+    display: flexbox;
+    width: 50%;
+    float: left;
+    border: solid 3px rgb(255, 255, 255);
+    border-collapse: collapse;
+    padding: 3px 5px;
+    background-color: rgb(83, 178, 255);
+    text-align: center;
+    height: 400px;
+}
+/*svg*/
+svg{
+    position: relative;
+    left: 40%;
+    height: 200px;
+}
+svg{
+    animation: otocSe 3s infinite;
+    transform-origin: bottom;
+}
+@keyframes otocSe{
+    0%{
+        transform:rotate(0deg);
+    }
+    50%{
+        transform:rotate(180deg);
+    }
+    75%{
+        transform:rotate(270deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+}

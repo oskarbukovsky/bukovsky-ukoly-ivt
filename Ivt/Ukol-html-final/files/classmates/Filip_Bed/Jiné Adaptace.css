@@ -1,0 +1,202 @@
+body{
+background-color: rgb(160, 0, 0);
+}
+.header{
+    margin: 3%;
+    background-color: rgb(83, 39, 39);
+   
+    width:95%;
+   height:auto;
+ display:block;
+ border-radius:10px;
+ padding-bottom:1%;
+}
+.logos
+{
+    display:block;
+    height:110px;
+    width:110px;
+    border-radius:100%;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+.headerNadpis{
+   font-size: 40px;
+   text-align: center;
+}
+.HlavníOblast{
+    display: inline-block;
+      height: auto;
+      float:left;
+      padding:1%;
+      border-radius:10px;
+    background-color:rgb(167, 0, 0);
+    margin-left:3%;
+    width: 90%;
+  MARGIN-TOP:3%;
+  
+  }
+  .randomText{
+      font-size: 30px;
+  }
+  .bublinaProText{
+    display: inline-block;
+    height: auto;
+    float:left;
+    padding:1%;
+    border-radius:10px;
+  background-color:rgb(255, 174, 0);
+  
+  width: 95%;
+  margin-bottom:5%;
+  }
+  .JménoTématu{
+    font-size:40px;
+  }
+  .obrázekKTématu{
+    display:block;
+    height:400px;
+    width:200px;
+   
+    float:left;
+  margin-right:2%;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  }
+  .textTématu{
+    font-size:30px;
+    
+  }
+  #obrázekKTématu{
+    display:block;
+    height:300px;
+    width:350px;
+
+    float:right;
+  margin-right:2%;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  }
+  .tabulka{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width:100%;
+  }
+  .řádek{
+    
+      border: 1px solid black;
+      border-collapse: collapse;
+      width:100%;
+      font-size:25px;
+  }
+  .sloupec{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width:auto;
+    text-align: center;
+    font-size:25px;
+  }
+  .obrázekProSrandu{
+    display:block;
+    height:300px;
+    width:500px;
+
+    float:right;
+  margin-right:2%;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  }
+  #obrázekProSrandu{
+    display:block;
+    height:300px;
+    width:500px;
+
+    float:left;
+  margin-right:2%;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  }
+  ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    width:99%;
+    position: fixed;
+    top:0;
+    background-color: rgb(124, 16, 16);
+  }
+        li{
+    float:left;
+  }
+  li a{
+    display:block;
+    padding:10px;
+    text-decoration: none;
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  li a:hover{
+    background-color:rgb(124, 16, 16);
+  }
+    
+  li.dropdown{
+    position:relative;
+  
+  }
+  .dropdown-content{
+    display:none;
+    position:absolute;
+  width:70px;
+        background-color: rgb(124, 16, 16);
+    box-shadow:0px 8px 16px 0px rgb(124, 16, 16);
+    z-index: 1;
+  }
+  .dropdown-content a:hover{
+            background-color: rgb(124, 16, 16);
+  
+  }
+  .dropdown:hover .dropdown-content{ 
+    display:block;
+  }ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    width:99%;
+    position: fixed;
+    top:0;
+    background-color: rgb(124, 16, 16);
+  }
+        li{
+    float:left;
+  }
+  li a{
+    display:block;
+    padding:10px;
+    text-decoration: none;
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  li a:hover{
+    background-color:rgb(124, 16, 16);
+  }
+    
+  li.dropdown{
+    position:relative;
+  
+  }
+  .dropdown-content{
+    display:none;
+    position:absolute;
+  width:70px;
+        background-color: rgb(124, 16, 16);
+    box-shadow:0px 8px 16px 0px rgb(124, 16, 16);
+    z-index: 1;
+  }
+  .dropdown-content a:hover{
+            background-color: rgb(124, 16, 16);
+  
+  }
+  .dropdown:hover .dropdown-content{ 
+    display:block;
+  }

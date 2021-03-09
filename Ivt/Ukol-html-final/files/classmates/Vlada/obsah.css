@@ -1,0 +1,60 @@
+#obsah
+{
+    margin: 0% 1%;
+    display: table;
+    width: 98%;
+}
+
+.sloupec
+{
+    display: block;
+    height: auto;
+    float: left;
+}
+
+.main
+{
+    background-color: #3F681C;
+    padding: 10px;
+    width: 50%;
+    min-height: 100vh;
+}
+
+
+#reklama
+{
+    width: 0%;
+}
+
+#buttonlevy
+{
+    font-size: 2vh;
+    margin: 1px;
+    float: right;
+    background-color: transparent;
+    width: auto;
+    border-color: transparent;
+}
+
+#buttonpravy
+{
+    z-index: 2;
+    font-size: 2vh;
+    margin: 1px;
+    float: left;
+    background-color: transparent;
+    width: auto;
+    border-color: transparent;
+}
+
+#nadpis {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+#bsod
+{
+    width: auto;
+}
+

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>obsideri et constructione s.r.o.</title>
+        <link rel="shortcut icon" type="image/png" href="Tata_logo.png">
+        <script>
+            function napiš() {
+                document.getElementById("napis").innerHTML = "Já nic nedělám"
+            }
+        </script>
+        <style>
+            body{
+                margin: 0;
+            }
+			ul.menu{
+				list-style-type: none;
+                margin: 0;
+				padding:0;
+                width: 100px;
+                height: 100%;
+				position: fixed;
+				top:0;
+				background-color: #E43D40;
+			}
+			li a{
+				display: block;
+				padding: 10px;
+				text-decoration: none;
+				color:white;
+				font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			}
+			li a:hover{
+				background-color: #F37970;
+			}
+			li.dropdown{
+                position: relative;
+			}
+			.dropdown-content{
+				display: none;
+                position: absolute;
+                width: 200%;
+                background-color: #E43D40;
+				box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+			}
+			.dropdown-content a:hover{
+                background-color: #F37970;
+			}
+			.dropdown:hover .dropdown-content{ 
+                display: block;
+                margin-left: 75%;
+			} 
+            h2{
+                margin-top: 60px;
+                margin-left: 150px;
+                padding: 5px;
+                background-color: black;
+                color: white;
+                max-width: 1000px;
+                border-radius: 25px;
+                text-align: center;
+            }
+            #div1{
+                margin-left: 150px;
+                margin-top: 20px;
+                display:inline-block;
+                background-color: #f85c71e5;
+                width: 40%;
+                height: 600px;
+                padding: 20px;
+                border-radius: 20px;
+                float: left;
+            }
+            #div2{
+                margin-right: 50px;
+                margin-top: 20px;
+                display:inline-block;
+                background-color: #f85c71e5;
+                width: 40%;
+                height: 600px;
+                padding: 20px;
+                border-radius: 20px;
+                float: right;
+            }
+            img{
+                width: 100px;
+                height: 100px;
+                transition: width 2s, height 2s;
+            }
+            img:hover{
+                width: 200px;
+                height: 200px;
+            }
+            table, th, td{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+		</style>
+    </head>
+    <body>
+        <ul class="menu">
+			<li><a href="Hlavní.html">Hlavní stránka</a></li>
+			<li><a href="Služby.html">Služby</a></li>
+			<li><a href="Kontakt.html">Kontakty</a></li>
+			<li class="dropdown"> 
+				<a>Reference</a>
+				<div class="dropdown-content"> 
+					<a href="Stavby které bychom dělat chtěli ale zatím nedělali.html">Stavby ke kterým se chceme dopracovat</a>
+					<a href="Stavby které děláme a na kterých jsme se podíleli.html">Stavby které děláme a na kterých jsme se podíleli</a>
+					<a href="Stavby které neděláme a na kterých jsme se nepodíleli.html">Stavby které neděláme a na kterých jsme se nepodíleli</a>
+			</li>
+            <li><a href="Tabulka.html">Tabulka</a></li>
+		</ul>
+        <h2>Toto je stránka s věcmi které se mi nepodařilo nějak logicky do normálního webu začlenit</h2>
+        <div id="div1">
+            <h3>Nic neříkající tabulka</h3>
+            <table>
+                <tr>
+                    <th>Jméno</th>
+                    <th>Příjmení</th>
+                    <th>Věk</th>
+                </tr>
+                <tr>
+                    <td>Angelika</td>
+                    <td>Francová</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td>Tomáš</td>
+                    <td>Tkadlec</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td>Julie</td>
+                    <td>Tymelova</td>
+                    <td>18</td>
+                </tr>
+            </table>
+            <h3>Nic moc nedělající tlačítko</h3>
+            <button onclick="napiš()">Klikni</button>
+		    <h3 id="napis"></h3>
+        </div>
+        <div id="div2">
+            <img src="Tata_logo.png" alt="logo">
+        </div>
+    </body>
+</html>

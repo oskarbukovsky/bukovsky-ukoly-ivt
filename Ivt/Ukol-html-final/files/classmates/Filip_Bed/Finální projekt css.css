@@ -1,0 +1,257 @@
+body{
+  background-color:rgb(75, 0, 0);
+ 
+ 
+}
+
+
+
+
+ul {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  width:99%;
+  position: fixed;
+  top:0;
+  background-color: rgb(124, 16, 16);
+}
+      li{
+  float:left;
+}
+li a{
+  display:block;
+  padding:10px;
+  text-decoration: none;
+  color:white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+li a:hover{
+  background-color:rgb(124, 16, 16);
+}
+  
+li.dropdown{
+  position:relative;
+
+}
+.dropdown-content{
+  display:none;
+  position:absolute;
+width:70px;
+      background-color: rgb(124, 16, 16);
+  box-shadow:0px 8px 16px 0px rgb(124, 16, 16);
+  z-index: 1;
+}
+.dropdown-content a:hover{
+          background-color: rgb(124, 16, 16);
+
+}
+.dropdown:hover .dropdown-content{ 
+  display:block;
+}
+
+.hlavniObsah{
+  
+margin-top:20%;
+  background-color: rgb(206, 0, 0);
+ top:30%;
+ margin-left:20%;
+  height:210%;
+  width:60%;
+  display: inline-block;
+  border-radius:10px;
+  overflow: auto;
+}
+.obrazekSpidermanLevo{
+  z-index:-2;
+float:left;
+  margin-left:0%;
+  margin-top:2%;
+  width:20%;
+  height:96%;
+  position:fixed;
+  
+}
+.obrazekSpidermanPravo{
+ z-index:-2;
+  right:0%;
+    margin-right:0%;
+    margin-top:2%;
+    width:20%;
+    height:96%;
+    position:fixed;
+  }
+  .obrazekSpidermanProstred{
+    z-index:-3;
+    
+       margin-left:20%;
+       
+     margin-top:2%;
+       width:60%;
+       height:70%;
+      
+       position:fixed;
+       display: inline-block;
+     }
+  .header{
+    margin: 3%;
+    background-color: rgb(153, 3, 3);
+   
+    width:95%;
+   height:auto;
+  
+ border-radius:10px;
+ padding-bottom:1%;
+  }
+  .headerNadpis{
+    font-size:40px;
+text-align: center;
+margin-top:2%;
+display:block;
+
+
+max-height:80%;
+max-width:80%;
+white-space: pre-line;
+  }
+  .logo{
+    display:block;
+    height:60px;
+    width:60px;
+    border-radius:100%;
+    float:left;
+ margin-left: 4%;
+ margin-top: 2%;
+  }
+  .dolejsek{
+   bottom:0%;
+   background-color: rgb(153, 3, 3);
+   width:100%;
+   height:10%;
+   
+  
+   
+  }
+  .dolejsekText{
+    text-align:center;
+  }
+  .sloupce{
+  display: inline-block;
+    height: auto;
+   
+   }
+  .textOblast{
+    float:left;
+    padding:1%;
+    border-radius:10px;
+  background-color:rgb(150, 31, 31);
+  margin-left:3%;
+  width: 60%;
+
+  }
+  .reklama{
+    background-color:rgb(177, 2, 2);
+    border-style:solid;
+margin: 0%;
+border-radius:10px;
+padding:2%;
+width: 30%;
+height:18%;
+  }
+  .tlacitko{
+    
+    background-color:rgb(238, 25, 25);
+    border-radius:10px;
+    border-color:rgb(238, 25, 25);
+    height:10%;
+    width:35%;
+   padding-left:2%;
+   padding-right:10%;
+    font-size:30px;
+    border:none;
+  font-size: 20px;
+    margin-left:10%;
+    float:bottom;
+}
+#obrazekReklama{ 
+  max-height:80%;
+max-width:80%;
+border-radius:10px;
+display:block;
+margin-right:auto;
+margin-left:auto;
+}
+.uvítání{
+  font-size:20px;
+}
+@media screen and (max-width: 960px) {
+  .sloupce{
+      width:100%;
+  }
+}
+.uvítáníNadpis{
+  font-size:30px;
+}
+.postavy{
+  display: inline-block;
+    height: auto;
+    float:left;
+    padding:1%;
+    border-radius:10px;
+  background-color:rgb(167, 0, 0);
+  margin-left:3%;
+  width: 90%;
+MARGIN-TOP:3%;
+
+}
+.uvítacíText{
+  font-size:30px;
+}
+.bublinaProPostavy{
+  display: inline-block;
+  height: auto;
+  float:left;
+  padding:1%;
+  border-radius:10px;
+background-color:rgb(255, 174, 0);
+
+width: 95%;
+margin-bottom:5%;
+}
+.JménoPostavy{
+  font-size:25px;
+}
+.obrázekPostavy{
+  display:block;
+  height:85px;
+  width:85px;
+ 
+  float:left;
+margin-right:2%;
+border-style: solid;
+border-color: rgb(255, 255, 255);
+}
+.textPostavy{
+  font-size:20px;
+  
+}
+.postavyUvítání{
+  font-size:20px;
+}
+.serial{
+  display: inline-block;
+    height: auto;
+    float:left;
+    padding:1%;
+    border-radius:10px;
+  background-color:rgb(160, 32, 32);
+  margin-left:3%;
+  width: 90%;
+MARGIN-TOP:3%;
+}
+.ohledneSerialu{
+  font-size:30px;
+}
+.textoSerialu{
+  font-size:30px;
+}

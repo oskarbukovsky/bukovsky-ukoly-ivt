@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Historie palačinek</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="shortcut icon" type="image/x-icon" href="crepes icon.png" alt="palicon"/>
+        <style>
+            body{
+                background-image:linear-gradient(to bottom,#fff2a4,#af5d0094);
+            }
+            .row{
+                display: table;
+                width:100%;
+            }
+            .column{
+                float:left;
+                width:100%;
+            }
+            .column.left{
+                background-image:url("folded palačinky.jpg");
+                height:110vh;
+                border-right: solid;
+                border-color:#e6a364;
+                
+                background-size: 100px;
+                width:30%
+            }
+            .column.main{
+                padding:1%;
+                width:40%;
+                text-align: center;
+            }
+            .text{
+                padding:2% 5%;
+            }
+            .column.right{
+                background-image:url("folded palačinky.jpg");
+               
+                border-left: solid;
+                border-color:#e6a364;
+                background-size: 100px;
+               
+                
+                height:110vh;
+                width:30%;
+            }
+            #truepal{
+               margin:5%;
+               width:65%;
+               border: solid;
+               border-radius: 15%;
+           }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img id="mainicon" src="crepes icon.png" alt="palicon">
+            <h1>Palačinky</h1>
+        </div>
+        <div class="menu">
+            
+            <ul 1>
+                <li 1><a href="Weby final -  palačinky.html">Co to je</a></li 1>
+                <li 1><a href="Historie palačinek.html">Historie palačinek</a></li 1>
+
+                <li 1 class="dropdown">
+                    <a href="Typy a obdoby palačinek.html">Typy a obdoby palačinek</a>
+                        <div class="dropdown-content">
+                        <a href="Pancakes.html">Pancakes</a>
+                        <a href="Bliny.html">блины (bliny)</a>
+                        <a href="Crepes.html">Crêpes</a>
+                        <a href="Injera.html">Injera</a>
+                        <a href="Serabi.html">Serabi</a>
+                    </div>
+                </li 1>
+                <li 1><a href="Příprava.html">Příprava</a></li>
+            </ul 1>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="column left">
+                    
+                </div>
+                <div class="column main">
+                    <h1>Historie palačinek</h1>
+                    <div class="text"><p>Palačinky patří k naší kuchyni už po staletí. O původu palačinek je známo několik teorií. Mezi nejznámější patří teorie o krádeži nápadu palačinek z Francie kuchařem Francisco Palaccini.</p></div>
+                    <h2>Etymologie - původ slova</h2>
+                    <div class="text"><p>Dle etymologů původ slova palačinka nepochází od příjmení kuchaře Palaccini, ale z maďarského palacsinta. Palacsinta pochází z rumunského plăcintă (zákusek, koláč), který pochází z latinského slova placenta, což znamenalo nejen plodové lůžko, ale i plochý koláč. Slovo placenta pak vychází z řeckého πλακύς, které je příbuzné se slovanským ploský.</p></div>
+                    <img id="truepal" src="Palačinky.jpg" alt="palčinky">
+                </div>
+                <div class="column right">
+            
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="end credits">
+                <p>Vypracováno: David Pekař 2021</p>
+            </div>
+            <div class="livsite">
+                <p>Pokud jste nechtěli palačinky klikněte <a href="Mini pancake site/Lívance.html"><img id=pancakeicon src="Mini pancake site/icon pancake.png"></a></p>
+            </div>
+            <div id="seconds-counter"></div>
+        </div>
+        
+    </body>
+    <script src="scripts.js"></script>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wallpapers</title>
+        <meta charset="UTF-8">
+		<link rel="shortcut icon" type="image/png" href="icon.png"/>
+		<link href="style_all.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+        <style>
+            .main{
+                width: 80%;
+            }
+            .post{
+                background-color: rgba(255, 255, 255, 0.7);
+                margin-bottom: 30px;
+                margin-left: 20%;
+                margin-right: 10%;
+                width: 80%;
+                padding: 20px;
+                padding-bottom: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+            }
+            #firstpost{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                background-color: rgba(255, 255, 255, 0);
+
+            }
+            .headline{
+                font-family: 'Trebuchet MS', Arial, sans-serif;
+                text-shadow: 0px 0px 5px rgb(130, 240, 255);
+                text-align: center;
+            }
+            .h{
+                text-shadow: 3px 3px 1px rgb(255, 255, 255);
+                text-decoration: none;
+                font-weight: bold;
+                color: black;
+                font-size: 60px;
+                font-family: 'Trebuchet MS', Arial, sans-serif;
+                padding: 10px;
+            }
+			button{
+                margin-left: 40%;
+                margin-top: 5%;
+                margin-bottom: 5%;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 20px;
+				border-radius: 8px;
+				border-style: none;
+				color:  rgb(255, 255, 255);
+				background-color:rgb(128, 17, 35);
+				padding: 10px;
+				box-shadow: 4px 4px 6px rgb(17, 17, 17);
+            }
+            .image{
+                margin-left: 5%;
+            }
+        </style>
+    </head>
+    <body>
+		
+		<div >
+			<img class="header" src="header.png" alt="Kyanidex">
+		</div>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            </li>
+            <li class="dropdown">
+				<a href="brezen.html">Kalendář akcí</a>
+				<div class="dropdown-list">
+					<a href="brezen.html">Březen</a>
+					<a href="duben.html">Duben</a>
+					<a href="kveten.html">Květen</a>
+				</div>
+            </li>
+            <li><a href="info.html">Info</a></li>
+            <li class="dropdown">
+                <a href="galerie.html">Galerie</a>
+                <div class="dropdown-list">
+					<a href="report.html">Reportáže</a>
+					<a href="wallpapers.html">Wallpapers</a>
+				</div>
+        </ul>
+
+
+        <div class="main">    
+            <div id="firstpost" class="post">
+                
+                <h1 class="h">Wallpapers</h1>
+                
+            </div>
+
+            <div class="post">
+                <h2 class="headline">Lebky</h2>
+                
+                <img  class="image" src="l_1.jpg" width="90%" >
+                
+                <button onclick="document.location='lebky.html'">Celá složka</button>
+
+            </div>
+            <div  class="post">
+                <h2 class="headline">Kapely</h2>
+                
+                <img  class="image" src="k_5.jpg" width="90%" >
+                
+                <button onclick="document.location='kapely.html'">Celá složka</button>
+
+            </div>
+            <div  class="post">
+                <h2 class="headline">Kytary</h2>
+                
+                <img  class="image" src="kyt_1.jpg" width="90%" >
+                
+                <button onclick="document.location='kytary.html'">Celá složka</button>
+
+            </div>
+        </div>
+			
+    </div>
+        <div class="footer">
+        <p>Sponzoři:</p>
+        
+        <a href="https://www.radiobeat.cz/" target="_blank">
+            <img class="imgS" src="beat.jpeg"></a>
+        <a href="https://www.tvrebel.cz/" target="_blank">
+            <img class="imgS" src="rebel.png"></a>
+    </div>
+    </body>
+</html>

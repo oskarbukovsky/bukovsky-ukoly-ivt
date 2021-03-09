@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sadamismus</title>
+    <link rel="shortcut icon" href="logo3.png">
+    <link rel="stylesheet" href="nekak.css">
+    <link rel="stylesheet" href="navigacni menu.css">
+    <link rel="stylesheet" href="hlavicka a zapati.css">
+    <link rel="stylesheet" href="obsah.css">
+    <link rel="stylesheet" href="reklamy.css">
+    <script src="nekak.js"></script>
+    <style>
+        #text {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #cudliky {
+            border-radius: 30px;
+            margin-top: 1vh;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #obrazek {
+            margin-top: 20px;
+            border-radius: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 98%;
+            min-width: 50%;
+            max-height: 70vh;
+            transition: 1s;
+        }
+
+        #obrazek:hover {
+            border-radius: 0%;
+            transform: scale(2);
+        }
+        #nadpis
+        {
+            margin-top: 10px;
+        }
+
+        #tlacitka {
+            background-color: #FFBB00;
+            min-height: 5vh;
+            min-width: 5vw;
+            font-size: 20px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+        }
+    </style>
+    <script>
+        var image = new Array(10)
+        image[0] = "Křižáci.png"
+        image[1] = "Dishua.png"
+        image[2] = "logo3.png"
+        image[3] = "Wide Vladimir.png"
+        image[4] = "adbreak.png"
+        image[5] = "reklama1.png"
+        image[6] = "reklama2.png"
+        image[7] = "Spanish inquisition.jpg"
+        image[8] = "Peut fisto.png"
+        var text = ["Stateční křižáci hrdě pózující v egyptské poušti", "Sám veliký Dishua v celé své kráse a síle s kloboukem","Hamon","Autor této stránky, Široký Vladimír", "", "Z něčeho si musím", "ten počítač koupit.", "Nobody expects Spanish inquisition", "Divoký Peut Fisto se objevil, aby vám popřál Bon sadam"];
+        var pozice = 0;
+        function Predchozi() {
+            pozice = pozice - 1
+            if (pozice == -1) {
+                pozice = 8;
+            }
+            document.getElementById("obrazek").src = image[pozice]
+            document.getElementById("nadpis").innerHTML = text[pozice]
+        }
+        function Dalsi() {
+            pozice = pozice + 1
+            if (pozice == 9) {
+                pozice = 0;
+            }
+            document.getElementById("obrazek").src = image[pozice]
+            document.getElementById("nadpis").innerHTML = text[pozice]
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="hmm">
+        <p>Být vámi, zvážil bych navštěvu očního lékaře</p>
+        <img id="bryle" src="sunglasses.svg">
+    </div>
+    <div id="bsod">
+        <div id="hlavicka">
+            <h4>Sadamismus</h4>
+        </div>
+        <ul>
+            <li><a href="sadam.html">Hlavní stránka</a></li>
+            <li class="dropdown">
+                <a href="dropdown.html">Povinný dropdown</a>
+                <div class="dropdown-content">
+                    <a href="sadamismus.html">Sadamismus</a>
+                    <a href="slovnik.html">Slovník</a>
+                    <a href="galerie.html">Galerie obrázků</a>
+                    <a id="oblouk" href="kompatibilita.html">Kompatibilita se sadame</a>
+                </div>
+            </li>
+            <li><a href="credits.html">Kontakt a poděkování</a></li>
+        </ul>
+        <!--TODO: přidej třídu dropdown-->
+        <!--TODO: přidej třídu dropdown-content-->
+
+        <div id="obsah">
+            <div id="levy" class="sloupec bocni">
+                <button id="buttonlevy" onclick="leva()">❌</button>
+                <a href="https://www.youtube.com/watch?v=HId6qf25BFw&ab_channel=jerryqueer"><button
+                        id="kliknihot">KLIKNI
+                        ZDE!!!</button></a>
+            </div>
+            <div id="pravy" class="sloupec bocni">
+                <button id="buttonpravy" onclick="prava()">❌</button>
+                <a href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"><button id="kliknihot">KLIKNI
+                        ZDE!!!</button></a>
+            </div>
+            <div class="sloupec main">
+                <img id="obrazek" src="Křižáci.png" alt="">
+                <p id="nadpis">Stateční křižáci hrdě pózující v egyptské poušti</p>
+                <div id="cudliky">
+                    <button id="tlacitka" onclick="Predchozi()">Předchozí</button>
+                    <button id="tlacitka" onclick="Dalsi()">Další</button>
+                </div>
+            </div>
+        </div>
+        <div id="zapati">
+            <h3>Najdete nás také tady:</h3>
+            <a
+                href="https://www.facebook.com/vladimir.sadovsky.10?eid=ARBHICJRLhfAnWd30DZ2834cpIRXad_HRbZPDqA5R9Lgs6rjIiQg87LDsIbmYy_r2a4Gb8BWqCeoUcl6&tn-str=*F"><img
+                    src="facebook.png" id="logo" alt=""></a>
+            <a href="https://www.instagram.com/sadovsky.vladimir/"><img src="instagram.png" id="logo" alt=""></a>
+        </div>
+    </div>
+</body>
+
+</html>

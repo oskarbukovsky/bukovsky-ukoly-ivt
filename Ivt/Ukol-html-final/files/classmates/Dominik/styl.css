@@ -1,0 +1,83 @@
+*{ box-sizing: border-box;}
+
+body{
+    margin:0;
+}
+ /*Hlavička*/
+ .header{
+     background-color: rgb(133, 165, 70);
+     text-align: center;
+     color: whitesmoke;
+     padding: 10px;
+ }           
+  /*Menu*/
+ul{
+    list-style-type: none;
+    margin:0px;
+    padding:0px;
+    
+    width: 100%;
+    background-color:olivedrab;
+}
+li{
+    display: inline-block;
+}
+li a{
+    display:block;
+    padding: 20px;
+    color:whitesmoke;
+    text-decoration: none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+li a:hover{
+    background-color: teal;
+}
+/*Obsah*/
+.coches{
+    float: left;
+    margin: 0px;
+    padding: 10px;;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width:100%;
+    background-color: rgb(83, 117, 15);
+    color: whitesmoke;
+}
+
+.column{
+    float: left;
+    margin: 0px;
+    padding: 10px;;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width:100%;
+    background-color: rgb(83, 117, 15);
+    color: whitesmoke;
+   
+}
+.row{
+    
+
+
+}
+.side{
+    width:40%;
+    background-color: rgb(83, 117, 15);
+    color: whitesmoke;
+}
+.main{
+    width: 60%;
+    background-color: rgb(92, 134, 52);
+    color: whitesmoke;
+}
+#comic{
+max-width:90%;}
+@media screen and (max-width:500px){
+    .column.side .column.main{
+        width:100%;
+    }}
+.footer{
+    background-color:teal;
+    text-align: center;
+}
+.icon{
+    width: 50px;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crêpes</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="shortcut icon" type="image/x-icon" href="crepes icon.png" alt="palicon"/>
+        <style>
+            body{
+                height:100%;
+                
+            }
+            .row{
+                display: table;
+                min-height:79vh;
+                background-image: url(https://wallpaperaccess.com/full/1770140.jpg);
+                background-size: cover;
+            }
+            .column{
+                float:left;
+            }
+            .column.left{
+                width:55%;
+            }
+            .box.text{
+                display: inline-block;
+                margin:15% 5% 0% 5%;
+                
+            }
+            .box.pic{
+                width:90%;
+                margin-top:3%;
+                border-style: groove;
+                
+            }
+            .column.right{  
+                width:45%;
+                
+            }
+            .footer{
+                bottom:0;
+                
+                width:100%;
+            }
+            @media screen and (max-width: 760px) {
+	            .column.right, .column.left{
+		            width:100%;
+	            }
+            }
+        </style>
+    </head>
+        <body>
+            <div class="header">
+                <img id="mainicon" src="crepes icon.png" alt="palicon">
+                <h1>Palačinky</h1>
+            </div>
+            <div class="menu">
+                
+                <ul 1>
+                    <li 1><a href="Weby final -  palačinky.html">Co to je</a></li 1>
+                    <li 1><a href="Historie palačinek.html">Historie palačinek</a></li 1>
+    
+                    <li 1 class="dropdown">
+                        <a href="Typy a obdoby palačinek.html">Typy a obdoby palačinek</a>
+                            <div class="dropdown-content">
+                            <a href="Pancakes.html">Pancakes</a>
+                            <a href="Bliny.html">блины (bliny)</a>
+                            <a href="Crepes.html">Crêpes</a>
+                            <a href="Injera.html">Injera</a>
+                            <a href="Serabi.html">Serabi</a>
+                        </div>
+                    </li 1>
+                    <li 1><a href="Příprava.html">Příprava</a></li>
+                </ul 1>
+            </div>
+    
+    
+            <div class="row">
+                <div class="column"> 
+                    <div class="column left">
+                        <div class="box text">
+                            <h1>Crêpes</h1>
+                            <p>Crêpes pocházejí z oblasti Bretaně na severozápadě Francie, avšak v současnosti jsou rozšířené po celé Francii a považovány za francouzské národní jídlo. Populární jsou rovněž v severní a jižní Americe. V Bretani jsou tradičně podávány s jablečným moštem. Crêpes se podávají s různými druhy náplně, a to jak „na sladko“ s náplní, jako je nutella, javorový sirup, našlehaný krém, ovoce, zavařeniny atp., tak „na slano“ (sýr, šunka, špenát, vejce, houby, ratatouille atp.).</p>
+                            <br>
+                            <p>Název pokrmu je francouzského původu a je odvozený z latinského crispa, což znamená „stočený“.</p>
+                        </div>
+                    </div>
+                    <div class="column right">
+                        <div class="box pic">
+                            <img id="crepes" src="https://img.taste.com.au/2SOhk4Yf/w643-h428-cfill-q90/taste/2016/11/basic-crepes-20413-1.jpeg" alt="crepes" width=100%>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="footer">
+                <div class="end credits">
+                    <p>Vypracováno: David Pekař 2021</p>
+                </div>
+                <div class="livsite">
+                    <p>Pokud jste nechtěli palačinky klikněte <a href="Mini pancake site/Lívance.html"><img id=pancakeicon src="Mini pancake site/icon pancake.png"></a></p>
+                </div>
+                <div id="seconds-counter"></div>
+            </div>
+        </body>
+        <script src="scripts.js"></script>
+</html>

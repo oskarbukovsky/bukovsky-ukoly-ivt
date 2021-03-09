@@ -1,0 +1,31 @@
+#hlavicka
+{
+    margin: 1% 1% 0%;
+    background-color: #FFBB00;
+    font-size: 69px;
+    text-align: center;
+    padding: 0px;
+    color: whitesmoke;
+    min-height: 1vh;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+#logo
+{
+    margin-top: 0.5vh;
+    height: 9vh;
+}
+
+#zapati
+{
+    color: white;
+    padding: 10px;
+    margin: 0% 1% 1%;
+    width: 98%;
+    min-height: 10vh;
+    background-color: #FFBB00;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    text-align: center;
+}

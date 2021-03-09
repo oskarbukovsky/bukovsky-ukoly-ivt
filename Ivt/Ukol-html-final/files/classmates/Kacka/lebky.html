@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wallpapers: Lebky</title>
+        <meta charset="UTF-8">
+		<link rel="shortcut icon" type="image/png" href="icon.png"/>
+		<link href="style_all.css" rel="stylesheet">
+		<link href="style_gal.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+		<style>
+            .column{
+                width: 25%;
+            }
+            @media screen and (max-width: 700px){
+                .column{
+                    width:100%;
+                }
+            }
+        </style>
+        
+        <script>
+            function Expand(imgs){
+                var expand = document.getElementById("expanded");
+                expand.src = imgs.src;
+                expand.parentElement.style.display="block";
+            }
+        </script>
+    </head>
+    <body>
+		
+		<div >
+			<img class="header" src="header.png" alt="Kyanidex">
+		</div>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            </li>
+            <li class="dropdown">
+				<a href="brezen.html">Kalendář akcí</a>
+				<div class="dropdown-list">
+					<a href="brezen.html">Březen</a>
+					<a href="duben.html">Duben</a>
+					<a href="kveten.html">Květen</a>
+				</div>
+            </li>
+            <li><a href="info.html">Info</a></li>
+            <li class="dropdown">
+                <a href="galerie.html">Galerie</a>
+                <div class="dropdown-list">
+					<a href="report.html">Reportáže</a>
+					<a href="wallpapers.html">Wallpapers</a>
+				</div>
+        </ul>
+		<div id="main">
+
+            <h2>Lebky</h2>
+
+            <div class="row">
+                <div class="column">
+                    <img class="image" src="l_1.jpg" onclick="Expand(this)">
+                </div>
+
+                <div class="column">
+                    <img class="image"  src="l_2.jpg" onclick="Expand(this)">
+
+                </div>
+                
+                <div class="column">
+                    <img class="image" src="l_3.jpeg" onclick="Expand(this)">
+
+                </div>
+                
+                <div class="column">
+                    <img class="image" src="l_4.jpg" onclick="Expand(this)">
+
+                </div>
+            </div>
+
+            <div class="row">                
+                <div class="column">
+                    <img class="image"  src="l_5.jpg" onclick="Expand(this)">
+
+                </div>
+
+                <div class="column">
+                    <img class="image"  src="l_6.jpg" onclick="Expand(this)">
+
+                </div>
+                
+                <div class="column">
+                    <img class="image"  src="l_7.jpg" onclick="Expand(this)">
+
+                </div>
+                
+                <div class="column">
+                    <img class="image" src="l_8.jpg" onclick="Expand(this)">
+
+                </div>
+                
+            </div>
+                
+                <div id="container">
+                    <span onclick="this.parentElement.style.display='none'" class="close">&times;</span>
+                <img id="expanded" width="96%">
+                </div>
+
+
+		</div>
+			
+    </div>
+        <div class="footer">
+        <p>Sponzoři:</p>
+        
+        <a href="https://www.radiobeat.cz/" target="_blank">
+            <img class="imgS" src="beat.jpeg"></a>
+        <a href="https://www.tvrebel.cz/" target="_blank">
+            <img class="imgS" src="rebel.png"></a>
+    </div>
+		
+      
+    </body>
+</html>

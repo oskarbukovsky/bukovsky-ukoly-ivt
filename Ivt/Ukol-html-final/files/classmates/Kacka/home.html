@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kyanidex</title>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" type="image/png" href="icon.png"/>
+		<link href="style_all.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+		<style>
+			.image{
+				float: right;
+				padding: 20px;
+			}
+			.text{
+  			  	display: inline-block;
+				padding-right: 30px;
+				padding-left: 20px;
+			}
+			#text1{
+			    width: 55%;
+			}
+			#text2{
+			    width: 60%;
+			}
+			#text3{
+			    width: 50%;
+			}
+			button{
+				margin-left: 15%;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 20px;
+				border-radius: 8px;
+				border-style: none;
+				color:  rgb(255, 255, 255);
+				background-color:rgb(128, 17, 35);
+				padding: 10px;
+				box-shadow: 4px 4px 6px rgb(17, 17, 17);
+			}
+			#button1{
+				margin-top: 5%;
+			}
+			#button3{
+				margin-top: 12%;
+			}
+			.hidden{
+				padding-left: 20px;
+				display: none;
+			}
+			.short{
+   				 border-bottom-style: dotted;
+   				 border-bottom-width: 4px;
+   				 border-bottom-color: rgb(128, 17, 35);
+  				  padding-bottom: 10px;
+}
+			@media screen and (max-width: 700px){
+				.image{
+					width: 90%;
+				}
+				#text1{
+					width: 100%;
+				}
+				#text2{
+					width: 100%;
+				}
+				#text3{
+					width: 100%;
+				}
+				button{
+					margin-left: 35%;
+				}
+			}
+
+		</style>
+
+		<script>
+
+			function Laiho(){
+				document.getElementById("laiho").style.display = "inline-block";
+				document.getElementById("button1").style.display = "none";
+			}
+			function Marko(){
+				document.getElementById("marko").style.display = "inline-block";
+				document.getElementById("button2").style.display = "none";
+			}
+			function Ghost(){
+				document.getElementById("ghost").style.display = "inline-block";
+				document.getElementById("button3").style.display = "none";
+			}
+		</script>
+    </head>
+    <body>
+		
+		<div >
+			<img class="header" src="header.png" alt="Kyanidex">
+		</div>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            </li>
+            <li class="dropdown">
+				<a href="brezen.html">Kalendář akcí</a>
+				<div class="dropdown-list">
+					<a href="brezen.html">Březen</a>
+					<a href="duben.html">Duben</a>
+					<a href="kveten.html">Květen</a>
+				</div>
+            </li>
+            <li><a href="info.html">Info</a></li>
+            <li class="dropdown">
+                <a href="galerie.html">Galerie</a>
+                <div class="dropdown-list">
+					<a href="report.html">Reportáže</a>
+					<a href="wallpapers.html">Wallpapers</a>
+				</div>
+
+        </ul>
+
+		
+
+		<div class="row">
+			<div class="column main">
+				<div id="firstpost" class="post"> 
+
+					<h2 class="headline">Zemřel Alexi Laiho</h2>
+
+					<p id="text1" class="text">Že si smrtka bere muzikanty, kteří v šedesátých<br>a sedmdesátých letech patřili k průkopníkům
+						rockové muziky, s tím je třeba v novém miléniu počítat. Na sklonku loňského roku si však
+						přišla<br>i pro muže, který byl na odchod na druhý břeh až příliš mlád. Začátkem ledna se objevila
+						zpráva, že ve věku pouhých 41 let zemřel Alexi Laiho, kytarista a kapelník CHILDREN OF BODOM.
+					</p>
+					
+					<img  class="image" src="alexi_laiho.jpg" alt="Alexi Laiho" width="45%" >
+					
+					<button id="button1" onclick="Laiho()">Celý článek</button>
+
+					<p id="laiho" class="hidden">Začátkem roku 2021 protnul sevření neutuchající pandemické křeče blesk. Tak zčistajasna přiletěla zpráva
+						o smrti Alexiho Laiha, zakladatele CHILDREN OF BODOM, temného básníka death metalu a nezkrotného rošťáka,
+						který ochutnal svět plnými doušky. Konkrétní datum úmrtí ani jeho příčinna oficiálně zveřejněny nebyly,
+						ve vyjádření managmentu stijí jen to, že se Laiho "v posledních letech potýkal s dlouhodobými zdravotními
+						problémy.<br>
+						Vesmír rockové kytary přišel rázem o jednu z klíčových postav uplynulého čtvrtstoletí. Finský virtuos, 
+						který bojoval s démony v textech i vlastním životě, odešel příliš brzy. Jeho věčně trpící duše však našla
+						svůj klid. Bohužel právě ve chvíli, kdy se nadechoval k další muzikantské etapě. Byla by úspěšná jako ty předešlé?
+						Odpovědi už se nedočkáme, můžeme se jen ohlédnout zpět po životní stezce umělce, který byl jedním slovem výjimečný.
+						V pozitivním i negativním směru.</p>
+
+				</div>
+				<div  class="post">
+					<h2 class="headline">Marko Hietala končí v Nightwish</h2>
+
+					<p id="text2"class="text">Dvacet let a dost. Marko Hietala se rozhodl opustit NIGHTWISH, v nichž v roce 201 nahradil
+						problémového baskytaristu Samiho Vänsku. Oblíbenec snad všech fanoušků finských symfoniků životní rozhodnutí
+						oznámil krátce před svými lednovými pětapadesátými narozeninami. A nejde jen o kapelu, Hietala se prý kompletně
+						stahuje z veřejného života. 
+					</p>
+
+					<img  class="image" src="marko_hietala.jpg" alt="Marko Hietala" width="40%" >
+				
+					<button id="button2" onclick="Marko()">Celý článek</button>
+
+					<p id="marko" class="hidden">Životní styl rockového muzikanta mu už prý několik let nedává smysl, uvedl hned
+						na úvod svého prohlášení.Hietala se nechal slyšet, že je vyčerpaný a potřebuje novou motivaci:
+						„Jsem nešťastný ze stavu hudebního byznysu. Loňský rok mě přinutil si sednout a přemýšlet. Rozhodl jsem se,
+						že tento rok budu mimo. Budu hledat důvody, proč pokračovat dál, protože současný stav jen prohluboval
+						moje deprese, a nepřímo tak ohrožoval moji rodinu. Nechci tím ale říct, že končím s hudbou definitivně.
+						Je mi líto, že svým rozhodnutím přidělám Tuomasovi starosti,“ uvedl Hietala, jehož krok poněkud komplikuje
+						nadcházející turné NIGHTWISH, i další budoucnost formace.<br>
+						Kapela se v tiskovém prohlášení nechala slyšet, že na místo Hietaly nastoupí prozatím hostující baskytarista.
+						Vzhledem k tomu, že Marko měl na starosti také vokály, nebude hledání náhrady vůbec snadné.</p>
+
+				</div>
+				<div  class="post">
+					<h2 class="headline">Ghost prohráli spor s výrobcem vodky</h2>
+
+					<p id="text3"class="text">Zdál se to být předem prohraný boj. Kapela GHOST počátkem loňského roku zažalovala
+						z důvodu porušení práv k ochraným známkám britského výrobce vodky, která nese stejné jméno jako jejich 
+						gin. 
+					</p>
+
+					<img  class="image" src="ghost.jpg_large" alt="Ghost vodka" width="50%" >
+				
+					<button id="button3" onclick="Ghost()">Celý článek</button>
+
+					<p id="ghost" class="hidden">Nejvíce ublíženým se v kauze už od počátku cítil frontman Tobias Forge, který se pustil
+						do křížku s ředitelem společnosti "Ghost Drinks" Ry Leonem. Ten oponoval, že jeho "Ghost Vodku" vymysleli 
+						už v roce 2013, o dva roky dříve než se dostala na trh, a od počátku nebylo rozhodně jejich záměrem přihřát si 
+						polívčičku na tehdy už věhlasné kapele. "Když jsme začínali, ani jsme neměli potuchy o nějaké kapele," tvrdí Leon.
+						"Měl by se držet muziky. Když se podívám do minulosti, jak zametl se svými spoluhráči, tak nějak mi to k němu
+						sedí. Asi nemá problém jít ani po malém nezávislém byznysu." Soud nakonec dal Leonovi za pravdu. Forgeho společnost
+						sice zaregistrovala ochrannou známku pro alkoholické nápoje již v roce 2013, ale během zákonem stanovené lhůty
+						5 let pro její použití jí Forge nevyužil. Naproti tomu "Ghost Vodka" byla uvedena na trh v dubnu 2015. Jestli
+						problém nebude trochu jinde. Forge oslovil výrobce lihovin v roce 2016 ke spolupráci, ale firma odmítla. Že by
+						uražená ješitnost?</p>
+
+				</div>
+			</div>
+
+			<div class="column side">
+				<div class="news">
+					
+					<h3>Novinky</h3>
+					
+					<p class="short">
+						SEPULTURA behěm karantény rozjela na platformě YouTube serii SepulQuarta, v rámci které
+						zodpovídala dotazy fanoušků, hovořila s kolegy z branže a také s nimi jamovala. Celkem
+						vzniklo 28 skladeb, které kapela hodlá vydat na CD.
+					</p>
+
+					<p class="short">
+						Powermetalový gang ORDEN OGAN z Německa připravil pro své fanoušky nové album s názvem „Final Days“.
+						Ačkoliv se novinka věnuje především problematice moderních technologií a vesmíru, kapela na
+						chystaném DVD oprášila pistolnické kolty
+					</p>
+
+					<p class="short">
+						Tony Iommi, ktarová legenda neméně proslulé kapely BLACK SABBATH dostala nedávno svou dávku vakcíny proti covidu-19. 
+						Po její aplikaci se prý slavný britský hudebník cítí skvěle, a spadl mu kámen ze srdce.
+					</p>
+
+					<p class="short">
+						Kučeravý rockový démon Dee Snider se v pandemickém lockdownu nezastavil, a dal do kupy svoje další autorské album. 
+						Jako titul novinky zvolil název „Leave a Scar“, a podle svých slov napěchoval desku velice tvrdým materiálem.
+					</p>
+
+					<p class="short">Německá blackened deathmetalová grupa kráčející ve stopách legend DISSECTION nebo NECROPHOBIC připravila 
+						reedici svých první tří alb. Čerstvým želízkem v ohni je pak live video „Night Eternal“.
+					</p>
+
+				</div>
+			</div>
+			
+		</div>
+			<div class="footer">
+			<p>Sponzoři:</p>
+			
+			<a href="https://www.radiobeat.cz/" target="_blank">
+				<img class="imgS" src="beat.jpeg"></a>
+			<a href="https://www.tvrebel.cz/" target="_blank">
+				<img class="imgS" src="rebel.png"></a>
+		</div>
+
+    </body>
+</html>

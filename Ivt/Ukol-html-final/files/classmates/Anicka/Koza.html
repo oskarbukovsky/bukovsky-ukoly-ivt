@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Koza</title>
+        <link rel="stylesheet" href="Style.css">
+        <script>
+            function getMain(){
+                document.getElementById("Koza").style.visibility= "visible";
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a href="Babiččiny vzpomínky.html">Domů</a></li>
+            <li><a href="Úvodem.html">Úvodem</a></li>
+            <li class="dropdown">
+                <a href="Vzpomínky.html">Vzpomínky</a>
+                <ul class="dropdown-content">
+                    <li><a href="Koza.html">Koza</a></li>
+                    <li><a href="Nezdvořák.html">Nezdvořák</a></li>
+                    <li><a href="Krkonoše.html">Krkonoše</a></li>
+                    <li><a href="Bohouš a svině.html">Bohouš a svině</a></li>
+                </ul>
+            </li>           
+            <li class="dropdown">
+                 <a href="Archiv.html">Archiv</a>
+                 <ul class="dropdown-content" id="Archiv">
+                     <li><a href="2021.html">2021</a></li>
+                </ul>
+            </li>
+            <li><a href="Kontakt.html">Kontakt</a></li>
+        </ul>
+        <div class="header">
+            <svg>
+                <path d="m10 70 a400, 400 0 0 1 280,00" id=path style=opacity:0 />
+                <text><textPath xlink:href=#path>
+                    Babiččiny vzpomínky
+                </textPath></text>
+            </svg>
+        </div>
+        <div class="row">
+            <div class="column side">
+                <img class="Pictures" src="Pírko s ptáčky.png" alt="Pírko s ptáčky" width="350px">
+            </div>
+            <div class="column main">
+                <button onclick="getMain()">Klik</button> 
+                <div id="Koza">
+                    <h1>Koza</h1>
+                    <p>Tento příběh se odehrává v době, kdy ještě babička chodila na osmiletou
+                        základní školu, bydlela v Dolní Čermné a z pěti dětí vyhlášeného krejčího
+                        byla nejstarší.</p>
+                    <p>Tak se jednou stalo, že její rodiče odjeli pryč a všechny práce okolo
+                        domácnosti musela zvládnout babička. Tedy včetně podojení kozy. Její maminka
+                        jí jako obvykle vůbec neřekla, co a jak je potřeba. Věděla, že Anča si se vším
+                        poradí.</p>
+                    <p>Tak šla babička v nepřítomnosti rodičů podojit kozu. Jenže ouha! Jakmile se usadila
+                        na stoličku, připravila si konev na dojení a jemně se dotkla vemene, koza začala 
+                        vyvádět! Tak přemýšlela, co dělá špatně, ale nevěděla a kozu bylo třeba podojit,
+                        aby se jí neudělal zánět. Pokus tedy párkrát opakovala, ale bohužel, bez úspěchu.
+                    </p>
+                    <p>Už to chtěla vzdát, když tu si vzpomněla, že její maminka nosí vždy červený šátek a
+                       černý plášť, když jde dojit kozu. Tak si přes sebe přehodila plášť a uvázala šátek
+                       a šla znovu s kozou zkusit štěstí. Tentokrát stála koza jako přibitá až tomu babička
+                       nemohla uvěřit.</p>
+                    <p>Zvláštní příhoda, nemyslíte? Tuhle jsem měla vždy nejraději, asi, protože jako
+                       malá jsem babičku obdivovala, že se ničeho nebála a opravdu si vždy se vším poradila.</p>
+                </div>
+            </div>
+            <div class="column side">
+                <img class="Pictures" src="Pírko s ptáčky2.png" alt="Pírko s ptáčky" width="350px">
+            </div>  
+        </div>
+        <div class="footer">
+            <p>Stránky byly vytvořeny mou maličkostí. Děkuji za vaši návštěvu.</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Koblihárna</title>
+    <script>
+        var aktualne = 0;
+		var galerie = ["cokoladovy.jpg", "jahodovy.jpg", "boruvkovy.jpg", "bily.jpg", "jablecny.jpg", "oreovy.jpg"];
+        var galerie2 = ["Čokoládový donut", "Jahodový donut", "Borůvkový donut", "Bílý donut", "Jablečný donut", "Oreový donut"];
+
+		function Predchozi() {
+			aktualne -= 1;
+			if(aktualne == -1) {
+				aktualne = 5;
+			}
+			document.getElementById("obraz").src=galerie[aktualne];
+            document.getElementById("nazev_donatu").innerHTML = galerie2[aktualne];
+		}
+
+		function Dalsi() {
+			aktualne += 1;
+			aktualne = aktualne%6;
+			document.getElementById("obraz").src=galerie[aktualne];
+            document.getElementById("nazev_donatu").innerHTML = galerie2[aktualne];
+		}
+    </script>
+    <link rel="stylesheet" href="rozlozeni.style.css">
+    <link rel="shortcut icon" type="image/svg+xml" href="favicon.png">
+    <style>
+        #obsah {
+            max-width: 50%;
+            padding: 10px;
+            margin-left: 25%;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            text-align: center;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="hlavicka">
+        <h1>Koblihy tety Liběny</h1>
+    </div>
+    
+    <div class="menu">
+        <ul>
+                <li><a href="hlavni_stranka.html">Hlavní Stránka</a></li>
+                <li><a href="nabidka.html">Nabídka</a></li>
+                <li><a href="cenik.html">Ceník</a></li>
+                <li class="dropdown">
+                    <a href="objednavky.html">Ostatní</a>
+                    <div class=dropdown-obsah>
+                        <a href="kupon.html">Slevový kupon</a>
+                        <a href="objednavky.html">Objednávky</a>
+                    </div>
+                </li>
+            </ul>
+    </div>
+    
+    <div id="obsah">
+        <h2 id="nazev_donatu">
+            Čokoládový donut
+        </h2>
+        <img id="obraz" src="cokoladovy.jpg" alt="1" height=300>
+		<div>
+			<button id="predchozi" onclick="Predchozi()">Předchozí</button>
+			<button id="dalsi" onclick="Dalsi()">Další</button>
+		</div>
+    </div>
+
+    <div class="zapati">
+        <h3>Kontakt:</h3>
+        <p>tel.: +420 730 522 283</p>
+        <p>email: press@mvcr.cz</p>
+    </div>
+    
+
+</body>
+
+</html>

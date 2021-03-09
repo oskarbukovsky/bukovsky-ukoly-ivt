@@ -1,0 +1,45 @@
+
+body{
+    background-color: rgb(114, 0, 0);
+}
+
+#Mec{
+    /*přidej míči skákací animaci opakující se nekonečněkrát*/
+    /*pro plynulost použij animation-direction: alterate; */
+    position:fixed;
+    animation-name:skakej;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-duration: 1s;
+    height:30%;
+    width:30%;
+bottom:50%;
+left:45%;
+
+}
+@keyframes skakej{
+    /*posuň (traslate) míč pouze nahoru a dolů: změna pouze y-ová osa, x=0*/
+    /*míč posuneš vzhůru pokud y-ová hodnota bude záporná*/
+    /*translate(x,y)*/
+    from{
+        transform: translate(20vh,0);
+    }
+    to{
+        transform: translate(-90vh,0);
+    }
+  
+}
+#Leopardon{
+    width:30%;
+    height:100vh;
+    position:fixed;
+    right:0%;
+    top:0%;
+}
+.Leopardon{
+    width:30%;
+    height:100vh;
+    position:fixed;
+    left:0%;
+    top:0%;
+}

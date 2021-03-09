@@ -1,0 +1,188 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Jakub Jedlička</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }      
+            body{
+                background-image: url("kostel_pozadi.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+
+            .header{
+                text-align: center;
+                
+            }  
+            /*nav. menu*/
+            ul{
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px;
+                background-color: rgb(195, 0, 255);
+                width: 100%;
+                position: fixed;
+                left: 0;
+                /*height: 100%;*/
+            }
+            li{
+                float: left;
+            }
+            li a{
+                display: inline-block;
+                /*max-width: 100px;*/
+                padding: 10px;
+                color: rgb(255, 188, 13);
+                text-decoration: none;
+            }
+            li a:hover{
+                background-color: rgba(12, 87, 232, 91);
+            }
+            .dropdown{
+                position: relative;
+            }
+            .dropdown-content{
+                position: absolute;
+                display: none;
+                z-index: 1;
+                /*max-width: 160px;*/
+                background-color: rgb(97, 255, 183);
+                box-shadow: 0px 100px 100px 0px rgba(0, 0, 0, 0);
+            }
+            .dropdown-content a:hover{
+                background-color: rgba(97, 113, 255, 0.89);
+            }
+            .dropdown:hover .dropdown-content{
+                display: block;
+            }
+        
+            
+            .row {
+                margin: 20px;
+                display: table;
+            }
+            
+            .column{
+                float:left;
+                /*margin: 20px;*/
+               /* background-color: darkgreen;*/
+            }
+            .column.left{
+                padding: 20px;
+                width: 60%;
+            }
+            .column.right{
+                padding: 20px;
+                width: 40%;
+            }
+            .column.right img{
+                max-width: 90%;
+            }
+            #picture{
+                max-width: 90%;
+            }
+            @media screen and (max-width:500px){
+                .column.left, .column.right{
+                    width: 100%;
+                }
+            }          
+
+            .footer{
+                width:100%;
+                text-align: center;
+                background-color: brown;
+                color: rgb(80, 226, 43);                
+            }
+            .footer a{
+                color: rgb(80, 226, 43);
+            }
+
+        </style>
+        <script>
+                
+                function get(){
+                    document.getElementById("picture").src="https://pizzaseo.com/sk/blog/files/Viac-ne%C5%BE-slov%C3%A1-%E2%80%93-v%C5%A1etky-druhy-AdWords-reklamy-od-Google-Pizza-SEO-blog.jpg" 
+                    
+                }
+                function first(){                    
+                    document.getElementById("picture").src="https://mediagurucdn.azureedge.net/wp-content/uploads/2012/01/vajicko_reklama1.png" ;
+                            
+                    
+                }
+                                      
+        </script>
+    </head>
+    <body>           
+        <div class="header">
+            <div><h2>Vlastní stránka o mě</h2></div>
+            <div><p>Podívejme se na mě</p></div>
+
+            <ul>
+            <li><a>Hlavní strana</a></li>
+            <li><a href ="Tabulka.html" >Tabulka</a> </li>            
+            <li class="dropdown">
+                <a>"Dropdown" nabídka</a>
+                <div class="dropdown-content">
+                   <a>To zní, jako kdyby</a>
+                   <a>jsi právě upustil/a nabídku dolů.</a>
+                   <a>Avšak tato nabídka se obyčejnému člověku bude</a>
+                   <a>dle mého názoru chytat zpět těžko.</a>
+                </div>
+            </li>
+            <li><a>Ovšem hodně štěstí při chytání ti přeji.</a> </li>
+            </ul>
+        </div>
+
+        
+        <div class="row">
+            <div class="column">
+                <div class="column left">
+                    <div>
+                        <h3>Stručný popis</h3>
+                        <p>Jsem křesťan.</p>
+                        
+                    </div>
+                    <div>
+                        <h3>Co rád dělám</h3>
+                        <p>Je toho hodně. <br>
+                            Nejradši však jsem v lásce boží a od toho se odvíjí vše, co tvořím nebo dělám. Ku příkladu jsem rád s ostatními, většinou jim rád pomáhám a jsem šťastný, když oni jsou šťastní.
+
+                        </p>
+                       
+                    </div>
+                    <div>
+                        <h3>Slovo na závěr</h3>
+                        <p>Vidím, že tato stránka za mnoho nestojí. <br>
+                        I tak bych zde rád napsal, že vám všem přeji přijetí lásky Kristovy. </p>
+                    </div>
+                </div>
+
+                <div class="column right">
+                    <h3>Reklama</h3>
+                    <img id="picture" src="https://mediagurucdn.azureedge.net/wp-content/uploads/2012/01/vajicko_reklama1.png" 
+                    alt="Československá reklama ze 70. let.">
+                    
+                    <button onclick="get()">
+                        Jinačí reklama (2.)
+                    </button>
+                    <button onclick="first()">
+                        Tamta reklama (1.)
+                    </button>
+                </div>
+            
+            </div>
+
+        </div>
+        <div class="footer">  
+            <p>Zde jsou odkazy na nějaké jiné stránky, které jsem vytvářel:</p>
+            <a href="opravdovy_fotbalista.html">SVG grafika (fotbalista)</a><br>
+            <a href="JedenDenPrazdnin.html">Úkol, kde má být popsaný jeden den prázdnin, ovšem dá se to brát i za víc dní.</a><br>
+            <a href="navodNaSkrin.html">Návod na sestavení skříně</a><br>
+        </div>
+        
+</body>
+
+</html> 

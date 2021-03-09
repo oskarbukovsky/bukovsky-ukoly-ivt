@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Svět fléten</title>
+        <link rel="shortcut icon" type="image/png" href="">
+        <link rel="stylesheet" href="flute.css">
+        <script>
+            var cit1="Bez hudby by byl život chybou/Friedrich Nietzsche";
+            var cit2="Hudba dokáže vyjádřit to, na co už samotná slova nestačí/Johny Depp";
+            var cit3="Hudba uvolňuje ducha a okřídluje myšlenky/Friedrich Nietzsche";
+            var cit4="Hudba v duši může být slyšena vesmírem/Ralph Smart";
+            var cit5="Kdo chce pochopit hudbu, nepotřebuje ani tak sluch, jako srdce/Jiří Mahen";
+            var cit6="Hudba je lékem na trápení duše/Quintus Flaccus Horatius";
+            var cit7="Hudba je univerzální řeč lidstva/Longfellow Henry Wadsworth";
+            var num=1;
+            function napisCitat(){
+                switch (num){
+                    case 1: 
+                    document.getElementById("citat").innerHTML=cit1;
+                    break;
+                    case 2: 
+                    document.getElementById("citat").innerHTML=cit2;
+                    break;
+                    case 3: 
+                    document.getElementById("citat").innerHTML=cit3;
+                    break;
+                    case 4: 
+                    document.getElementById("citat").innerHTML=cit4;
+                    break;
+                    case 5: 
+                    document.getElementById("citat").innerHTML=cit5;
+                    break;
+                    case 6: 
+                    document.getElementById("citat").innerHTML=cit6;
+                    break;
+                    case 7: 
+                    document.getElementById("citat").innerHTML=cit7;
+                    break;
+                }
+                num++;
+                if (num==7){
+                    num=1;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>SVĚT FLÉTEN</h1>
+            <h3>Vše, co byste o flétnách chtěli vědět</h3>
+        </div>
+        <div class="menu">
+            <ul>
+                <li id="drop"><a href="Fletny.html">ÚVOD</a>
+                    
+                <div><a id="dropdown" href="Fletny.html">CITÁTY</a></div>
+                
+                </li>
+                <li><a href="stavba.html">STAVBA FLÉTEN</a></li>
+                <li><a href="Druhy.html">DRUHY FLÉTEN</a></li>
+                <li><a href="VÝROBCI.html">VÝROBCI FLÉTEN</a></li>
+                <li><a href="fletniste.html">SLAVNÍ FLÉTENISTÉ</a></li>
+                <li><a href="LITERATURA.html">FLÉTNOVÁ LITERATURA</a></li>
+            </ul>
+        </div>
+        <div id="uvod">
+            <h4>Vítejte na mém webu!</h4>
+            <p>Doufám, že zde najdete, co hledáte!</p>
+        </div>
+        <div class="center">
+            <img src="music.png" alt="#######">
+            <h3 id="citat">___</h3>
+            <button onclick="napisCitat()"><img id="cudlik" src="cudlik.png" alt="klikni_pro_dalsi_citat"></button>
+        </div>
+
+        
+        <div class="footer">
+            <h3>DĚKUJI VÁM ZA NAVŠTÍVENÍ MOJÍ STRÁNKY</h3>
+        </div>
+    </body>
+
+
+</html>

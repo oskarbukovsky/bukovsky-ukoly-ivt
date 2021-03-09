@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Messenger</title>
+        <style>
+            .zprava{
+                border-radius:20px;
+                padding: 10px;
+                display: inline-block;
+                max-width: 75%;
+                color: aqua;
+                margin: 5px;
+            }
+            .vlevo{
+                background-color: purple;
+            }
+            .vpravo{
+                background-color: blueviolet;
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <p> class=".zpravavlevo"> <img src="tomas.PNG" alt=""> </p>
+
+
+    </body>
+</html>
+
+

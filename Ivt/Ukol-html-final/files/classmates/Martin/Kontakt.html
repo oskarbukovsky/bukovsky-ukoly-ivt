@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>obsideri et constructione s.r.o.</title>
+        <link rel="shortcut icon" type="image/png" href="Tata_logo.png">
+        <style>
+            body{
+                background-image:url("pozadí3.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin: 0;
+            }
+            h1{
+                display: inline-block;
+                margin: 10px;
+                font-family: courier;
+                float: right;
+                
+            }
+            #hlavicka{
+                margin: 15px 15px 15px 115px;
+                display: inline-block;
+            }
+			ul {
+				list-style-type: none;
+                margin: 0;
+				padding:0;
+                width: 100px;
+                height: 100%;
+				position: fixed;
+				top:0;
+				background-color: #E43D40;
+			}
+			li a{
+				display: block;
+				padding: 10px;
+				text-decoration: none;
+				color:white;
+				font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			}
+			li a:hover{
+				background-color: #F37970;
+			}
+			li.dropdown{
+                position: relative;
+			}
+			.dropdown-content{
+				display: none;
+                position: absolute;
+                width: 200%;
+                background-color: #E43D40;
+				box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+			}
+			.dropdown-content a:hover{
+                background-color: #F37970;
+			}
+			.dropdown:hover .dropdown-content{ 
+                display: block;
+                margin-left: 75%;
+
+			} 
+            h2{
+                margin-top: 60px;
+                margin-left: 150px;
+                padding: 5px;
+                background-color: black;
+                color: white;
+                max-width: 100px;
+                border-radius: 25px;
+                text-align: center;
+            }
+            #kontakt{
+                max-width:580px;
+                background-color: #f85c71e5;
+                padding: 10px;
+                margin-left: 150px;
+                margin-top: 10px;
+                border-radius: 25px;
+                margin-bottom: 100px;
+            }
+		</style>
+    </head>
+    <body>
+        <div id="hlavicka">
+        <img src="Tata_logo.png" alt="logo" width="50px">
+        <h1>obsideri et constructione s.r.o.</h1>
+        </div>
+        <ul>
+			<li><a href="Hlavní.html">Hlavní stránka</a></li>
+			<li><a href="Služby.html">Služby</a></li>
+			<li><a href="Kontakt.html">Kontakty</a></li>
+			<li class="dropdown"> 
+				<a>Reference</a>
+				<div class="dropdown-content"> 
+					<a href="Stavby které bychom dělat chtěli ale zatím nedělali.html">Stavby ke kterým se chceme dopracovat</a>
+					<a href="Stavby které děláme a na kterých jsme se podíleli.html">Stavby které děláme a na kterých jsme se podíleli</a>
+					<a href="Stavby které neděláme a na kterých jsme se nepodíleli.html">Stavby které neděláme a na kterých jsme se nepodíleli</a>
+			</li>
+            <li><a href="Tabulka.html">Tabulka</a></li>
+		</ul>
+        <hr>
+        <h2>Kontakty</h2>
+        <div id = "kontakt">
+            <p>
+                Sídlo:<a href="https://www.google.cz/maps/place/Malostransk%C3%A9+n%C3%A1m.+271%2F2,+118+00+Mal%C3%A1+Strana/@50.0873195,14.403519,17z/data=!4m5!3m4!1s0x470b94e23189accb:0xe01263d1d45bcc69!8m2!3d50.0875605!4d14.4042378"> Malostranské náměstí 271/2, Malá Strana, 118 00 Praha 1</a> <br>
+                <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=878331&typ=PLATNY">IČ:03507131</a>, DIČ:CZ03507131<br>
+                společnost je zapsaná v OR vedeného u Městského soudu v Praze oddíl C vložka 232900<br>
+                společnost je plátcem DPH<br>
+                <br>
+                kontakt na jednatele společnosti<br>
+                Ing. Robert Höhne <br>
+                +420 777 756 051<br>
+                robert@hohne.cz<br>
+            </p>
+        </div>
+    </body>
+</html>

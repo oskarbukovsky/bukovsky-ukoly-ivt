@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+          <title>Fotky</title>
+          <style>
+              body{
+                margin: 0;
+                  background-image: url('background\ louband.png');
+                  background-repeat: no-repeat;
+                  background-attachment: fixed;
+                  background-size: cover;
+              }
+              .fotka{
+                display:table;
+              }
+              ul{
+                  list-style-type: none;
+                  margin: 0;
+                  padding: 0;
+                  background-color: black;
+                  width: 150px;
+                  position: fixed;
+                  left: 0;
+                  height:65%;
+
+              }
+              li a{
+                  display: block;
+                  padding: 10px;
+                  color:white;
+                  text-decoration: none;
+              }
+              li a:hover{
+                  background-color: rgb(51, 50, 50);
+              }
+              .hlavička{
+            width: 100%;
+            background-color: black;
+            text-align: center;
+            top: 0px;
+            color:white;
+             }
+
+             .dropdown{
+                position: relative;
+            }
+
+            .dropdown-content{
+                position: absolute;
+                display: none;
+                z-index: 1;
+                min-width: 160px;
+                background-color:rgb(22, 13, 13);
+                box-shadow: 0px 8px 16px 0px rgb(2, 2, 2);
+            }
+            .dropdown-content a:hover{
+                background-color: rgb(26, 6, 6);
+            }
+            .dropdown:hover .dropdown-content{
+                display: block;
+            }
+
+             .dokument{
+                float: right;
+                width: 85%;      
+                margin-bottom: 100px;   
+                max-width: 90%;     
+             } 
+
+            .fotka{
+              padding: 10px 300px 10px 200px;
+              border:solid black;
+              background-color: rgba(59, 8, 70, 0.5);
+              max-width: 90%;
+            }
+
+            @media screen and (max-width: 500px) {
+                .fotka{
+                width: 100%;
+                }
+            }
+             
+            .zápatí{
+            width: 100%;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            bottom: 0px;
+            background-color: black;
+            position: fixed;
+             }
+             
+          </style>
+    </head>
+    <body>
+        <div class="hlavička">
+            <h1> <img   src="louband znak.png" width="70"> Louband - Fotky</h1>
+         </div>
+        
+         <ul>
+            <li><a href="louband.html">Úvod</a></li>
+            <li><a href="členové kapely.html">Členové kapely</a></li>
+            <li class="dropdown">
+                <a>Události</a>
+                <div class="dropdown-content">
+                    <a href="koncerty.html">Koncerty</a>
+                    <a href="fotky louband.html">Fotky</a>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="dokument">
+        <img class="fotka" src="louband znak.png" alt="znak" width="500">
+        <img class="fotka" src="honza koncert.jpg" alt="honza koncert" width="500">
+        <img class="fotka" src="koncert 1.jpg" alt="koncert" width="500">
+        <img class="fotka" src="koncert 2.jpg" alt="koncert" width="500">
+        <img class="fotka" src="LOUBAND TÁBOR.png" alt="koncert" width="500">
+        <img class="fotka" src="louband táb. fotky2.jpg" alt="koncert" width="500">
+        <img class="fotka" src="louband táb. fotky1.jpg" alt="koncert" width="500">
+       
+        <video class="fotka" width="500" controls>
+            <source src="get lucky.mp4" type="video/mp4">
+        </video>
+        <video class="fotka" width="500" controls>
+            <source src="killer queen.mp4" type="video/mp4">
+        </video>
+        </div>
+        
+
+        <div class="zápatí">
+            <h3>Instagram naší kapely: </h3>
+            <a href="https://www.instagram.com/louband3/"><img src="instagram.png" alt="instagram" width="30px"> </a>
+         </div>
+        
+        
+    </body>
+</html>

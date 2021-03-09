@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>2021</title>
+        <link rel="stylesheet" href="Style.css">
+        <script>
+            function getMain(){
+                document.getElementById("Rok").style.visibility= "visible";
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a href="Babiččiny vzpomínky.html">Domů</a></li>
+            <li><a href="Úvodem.html">Úvodem</a></li>
+            <li class="dropdown">
+                <a href="Vzpomínky.html">Vzpomínky</a>
+                <ul class="dropdown-content">
+                    <li><a href="Koza.html">Koza</a></li>
+                    <li><a href="Nezdvořák.html">Nezdvořák</a></li>
+                    <li><a href="Krkonoše.html">Krkonoše</a></li>
+                    <li><a href="Bohouš a svině.html">Bohouš a svině</a></li>
+                </ul>
+            </li>           
+            <li class="dropdown">
+                 <a href="Archiv.html">Archiv</a>
+                 <ul class="dropdown-content" id="Archiv">
+                     <li><a href="2021.html">2021</a></li>
+                </ul>
+            </li>
+            <li><a href="Kontakt.html">Kontakt</a></li>
+        </ul>
+        <div class="header">
+            <svg>
+                <path d="m10 70 a400, 400 0 0 1 280,00" id=path style=opacity:0 />
+                <text><textPath xlink:href=#path>
+                    Babiččiny vzpomínky
+                </textPath></text>
+            </svg>
+        </div>
+        <div class="row">
+            <div class="column side">
+                <img class="Pictures" src="Pírko s ptáčky.png" alt="Pírko s ptáčky" width="350px">
+            </div>
+            <div class="column main">
+                <button onclick="getMain()">Klik</button> 
+                <div id="Rok">
+                    <table>
+                        <tr>
+                            <th>Měsíc</th>
+                            <th>Název vzpomínky</th>
+                        </tr>
+                        <tr>
+                            <td>březen</td>
+                            <td>
+                                <a href="Koza.html">Koza</a><br>
+                                <a href="Nezdvořák.html">Nezdvořák</a><br>
+                                <a href="Krkonoše.html">Krkonoše</a><br>
+                                <a href="Bohouš a svině.html">Bohouš a svině</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+            </div>
+            <div class="column side">
+                <img class="Pictures" src="Pírko s ptáčky2.png" alt="Pírko s ptáčky" width="350px">
+            </div>  
+        </div>
+        <div class="footer">
+            <p>Stránky byly vytvořeny mou maličkostí. Děkuji za vaši návštěvu.</p>
+        </div>
+    </body>
+</html>

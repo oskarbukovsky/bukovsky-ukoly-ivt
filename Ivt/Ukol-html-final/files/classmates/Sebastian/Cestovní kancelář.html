@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Fridrich Tours</title>
+    <link rel="shortcut icon" type="image/svg+xml" href="globe.svg" />
+    <link rel="stylesheet" href="design.css">
+    <script>
+        var image = new Array(13)
+        var text = ["Zakynthos", "Egypt", "Tunisko", "Rhodos", "Korfu", "Dominikánská republika", "Španělsko","Thajsko", "Indie", "Srí Lanka", "Thajsko"];
+        image[0] = "Zakynthos.jpg"
+        image[1] = "Pyramidy.jpg"
+        image[2] = "Tunisia.jpg"
+        image[3] = "Rhodos.jpg"
+        image[4] = "Korfu.jpg"
+        image[5] = "Dominicana.jpg"
+        image[6] = "Spanelsko.jpg"
+        image[7] = "Thailand.jpg.jpg"
+        image[8] = "tajmahal.jpg"
+        image[9] = "sloni.jpg"
+        image[10] = "phuket.jpg"
+        var pozice = 0;
+        function Dalsi() {
+            pozice = pozice + 1
+            if (pozice == 11) {
+                pozice = 0;
+            }
+            document.getElementById("Thajsko").src = image[pozice]
+            document.getElementById("text").innerHTML = text[pozice]
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div class="header">
+
+        Fridrich Tours</div>
+    <ul>
+        <li class="dropdown">
+            <a href="Cestovní kancelář.html"><img src="globe.svg" height="20px" width="20px"></a>
+            </div>
+        <li class="dropdown">
+            <a href="LastMinute.html"><strong>Last Minute</strong> </a>
+            <div class="dropdown-content">
+                <a href="Egypt.html">Egypt</a>
+                <a href="Tunisko.html">Tunisko</a>
+                <a href="Recko.html">Řecko</a>
+                <a href="Spanelsko.html">Španělsko</a>
+            </div>
+
+        <li class="dropdown">
+            <a href="Exotika.html"><strong>Exotika</strong> </a>
+            <div class="dropdown-content">
+                <a href="Dominikana.html">Dominikánská republika</a>
+                <a href="Maledivy.html">Maledivy</a>
+                <a href="SriLanka.html">Sri Lanka</a>
+                <a href="SAE.html">Spojené arabské emiráty</a>
+            </div>
+        <li class="dropdown">
+            <a href="https://www.blue-style.cz/dulezite-informace/"><strong>Důležité informace</strong></a>
+            <div class="dropdown-content">
+                <a href="https://www.tripadvisor.cz">Recenze hotelů</a>
+                <a href="https://www.mzv.cz/jnp/">Ministerstvo zahraničí</a>
+                <a href="https://www.ervpojistovna.cz">Cestovní pojištění</a>
+            </div>
+            </div>
+        <li class="dropdown">
+            <a href="https://www.flightradar24.com/"><strong>S kým létáme?</strong></a>
+            <div class="dropdown-content">
+                <a href="https://www.emirates.com/cz/czech/">Emirates</a>
+                <a href="https://www.qatarairways.com/en/homepage.html?CID=DMTR655280">Qatar Airways</a>
+                <a href="https://www.smartwings.com">Smartwings</a>
+                <a
+                    href="https://www.klm.cz/?gclid=EAIaIQobChMIncT_6MSb7wIV5AWiAx1bUQJZEAAYASAAEgJA4PD_BwE&gclsrc=aw.ds">KLM</a>
+                <a href="https://flights.etihad.com/en/flights-from-czech-republic">Etihad Airways</a>
+                <a href="https://www.britishairways.com/travel/home/public/en_us/">British Airways</a>
+                <a
+                    href="https://wwws.airfrance.cz/?gclid=EAIaIQobChMIhqrcycSb7wIVEu7tCh2-IwE8EAAYASAAEgL2JPD_BwE&gclsrc=aw.ds">Air
+                    France</a>
+                <a
+                    href="https://www.iberia.com/cz/?language=en&gclid=EAIaIQobChMI6e3bnsOb7wIVDLbtCh3lLQw8EAAYASAAEgKKHPD_BwE">Iberia</a>
+            </div>
+            <li class="dropdown">
+                <a href="https://www.instagram.com/sebastianfridrich/?hl=cs"><strong>Kontakty</strong></a>
+                <div class="dropdown-content">
+                    <a href="https://www.instagram.com/sebastianfridrich/?hl=cs">Jednatel</a>
+                    <a href="https://iustitia.cz/">Právní zastoupení</a>
+                    <a href="https://www.fischer.cz/CKFischerWeb/media/Images/Soubory-PDF/PP-CK-DT1-2012_letecke-zajezdy.pdf">Pojistné podmínky</a>
+                    <a href="https://www.fischer.cz/podminky/reklamacni-rad">Reklamace</a>
+                </div>
+            </li>
+    </ul>
+
+    <div class="obsah">
+        <div class="sloupec bocni"><a href="https://www.extra.cz/celebrity"><strong>Kdo s námi cestuje?</strong></a><br>
+        <a href="https://www.ceskatelevize.cz/porady/1185966822-na-ceste/"><strong>Cestopisy</strong></a><br>
+        <a href="https://www.krasneplaze.cz/kdyz-relaxovani-na-krasne-plazi-omrzi-aneb-5-tipu-na-nejlepsi-vodni-sporty">
+        <strong>Vodní sporty</strong></a><br>
+        <a href="https://www.cestovinky.cz/clanek/nejkrasnejsi-plaze-sveta-hledejte-v-recku-i-na-opacne-strane-zemekoule"><strong>Nejkrásnější pláže světa</strong></a><br>
+        <a href="https://uzijemsi.cz/nekolik-padnych-argumentu-proc-pravidelne-jezdit-k-mori/"><strong>Proč jet k moři</strong></a><br>
+        <a href="https://www.instagram.com/sebastianfridrich/?hl=cs"><strong>Máte nějaký dotaz? Napište nám</strong></a><br>
+        </div>
+        <div class="sloupec hlavni">
+
+<h3>Akční nabídka</h3>
+
+
+            <table>
+                <tr>
+                    <th>Termín</th>
+                    <th>Destinace</th>
+                    <th>Hotel</th>
+                    <th>Cena za osobu</th>
+                    <th>Objednat</th>
+                </tr>
+                <tr>
+                    <td>12.3.2021-19.3.2021</td>
+                    <td><strong>Španělsko-Tenerife</strong></td>
+                    <td>Be Live Experience La Nina 4* / HB/ PRG/ QS</td>
+                    <td><b style="color: red;">17 990Kč</b></td><td><a
+                        href="https://www.fischer.cz/spanelsko/tenerife/costa-adeje/be-live-la-nina?TT=1&TO=4312&DD=2021-03-12&NN=7&RT=15&DP=4312&MT=2&DI=47&DS=1&GIATA=35498&RC=DR0ST0&TTM=1&TOM=4312&DF=2021-03-12|2021-03-19&ERM=1&ac1=2&kc1=0&ic1=0">Zde</a></td>
+                </tr>
+                <tr>
+                    <td>13.3.2021-20.3.2021</td>
+                    <td><strong>Spojené arabské emiráty</strong></td>
+                    <td>Hilton Ras Al Khaimah Resort & Spa 5*/ HB/ PRG/ QS</td>
+                    <td><b style="color: red;">20 430Kč</b></td><td><a
+                        href="https://www.fischer.cz/arabske-emiraty/arabske-emiraty/ras-al-khaimah/hilton-ras-al-khaimah-resort-a-spa?TT=1&TO=4312&DD=2021-03-13&NN=7&RT=15&DP=4312&MT=2&DI=47&DS=1&GIATA=77582&RC=DR0STQ&TTM=1&TOM=4312&DF=2021-03-13|2021-03-20&ERM=1&ac1=2&kc1=0&ic1=0">Zde</a></td>
+                </tr>
+                <tr>
+                    <td>13.3.2021-20.3.2021</td>
+                    <td><strong>Egypt-Hurghada</strong></td>
+                    <td>Hawaii Caesar palace 4*/ AI/ PRG/ QS</td>
+                    <td><b style="color: red;">12 990Kč</b></td><td><a
+                        href="https://www.eximtours.cz/egypt/hurghada/hurghada/hawaii-caesar-palace-egypt-2?DS=1024&GIATA=411448&HID=9198&MT=5&RT=15&NN=7&RD=2021-03-20&DD=2021-03-13&DP=4312&TO=4312&MNN=7&TT=1&PID=334962&DPR=EXIM%20TOURS&TTM=1&DF=2021-03-13|2021-03-20&ERM=0&NNM=7|8|9&ac1=2&kc1=0&ic1=0">Zde</a></td>
+                </tr>
+                <tr>
+                    <td>13.3.2021-20.3.2021</td>
+                    <td><strong>Egypt-Marsa Alam</strong></td>
+                    <td>Jaz Lamaya Resort 5*/ AI/ PRG/ QS</td>
+                    <td><b style="color: red;">20 590Kč</b></td><td><a
+                        href="https://www.eximtours.cz/egypt/hurghada/hurghada/hawaii-caesar-palace-egypt-2?DS=1024&GIATA=411448&HID=9198&MT=5&RT=15&NN=7&RD=2021-03-20&DD=2021-03-13&DP=4312&TO=4312&MNN=7&TT=1&PID=334962&DPR=EXIM%20TOURS&TTM=1&DF=2021-03-13|2021-03-20&ERM=0&NNM=7|8|9&ac1=2&kc1=0&ic1=0">Zde</a></td>
+                </tr>
+                <tr>
+                    <td>25.3.2021-4.4.2021</td>
+                    <td><strong>Dominikánská republika</strong></td>
+                    <td>Barcelo Bavare Palace 5*/ AI/ PRG/ AF</td>
+                    <td><b style="color: red;">41 990Kč</b></td><td><a href="https://www.eximtours.cz/dominikanska-republika/vychodni-pobrezi/playa-bavaro/barcelo-bavaro-palace?DS=1024&GIATA=247585&HID=9288&MT=5&RT=15&NN=9&RD=2021-04-04&DD=2021-03-25&DP=4312&TO=4312&MNN=9&TT=1&PID=333426&DPR=EXIM%20TOURS&TTM=1&DF=2021-03-25|2021-04-04&ERM=0&NNM=10|11|12|13|9&ac1=2&kc1=0&ic1=0">Zde</a></td>
+                </tr>
+                <tr>
+                    <td>29.4.2021-6.5.2021</td>
+                    <td><strong>Egypt- Sharm El Sheikh</strong></td>
+                    <td>Royal Monte Carlo Sharm Resort & Spa 5*/ ULTRA AI/ PRG/ QS</td>
+                    <td><b style="color: red;">26 290Kč</b></td><td><a href="https://www.eximtours.cz/egypt/sharm-el-sheikh/sharm-el-sheikh/royal-monte-carlo?DS=1024&GIATA=552462&HID=9734&MT=5&RT=15&NN=7&RD=2021-05-06&DD=2021-04-29&DP=4312&TO=4312&MNN=7&TT=1&PID=262569&DPR=EXIM%20TOURS&TTM=1&DF=2021-04-29|2021-05-06&ERM=0&NNM=7|8|9&ac1=2&kc1=0&ic1=0">Zde</a></td>
+                </tr>
+                <tr>
+                    <td>5.5.2021-12.5.2021</td>
+                    <td><strong>Tunisko-Djerba</strong></td>
+                    <td>Hotel Sidi Mansour 4*/ AI/ PRG/ QS</td>
+                    <td><b style="color: red;">13 190Kč</b></td><td><a href="https://www.blue-style.cz/tunisko/djerba/hotel-sidi-mansour/?depCity=2&arrCity=29&date=2021-05-05&duration=7&airline=SMARTWINGS&room1=1%7CSR%7CAI&">Zde</a></td>
+                </tr>
+                <tr>
+                    <td>24.6.2021-5.7.2021</td>
+                    <td><strong>Řecko-Korfu</strong></td>
+                    <td>Dassia Beach 2*/ BB/ PRG/ QS</td>
+                    <td><b style="color: red;">15 490Kč</b></td><td><a href="https://www.fischer.cz/recko/korfu/dassia/dasia-beach?TT=1&TO=2682&DD=2021-06-24&NN=11&RT=15&DP=2682&MT=1&DI=49&DS=1&GIATA=11147&RC=DR0ST0&TTM=1&TOM=2682&DF=2021-06-24|2021-07-05&ERM=0&NNM=7|8|9&ac1=2&kc1=0&ic1=0">Zde</a></td>
+                </tr>
+                <tr>
+                    <td>24.6.2021-4.7.2021</td>
+                    <td><strong>Španělsko-Costa de Almería</strong></td>
+                    <td>Zimbali Playa Spa 4*/ BB/ PRG/ QS</td>
+                    <td><b style="color: red;">23 700Kč</b></td><td><a href="https://www.fischer.cz/spanelsko/costa-de-almeria/vera-playa/zimbali-playa-a-spa?TT=1&TO=4312&DD=2021-06-24&NN=10&RT=15&DP=4312&MT=1&DI=49&DS=1&GIATA=69123&RC=DR0ST0&TTM=1&TOM=4312&DF=2021-06-24|2021-07-04&ERM=0&NNM=7|8|9&ac1=2&kc1=0&ic1=0">Zde</a></td>
+                </tr>
+                <tr>
+                    <td>24.6.2021-4.7.2021</td>
+                    <td><strong>Řecko-Kréta</strong></td>
+                    <td>Ocean Heights View 4*/ AI/ OSR/ QS</td>
+                    <td><b style="color: red;">18 490Kč</b></td><td><a href="https://www.fischer.cz/recko/kreta/anissaras/oceanis-hights-view?TT=1&TO=2682&DD=2021-06-24&NN=10&RT=15&DP=2682&MT=5&DI=13&DS=1&GIATA=843&RC=DR0ST0&TTM=1&TOM=2682&DF=2021-06-24|2021-07-04&ERM=0&NNM=7|8|9&ac1=2&kc1=0&ic1=0">Zde</a></td>
+                </tr>
+
+            </table>
+
+        </div>
+        <div class="sloupec bocni">
+            <p id="text">Řecko</p>
+            <img src="Zakynthos.jpg" id="Thajsko">
+            <button onclick="Dalsi()">Klikněte zde</button>
+        </div>
+
+    </div>
+    <div class="zapati"><strong>Telefonické rezervace a informace o zájezdech</strong>
+        <br> PO-Ne: 08:00 – 18:00</br>
+        <br> TEl: 255 787 787 </br>
+        <br> © 2021 Fridrich Tours a.s</br>
+    </div>
+
+</body>
+
+</html>

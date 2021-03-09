@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>obsideri et constructione s.r.o.</title>
+        <link rel="shortcut icon" type="image/png" href="Tata_logo.png">
+        <style>
+            body{
+                margin: 0;
+            }
+            h1{
+                display: inline-block;
+                margin: 10px;
+                font-family: courier;
+                float: right;
+                
+            }
+            #hlavicka{
+                margin: 15px 15px 15px 115px;
+                display: inline-block;
+            }
+			ul.menu{
+				list-style-type: none;
+                margin: 0;
+				padding:0;
+                width: 100px;
+                height: 100%;
+				position: fixed;
+				top:0;
+				background-color: #E43D40;
+			}
+			li a{
+				display: block;
+				padding: 10px;
+				text-decoration: none;
+				color:white;
+				font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			}
+			li a:hover{
+				background-color: #F37970;
+			}
+			li.dropdown{
+                position: relative;
+			}
+			.dropdown-content{
+				display: none;
+                position: absolute;
+                width: 200%;
+                background-color: #E43D40;
+				box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+			}
+			.dropdown-content a:hover{
+                background-color: #F37970;
+			}
+			.dropdown:hover .dropdown-content{ 
+                display: block;
+                margin-left: 75%;
+
+			} 
+            h2{
+                margin-top: 60px;
+                margin-left: 12%;
+                padding: 5px;
+                background-color: black;
+                color: white;
+                max-width: 500px;
+                border-radius: 25px;
+                text-align: center;
+            }
+            #obrazek1{
+                float:left ;
+                margin-left: 12%;
+                width: 37%;
+                margin-right: 2%;
+                margin-bottom: 2%;
+            }
+            #obrazek2{
+                float: left;
+                margin-left: 12%;
+                width: 37%;
+                margin-right: 2%;
+            }
+            #obrazek3{
+                float: none;
+                margin-right: 4%;
+                width: 45%;
+                margin-top: 0;
+
+            }
+		</style>
+    </head>
+    <body>
+        <div id="hlavicka">
+            <img src="Tata_logo.png" alt="logo" width="50px">
+            <h1>obsideri et constructione s.r.o.</h1>
+        </div>
+        <ul class="menu">
+			<li><a href="Hlavní.html">Hlavní stránka</a></li>
+			<li><a href="Služby.html">Služby</a></li>
+			<li><a href="Kontakt.html">Kontakty</a></li>
+			<li class="dropdown"> 
+				<a>Reference</a>
+				<div class="dropdown-content"> 
+					<a href="Stavby které bychom dělat chtěli ale zatím nedělali.html">Stavby ke kterým se chceme dopracovat</a>
+					<a href="Stavby které děláme a na kterých jsme se podíleli.html">Stavby které děláme a na kterých jsme se podíleli</a>
+					<a href="Stavby které neděláme a na kterých jsme se nepodíleli.html">Stavby které neděláme a na kterých jsme se nepodíleli</a>
+			</li>
+            <li><a href="Tabulka.html">Tabulka</a></li>
+		</ul>
+        <hr>
+        <h2>Stavby ke kterým se chceme dopracovat</h2>
+        <img id="obrazek1" src="Chtěli bychom/Dum1.jpg" alt="Dům 1" >
+        <img id="obrazek2" src="Chtěli bychom/Dum2.jpg" alt="Dům 2" >
+        <img id="obrazek3" src="Chtěli bychom/Dum3.jpg" alt="Dům 3" >
+    </body>
+</html>

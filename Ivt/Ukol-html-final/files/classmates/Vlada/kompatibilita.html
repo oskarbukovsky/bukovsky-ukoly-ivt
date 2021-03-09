@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sadamismus</title>
+    <link rel="shortcut icon" href="logo3.png">
+    <link rel="stylesheet" href="nekak.css">
+    <link rel="stylesheet" href="navigacni menu.css">
+    <link rel="stylesheet" href="hlavicka a zapati.css">
+    <link rel="stylesheet" href="obsah.css">
+    <link rel="stylesheet" href="reklamy.css">
+    <script src="nekak.js"></script>
+    <script>
+        function Vypocitej(a, b, c) {
+            var a = parseInt(document.getElementById("koeficient-a").value);
+            var b = parseInt(document.getElementById("koeficient-b").value);
+            var c = parseInt(document.getElementById("koeficient-c").value);
+            var diskriminant = (b * b - 4 * a * c)
+            if (diskriminant >= 0 && a != 0) {
+                var saskarna = Math.sqrt(b * b - 4 * a * c);
+                if (a % 2 == 0) {
+                    document.getElementById("reseni").innerHTML = (-b + saskarna) / (2 * a);
+                }
+                else {
+                    document.getElementById("reseni").innerHTML = (-b - saskarna) / (2 * a);
+                }
+
+                document.getElementById("kompatibilita").style.display = "inline";
+                document.getElementById("error").style.display = "none";
+            }
+            else {
+                document.getElementById("error").style.display = "inline";
+                document.getElementById("kompatibilita").style.display = "none";
+            }
+        }
+    </script>
+    <style>
+        #kompatibilita {
+            display: none;
+        }
+
+        #error {
+            display: none;
+        }
+
+        table,
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        tr th {
+            background-color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FFBB00;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #FB6542;
+        }
+
+        tr:hover {
+            background-color: #375E97;
+        }
+
+        table {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="hmm">Být vámi, zvážil bych navštěvu očního lékaře</p>
+    <img id="bryle" src="sunglasses.svg">
+    <div id="bsod">
+        <div id="hlavicka">
+            <h4>Sadamismus</h4>
+        </div>
+
+        <ul>
+            <li><a href="sadam.html">Hlavní stránka</a></li>
+            <li class="dropdown">
+                <a href="dropdown.html">Povinný dropdown</a>
+                <div class="dropdown-content">
+                    <a href="sadamismus.html">Sadamismus</a>
+                    <a  href="slovnik.html">Slovník</a>
+                    <a href="galerie.html">Galerie obrázků</a>
+                    <a id="oblouk" href="kompatibilita.html">Kompatibilita se sadame</a>
+                </div>
+            </li>
+            <li><a href="credits.html">Kontakt a poděkování</a></li>
+        </ul>
+
+        <!--TODO: přidej třídu dropdown-->
+        <!--TODO: přidej třídu dropdown-content-->
+
+        <div id="obsah">
+            <div id="levy" class="sloupec bocni">
+                <button id="buttonlevy" onclick="leva()">❌</button>
+                <a href="https://www.youtube.com/watch?v=HId6qf25BFw&ab_channel=jerryqueer"><button
+                        id="kliknihot">KLIKNI ZDE!!!</button></a>
+            </div>
+            <div class="sloupec main">
+                <h5 id="nadpis">Výpočet kompatibility se sadame</h5>
+                <p>Pokud jste na této stránce, tak vás jistě zajímá, jak dobře jste kompatibilní se sadame. Za
+                    pomocí této jednoduché kalkulačky to zjistíte. Vše, co potřebujete je znát váš věk, výšku, váhu
+                    a obětovat chvilku vašeho času.
+                </p>
+                <p>Zadejte <strong><em>věk (v letech)</em></strong>: <input type="number" id="koeficient-a"></p>
+                <p>Zadejte <strong><em>výšku (v centimetrech)</em></strong>: <input type="number" id="koeficient-b"></p>
+                <p>Zadejte <strong><em>váhu( v kilogramech)</em></strong>: <input type="number" id="koeficient-c"><button
+                        onclick="Vypocitej()">Vypočítej!</button></p>
+                <div id="error">
+                    <p>Vámi zadaná čísla nemají řešení v oboru realných číslech. Zkontrolujte, zda jste se
+                        nepřepsali.</p>
+                </div>
+                <div id="kompatibilita">
+                    <p>Vaše kompatibilita je solidních <span id="reseni"></span>.
+                        Toto číslo
+                        vyhledejte v tabulce a zjistíte, jak jste na tom se sadame :)</p>
+                    <br>
+                    <table>
+                        <tr>
+                            <th>Hodnota</th>
+                            <th>Hodnost</th>
+                        </tr>
+                        <tr>
+                            <td>Více než 420</td>
+                            <td>Mistr sadamu</td>
+                        </tr>
+                        <tr>
+                            <td>69 až 420</td>
+                            <td>Sadamáš</td>
+                        </tr>
+                        <tr>
+                            <td>0 až 69</td>
+                            <td>Nekakáš</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>Žašet či žaškrou</td>
+                        </tr>
+                        <tr>
+                            <td>-1 až 0</td>
+                            <td>Šašek</td>
+                        </tr>
+                        <tr>
+                            <td>-23 až -1</td>
+                            <td>Cirkus</td>
+                        </tr>
+                        <tr>
+                            <td>-69 až -23</td>
+                            <td>Cyrkus</td>
+                        </tr>
+                        <tr>
+                            <td>-420 až -69</td>
+                            <td>Cirkusák</td>
+                        </tr>
+                        <tr>
+                            <td>Méně než -420</td>
+                            <td>Cyrkusák</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div id="pravy" class="sloupec bocni">
+                <button id="buttonpravy" onclick="prava()">❌</button>
+                <a href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"><button id="kliknihot">KLIKNI
+                        ZDE!!!</button></a>
+            </div>
+        </div>
+        <div id="zapati">
+            <h3>Najdete nás také tady:</h3>
+            <a
+                href="https://www.facebook.com/vladimir.sadovsky.10?eid=ARBHICJRLhfAnWd30DZ2834cpIRXad_HRbZPDqA5R9Lgs6rjIiQg87LDsIbmYy_r2a4Gb8BWqCeoUcl6&tn-str=*F"><img
+                    src="facebook.png" id="logo" alt=""></a>
+            <a href="https://www.instagram.com/sadovsky.vladimir/"><img src="instagram.png" id="logo" alt=""></a>
+        </div>
+    </div>
+
+    </div>
+
+
+</body>
+
+</html>
+
+</body>
+
+</html>
+<!--
+	
+	Otestujte na koeficientech:
+	a = 2
+	b = -11
+	c = 14; (x1 = 3.5, x2 = 2)
+	a = 1
+	b = 2
+	c = -63; (x1 = 7, x2 = -9)
+	a = 1
+	b = -16
+	c = 48; (x1 = 12, x2 = 4)
+-->

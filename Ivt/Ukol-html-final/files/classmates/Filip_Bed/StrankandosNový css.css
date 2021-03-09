@@ -1,0 +1,221 @@
+
+*{
+    margin:0%;
+    box-sizing: border-box;
+}
+body{
+    background-color:rgb(167, 61, 61);
+   
+   
+}
+.header{
+   
+    margin: 3%;
+    background-color: rgb(83, 39, 39);
+   
+    width:95%;
+   height:23%;
+ display:block;
+ border-radius:10px;
+ padding-bottom:1%;
+}
+.nadpis{
+   
+font-size:50px;
+text-align: center;
+
+}
+.logos
+{
+    display:block;
+    height:100px;
+    width:100px;
+    border-radius:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.obsah{
+    display:table;
+    margin: 3%;
+    height:70%;
+    width:95%;
+   
+}         
+.sloupce
+{
+    display: inline-block;
+    height: auto;
+    width: 48%;
+}             
+.prispevky{
+  float:left;
+   padding:1%;
+   border-radius:10px;
+ background-color:rgb(138, 26, 26);
+ 
+}
+.komentar{
+    background-color:rgb(177, 2, 2);
+    border-style:solid;
+margin: 5%;
+border-radius:10px;
+padding:2%;
+
+
+}
+
+@media screen and (max-width: 960px) {
+    .sloupce{
+        width:100%;
+    }
+}
+.Jmeno{
+  margin-left:5px;
+  float:left;
+  font-size:30px;
+ 
+}
+.aktivita{
+margin-top:20px;
+color:rgb(73, 73, 73);
+margin-top:7%;
+margin-left:7%;
+}
+.profilovka{
+    border-radius:100%;
+    height:45px;
+    width:45px;
+    float:left;
+}
+.text {
+    color:rgb(0, 0, 0);
+   margin-top:3%;
+   margin-left:3%;
+    font-size:25px;
+}
+.reklama{
+    padding:1%;
+    float:right;
+ background-color:rgb(255, 159, 159);
+ border-radius:10px;
+ 
+}
+.obsahreklamy{
+text-align:center;
+
+}
+#textReklamy{
+    font-size:40px;
+    margin-bottom:3%;
+
+}
+#obrazekReklama{
+    height:500px;
+    width:400px;
+    border-radius:10px;
+}
+
+
+.tlacitko{
+    background-color:rgb(238, 25, 25);
+    border-radius:10px;
+    border-color:rgb(238, 25, 25);
+    height:1%;
+    width:10%;
+   padding-left:1%;
+   padding-right:1%;
+    font-size:30px;
+    border:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    width:99%;
+    position: fixed;
+    top:0;
+    background-color: rgb(124, 16, 16);
+  }
+        li{
+    float:left;
+  }
+  li a{
+    display:block;
+    padding:10px;
+    text-decoration: none;
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  li a:hover{
+    background-color:rgb(124, 16, 16);
+  }
+    
+  li.dropdown{
+    position:relative;
+  
+  }
+  .dropdown-content{
+    display:none;
+    
+    position:absolute;
+  
+  width:60px;
+  
+        background-color: rgb(124, 16, 16);
+  
+    
+    box-shadow:0px 8px 16px 0px rgb(124, 16, 16);
+  
+    z-index: 1;
+  }
+  .dropdown-content a:hover{
+            background-color: rgb(124, 16, 16);
+  
+  }
+  .dropdown:hover .dropdown-content{ 
+    display:block;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+.dolejsek{
+   height:10%;
+   width:95%;
+   border-radius:10px;
+   background-color:rgb(255, 73, 73);
+   margin-bottom:5%;
+   position:absolute;
+   text-align:center;
+   margin-left:3%;;
+   
+}
+
+
+
+

@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css?family=Inknut Antiqua");
+*{
+    box-sizing:border-box;
+    margin:0px 0px 4px 0px;
+}
+body{
+    margin:0;
+    background-image:url("Dolní\ Čermná.jpg");
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    font-family: 'sans-serif', Times;
+}
+ul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    width:150px;
+    position:fixed;
+    right:0;
+    height:100%;
+}
+li a{
+    display:block;
+    padding:40px;
+    text-align: center;
+    text-decoration:none;
+    color:black;
+    background-image:url("Menu.png");
+    background-size:cover;
+}
+li a:hover{
+    background-image:url("Menu-shadow.png");
+    background-size: cover;
+}
+.dropdown-content{
+    list-style-type: none;
+    display:none;
+    z-index:1;
+    margin:0;
+    padding:0px;
+    width:150px;
+    position:fixed;
+    top:200px;
+    right:150px;
+    height:100%;
+    border-style: none;
+    text-align:center;
+}
+.dropdown-content li a{
+    display:block;
+    z-index: 2;
+    padding:35px;
+}
+.dropdown-content li a:hover{
+    background-image:url("Menu-shadow.png");
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    padding:40px;
+    z-index:1;
+}
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+#Archiv li{
+    background-size:100%;
+    background-repeat:no-repeat;
+    background-position:center;
+    position:fixed;
+    top:305px;
+    width:150px;
+    height:10px;
+}
+#Archiv li a{
+    text-align: center;
+    padding:45px;
+    z-index:2;
+}
+#Archiv li a:hover{
+    height:100%;
+    width:150px;
+    background-repeat:no-repeat;
+}
+.header{
+    height:165px;
+    background-image:url("Header.png");
+    background-size:40%;
+    background-repeat:no-repeat;
+    background-position: center;
+    text-align: center;
+    font-family: 'Inknut Antiqua';
+    font-size:x-large;
+    margin:0% 12% 0% 0%;
+    padding:5px;
+}
+.row{
+    display:table;
+}
+.row h1{
+    text-align:center;
+}
+.column{
+    float:left;
+}
+.column.side{
+    width:20%;
+}
+.column.main{
+    display:block;
+    width:48%;
+    padding: 0% 2% 0% 3%;
+}
+#Domu{
+    width:100%;
+    background: url("Pergamen.svg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    visibility:hidden;
+    padding-bottom: 80%;
+    padding-top: 20%;
+    padding-left:12%;
+    padding-right: 18%;
+}
+#Uvod{
+    width:100%;
+    background: url("Pergamen.svg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    visibility:hidden;
+    padding-bottom: 70%;
+    padding-top: 30%;
+    padding-left:15%;
+    padding-right: 20%;
+}
+#Koza{
+    width:100%;
+    background: url("Pergamen.svg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    visibility:hidden;
+    padding-top: 50%;
+    padding-bottom:60%;
+    padding-left:20%;
+    padding-right: 15%;
+}
+#Arch{
+    width:100%;
+    background: url("Pergamen.svg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    visibility:hidden;
+    padding-bottom: 80%;
+    padding-top: 20%;
+    padding-left:12%;
+    padding-right: 18%;
+}
+}
+#Rok{
+    width:100%;
+    background: url("Pergamen.svg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    visibility:hidden;
+    padding-bottom: 80%;
+    padding-top: 20%;
+    padding-left:12%;
+    padding-right: 18%;
+}
+table, th, td{
+    border:1px solid black;
+    border-collapse: collapse;
+    padding:8px 40px;
+    margin:30px 500px 0px 100px;
+}
+table td a{
+    text-decoration: none;
+    color:black;
+    padding:0px;
+}
+button{
+
+}
+.footer{
+    background-image:url("Footer.png");
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    padding:45px 10px 50px 10px;
+    text-align:center;
+}
+.Pictures{
+    max-width:100%;
+}
+@media screen and (max-width:500px){
+    .column.side, .column.main{
+        width:100%;
+    }
+}

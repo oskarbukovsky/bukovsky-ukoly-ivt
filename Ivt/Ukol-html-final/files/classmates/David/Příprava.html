@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Příprava palačinek</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="Animations.css">
+        <link rel="shortcut icon" type="image/x-icon" href="palačinky icon příprava.png" alt="palicon"/>
+        <style>
+            body{
+                height:100%;
+            }
+            .row{
+                min-height:75vh;
+                background-color: lightblue;
+            }
+            h1{
+                margin:0;
+            }
+            .box.title{
+                padding:1%;
+                min-width:100%;
+                text-align: center;
+                background-color: #Dfe3e5;
+                
+            }
+            .row{
+                display:table;
+                width:100%;
+            }
+            .column{
+                margin-top: 5%;
+                float:left;
+                width:100%;
+                
+            }
+            .column.left{
+                margin-left:5%;
+                width:30%;
+            }
+            .column.right{
+                width:60%;
+                margin-left: 3%;
+                text-align: center;
+                              
+            }
+            .kroknotcurr{
+                display:none;
+            }
+            #next{
+                outline: none;
+                text-align: center;
+                border:solid;
+                font-size: 30px;
+                margin: 3% 5%;
+                border-radius: 5%;
+                
+                cursor: pointer;
+                box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+            #prev{
+                border:solid;
+                border-radius: 5%;
+                outline: none;
+                text-align: center;
+                font-size: 30px;
+                margin: 3% 5%;
+                
+                
+                cursor: pointer;
+                box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+            .krok1{
+                margin:5%;
+                animation:rotate 5s infinite;
+            }
+            .krok2{
+                display:inline-block;
+                margin:3%;
+            }
+            .krok3{
+                display:inline-block;
+                margin:3%;
+            }
+            .krok4{
+                
+                border-style: solid;
+                display:inline-block;
+                text-align: center;
+                margin-bottom:3%;
+            }
+            .pan{
+                z-index:2;
+            }
+            .footer{
+                bottom:0;
+                
+                width:100%;
+            }
+            
+            @media screen and (max-width: 1360px) {
+	            .column.left{
+		            width:100%;
+	            }
+                .column.right{
+                    display:none;
+                }
+            }
+        </style>
+
+        
+    </head>
+
+    <body>
+        <div class="header">
+            <img id="mainicon" src="crepes icon.png" alt="palicon">
+            <h1>Palačinky</h1>
+        </div>
+
+        <div class="menu">
+            <ul 1>
+                <li 1><a href="Weby final -  palačinky.html">Co to je</a></li 1>
+                <li 1><a href="Historie palačinek.html">Historie palačinek</a></li 1>
+
+                <li 1 class="dropdown">
+                    <a href="Typy a obdoby palačinek.html">Typy a obdoby palačinek</a>
+                        <div class="dropdown-content">
+                        <a href="Pancakes.html">Pancakes</a>
+                        <a href="Bliny.html">блины (bliny)</a>
+                        <a href="Crepes.html">Crêpes</a>
+                        <a href="Injera.html">Injera</a>
+                        <a href="Serabi.html">Serabi</a>
+                    </div>
+                </li 1>
+                <li 1><a href="Příprava.html">Příprava</a></li>
+            </ul 1>
+        </div>
+
+    <div class="main"> 
+        <div class="box title">
+            <h1>Příprava palačinek</h1>
+        </div>
+        <div class="row">
+            <div class="column"> 
+                <div class="column left">
+                    <div id="left title">
+                        <h2>Krok 1</h2>
+                    </div>
+                    <div id="recept"><p>Pro 20 palačinek potřebujeme: 2.5 špetky soli, 5 vajec, 1 litr mléka a 500g hladké mouky.</p><p>Na smažení cca 50ml oleje.</p></div>
+                    <button id="prev" onclick="getPrev()">Předchozí krok</button>
+                    <button id="next" onclick="getNext()">Další krok</button>
+                </div>
+                <div class="column right">
+                    <img class="krok1" id = "milk" src="Vektory/Milk.svg" alt="mlíko" width=100px>
+                    <img class="krok1" id = "egg"src="Vektory/Egg.svg" alt="vejce" width=50px>
+                    <img class="krok1" id = "flour" src="Vektory/Flour.svg" alt="mouka" width=100px>
+                    <img class="krok1" id = "salt" src="Vektory/Salt.svg" alt="sůl" width=50px>
+                    <img class="kroknotcurr" id = "bowl" src="Vektory/Bowl.svg" alt="mísa" width=200px>
+                    
+                    <img class="kroknotcurr" id = "pancake" src="Vektory/pancake.svg" alt="palačinka" width=150px>
+                    <img class="kroknotcurr" id = "pan" src="Vektory/Pan.svg" alt="pánev" width=300px>
+                    <img class="kroknotcurr" id = "stove" src="Vektory/stove.svg" alt="sporák" width=200px>
+                    <img class="kroknotcurr" id = "finalphoto" src="Crepes 2.jpg" alt="palačinky" width=400px;> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="footer">
+            <div class="end credits">
+                <p>Vypracováno: David Pekař 2021</p>
+            </div>
+            <div class="livsite">
+                <p>Pokud jste nechtěli palačinky klikněte <a href="Mini pancake site/Lívance.html"><img id=pancakeicon src="Mini pancake site/icon pancake.png"></a></p>
+            </div>
+            <div id="seconds-counter"></div>
+        </div>
+    </div>
+    </body>
+    <script src="scripts.js"></script>
+    <script>
+
+        var currentstep=0;
+       
+        var titleArray = ["<h2>Krok 1<h2>","<h2>Krok 2<h2>","<h2>Krok 3<h2>", "<h2>Krok 4<h2>"];
+        var svgArray = [src="Vektory/Milk.svg",src="Vektory/Egg.svg",src="Vektory/Flour.svg", src="Vektory/Salt.svg"];
+        
+        
+       
+        function getPrev(){
+            currentstep-=1;
+            actual(currentstep);
+        }
+
+        function getNext(){
+            currentstep+=1;
+            actual(currentstep);
+        }
+        //skutečná funkce
+        function actual(currentstep){
+            switch(currentstep){
+                case 0:
+                    document.getElementById("left title").innerHTML = titleArray[0];
+                    document.getElementById("recept").innerHTML = "<p>Pro 20 palačinek potřebujeme: 2.5 špetky soli, 5 vajec, 1 litr mléka a 500g hladké mouky.</p><p>Na smažení cca 50ml oleje.</p>";
+                    document.getElementById('milk').className = "krok1";
+                    document.getElementById('egg').className = "krok1";
+                    document.getElementById('flour').className = "krok1";
+                    document.getElementById('salt').className = "krok1";
+                    document.getElementById('bowl').className = "kroknotcurr";
+                    document.getElementById('pan').className = "kroknotcurr";
+                    document.getElementById('pancake').className = "kroknotcurr";
+                    document.getElementById('stove').className = "kroknotcurr";
+                    document.getElementById('finalphoto').className = "kroknotcurr";
+                break;
+                case 1:
+                    document.getElementById("left title").innerHTML = titleArray[1];
+                    document.getElementById("recept").innerHTML = "<p>Hladkou mouku rozmícháme se solí, mlékem a vejci tak, aby vznikla ani řídká, ani moc hustá směs vhodná pro palačinky.</p>";
+                    document.getElementById('milk').className = "krok2";
+                    document.getElementById('flour').className = "krok2";
+                    document.getElementById('egg').className = "krok2";
+                    document.getElementById('salt').className = "krok2";
+                    document.getElementById('bowl').className = "krok2";
+                    document.getElementById('pan').className = "kroknotcurr";
+                    document.getElementById('pancake').className = "kroknotcurr";
+                    document.getElementById('stove').className = "kroknotcurr";
+                    document.getElementById('finalphoto').className = "kroknotcurr";
+                break;
+                case 2:
+                    document.getElementById("left title").innerHTML = titleArray[2];
+                    document.getElementById("recept").innerHTML = "<p>Na pánev s rozpáleným olejem vlijeme přibližně jednu malou naběračku směsi. Palačinku smažíme z obou dvou stran dozlatova.</p>";
+                    document.getElementById('milk').className = "kroknotcurr";
+                    document.getElementById('flour').className = "kroknotcurr";
+                    document.getElementById('egg').className = "kroknotcurr";
+                    document.getElementById('salt').className = "kroknotcurr";
+                    document.getElementById('bowl').className = "kroknotcurr";
+                    document.getElementById('pan').className = "krok3";
+                    document.getElementById('pancake').className = "krok3";
+                    document.getElementById('stove').className = "krok3";
+                    document.getElementById('finalphoto').className = "kroknotcurr";
+                break;
+                case 3:
+                    document.getElementById("left title").innerHTML = titleArray[3];
+                    document.getElementById("recept").innerHTML = "<p>Na hotové palačinky naneseme libovolné množství čehokoliv, co nám chutná. Vhodné jsou marmelády, tvaroh, pudink nebo masová či zeleninová náplň.</p><p>Dobrou chuť !</p>";
+                    document.getElementById('milk').className = "kroknotcurr";
+                    document.getElementById('flour').className = "kroknotcurr";
+                    document.getElementById('egg').className = "kroknotcurr";
+                    document.getElementById('salt').className = "kroknotcurr";
+                    document.getElementById('bowl').className = "kroknotcurr";
+                    document.getElementById('pan').className = "kroknotcurr";
+                    document.getElementById('pancake').className = "kroknotcurr";
+                    document.getElementById('stove').className = "kroknotcurr";
+                    document.getElementById('finalphoto').className = "krok4";
+                    break;
+            }
+
+            //Tlačítka
+            if(currentstep == 0){
+                document.getElementById('prev').style.visibility = 'hidden';
+            }
+            else if(currentstep>0){
+            document.getElementById('prev').style.visibility = 'visible';
+            }
+            if(currentstep == 3){
+            document.getElementById('next').style.visibility = 'hidden';
+            }
+            else if(currentstep<3){
+            document.getElementById('next').style.visibility = 'visible';
+            }
+        }
+        //Tlačítka
+        if(currentstep == 0){
+                document.getElementById('prev').style.visibility = 'hidden';
+            }
+            else if(currentstep>0){
+            document.getElementById('prev').style.visibility = 'visible';
+            }
+            if(currentstep == 3){
+            document.getElementById('next').style.visibility = 'hidden';
+            }
+            else if(currentstep<3){
+            document.getElementById('next').style.visibility = 'visible';
+            }
+        
+    </script>
+</html>

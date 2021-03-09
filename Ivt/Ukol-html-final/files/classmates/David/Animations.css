@@ -1,0 +1,167 @@
+@keyframes rotate {
+    100%{
+        transform:rotate(360deg);
+    }
+}
+#milk.krok2{
+    animation:milktobowl 12s infinite;
+}
+@keyframes milktobowl{
+    0%{
+        transform: translate(0,0);
+    }
+    25%{
+        transform:translate(0,-20vh);
+    }
+    50%{
+        opacity:1;
+        transform:translate(680px,-20vh);
+    }
+    75%{
+        opacity:0;
+        transform: translate(680px,-50%);
+    }
+    99%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+        transform: translate(0,0);
+    }
+}
+
+#egg.krok2{
+    animation: eggtobowl 12s infinite;
+    animation-delay: 3s;
+}
+@keyframes eggtobowl{
+    0%{
+        transform: translate(0,0);
+    }
+    25%{
+        transform:translate(0,-20vh);
+    }
+    50%{
+        opacity:1;
+        transform:translate(525px,-20vh);
+    }
+    75%{
+        opacity:0;
+        transform: translate(525px,-50%);
+    }
+    99%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+        transform: translate(0,0);
+    }
+}
+#flour.krok2{
+    animation: flourtobowl 12s infinite;
+    animation-delay: 6s;
+}
+@keyframes flourtobowl{
+    0%{
+        transform: translate(0,0);
+    }
+    25%{
+        transform:translate(0,-20vh);
+    }
+    50%{
+        opacity:1;
+        transform:translate(375px,-20vh);
+    }
+    75%{
+        opacity:0;
+        transform: translate(375px,-50%);
+    }
+    99%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+        transform: translate(0,0);
+    }
+}
+#salt.krok2{
+    animation: salttobowl 12s infinite;
+    animation-delay: 9s;
+}
+@keyframes salttobowl{
+    0%{
+        transform: translate(0,0);
+    }
+    25%{
+        transform:translate(0,-200px);
+    }
+    50%{
+        opacity:1;
+        transform:translate(200px,-200px) rotate(180deg);
+    }
+    75%{
+        opacity:0;
+        transform: translate(200px,-50%) rotate(180deg);
+    }
+    99%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+        transform: translate(0,0);
+    }
+}
+
+#pancake{
+    animation:flip 5s linear infinite;
+    transform-origin: left center;
+}
+@keyframes flip{
+    0%{
+        transform: translate(620px,-125px);
+    }
+    20%{
+        transform: translate(620px,-125px);
+    }
+    60%{
+        transform: translate(620px,-125px)rotate(15deg);
+    }
+    70%{
+        transform: translate(620px,-125px)rotate(12deg);
+    }
+    80%{
+        transform:translate(620px,-200px);
+    }
+    90%{
+        transform-origin: center;
+        transform:translate(620px,-200px) rotate(-360deg);
+    }
+    100%{
+        transform:translate(620px,-125px) rotate(-360deg);
+    }
+}
+#pan{
+   
+    animation-fill-mode: forwards;
+    animation: turn 5s linear infinite;
+    transform-origin: top;
+}
+@keyframes turn{
+    0%{
+        transform:translate(265px,-125px);
+    }
+    20%{
+        transform:translate(265px,-125px);
+    }
+    60%{
+        transform: translate(265px,-125px) rotate(11deg);
+    }
+    90%{
+        transform: translate(265px,-125px);
+    }
+    100%{
+        
+        transform: translate(265px,-125px);
+        
+    }
+}

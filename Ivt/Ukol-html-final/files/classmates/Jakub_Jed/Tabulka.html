@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tabulka</title>
+		<style>
+            *{
+                box-sizing: border-box;
+            }      
+            body{
+                background-image: url("kostel_pozadi.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+
+            .header{
+                text-align: center;
+                
+            }  
+            /*nav. menu*/
+            ul{
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px;
+                background-color: rgb(195, 0, 255);
+                width: 100%;
+                position: fixed;
+                left: 0;
+                /*height: 100%;*/
+            }
+            li{
+                float: left;
+            }
+            li a{
+                display: inline-block;
+                /*max-width: 100px;*/
+                padding: 10px;
+                color: rgb(255, 188, 13);
+                text-decoration: none;
+            }
+            li a:hover{
+                background-color: rgba(12, 87, 232, 91);
+            }
+            .dropdown{
+                position: relative;
+            }
+            .dropdown-content{
+                position: absolute;
+                display: none;
+                z-index: 1;
+                /*max-width: 160px;*/
+                background-color: rgb(97, 255, 183);
+                box-shadow: 0px 100px 100px 0px rgba(0, 0, 0, 0);
+            }
+            .dropdown-content a:hover{
+                background-color: rgba(97, 113, 255, 0.89);
+            }
+            .dropdown:hover .dropdown-content{
+                display: block;
+            }
+
+			table, th, td{
+                margin-top: 120px;
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			tr th{
+				background-color: darkorchid;
+			}
+			tr:nth-child(odd){
+				background-color: dimgray;
+			}
+			tr:hover{
+				background-color: gold;
+			}
+
+            .footer{
+                width:100%;
+                text-align: center;
+                background-color: brown;
+                color: rgb(80, 226, 43);                
+            }
+            .footer a{
+                color: rgb(80, 226, 43);
+            }
+
+		</style>
+	</head>
+	<body>
+		 <div class="header">
+            <div><h2>Vlastní stránka o mě</h2></div>
+            <div><p>Podívejme se na mě</p></div>
+
+            <ul>
+            <li><a href ="HlavniStrana.html">Hlavní strana</a></li>
+            <li><a href ="Tabulka.html" >Tabulka</a> 
+
+            </li>
+            <li class="dropdown">
+                <a>Hokej</a>
+                <div class="dropdown-content">
+                   <a>21</a>
+                   <a>42</a>
+                </div>
+            </ul>
+        </div>
+
+		<table>
+			<tr>
+				<th>Křestní</th>
+				<th>Příjmení</th>
+				<th>Věk</th>
+			</tr>
+			<tr>
+				<td>Jana</td>
+				<td>Nováková</td>
+				<td>32</td>
+			</tr>
+			<tr>
+				<td>Michal</td>
+				<td>Horký</td>
+				<td>19</td>
+			</tr>
+			<tr>
+				<td>Michaela</td>
+				<td>Mazná</td>
+				<td>21</td>
+			</tr>
+			<tr>
+				<td>Jan</td>
+				<td>Novák</td>
+				<td>30</td>
+			</tr>
+			<tr>
+				<td>Michaela</td>
+				<td>Stará</td>
+				<td>38</td>
+			</tr>
+		</table>
+    </div>
+    <div class="footer">  
+        <p>Zde jsou odkazy na nějaké jiné stránky, které jsem vytvářel:</p>
+        <a href="opravdovy_fotbalista.html">SVG grafika (fotbalista)</a><br>
+        <a href="JedenDenPrazdnin.html">Úkol, kde má být popsaný jeden den prázdnin, ovšem dá se to brát i za víc dní.</a><br>
+        <a href="navodNaSkrin.html">Návod na sestavení skříně</a><br>
+    </div>
+    
+	</body>
+</html>

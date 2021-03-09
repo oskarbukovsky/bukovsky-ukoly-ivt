@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Koblihárna</title>
+    <link rel="stylesheet" href="rozlozeni.style.css">
+    <link rel="shortcut icon" type="image/svg+xml" href="favicon.png">
+    <style>
+        table, td, th {
+            margin-left: 25%;
+            margin-top: 150px;
+            margin-bottom: 100px;
+            padding: 10px;
+            width: 50%;
+            text-align: center;
+            border-bottom: 1px solid black;
+            border-collapse: collapse;
+        }
+        #prvni_radek {
+            background-color: rgb(153, 153, 153);
+            color: white;
+        }
+        #posledni_radek {
+            background-color: rgb(196, 196, 196);
+        }
+        tr:hover {
+            background-color: rgba(196, 196, 196);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hlavicka">
+        <h1>Koblihy tety Liběny</h1>
+    </div>
+    
+    <div class="menu">
+        <ul>
+                <li><a href="hlavni_stranka.html">Hlavní Stránka</a></li>
+                <li><a href="nabidka.html">Nabídka</a></li>
+                <li><a href="cenik.html">Ceník</a></li>
+                <li class="dropdown">
+                    <a href="objednavky.html">Ostatní</a>
+                    <div class=dropdown-obsah>
+                        <a href="kupon.html">Slevový kupon</a>
+                        <a href="objednavky.html">Objednávky</a>
+                    </div>
+                </li>
+            </ul>
+    </div>
+    
+    <div id="obsah">
+        <table>
+            <tr id="prvni_radek">
+                <td>Název Produktu</td>
+                <td>Cena za kus</td>
+            </tr>
+            <tr>
+                <td>Čokoládový donut</td>
+                <td>20Kč</td>
+            </tr>
+            <tr>
+                <td>Jahodový donut</td>
+                <td>18Kč</td>
+            </tr>
+            <tr>
+                <td>Borůvkový donut</td>
+                <td>10Kč</td>
+            </tr>
+            <tr>
+                <td>Bílý donut</td>
+                <td>20Kč</td>
+            </tr>
+            <tr>
+                <td>Jablečný donut</td>
+                <td>30Kč</td>
+            </tr>
+            <tr>
+                <td>Oreový donut</td>
+                <td>21Kč</td>
+            </tr>
+            <tr id="posledni_radek">
+                <td>Doprava</td>
+                <td>100Kč</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="zapati">
+        <h3>Kontakt:</h3>
+        <p>tel.: +420 730 522 283</p>
+        <p>email: press@mvcr.cz</p>
+    </div>
+    
+
+</body>
+
+</html>

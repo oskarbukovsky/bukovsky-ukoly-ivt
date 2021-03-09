@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Serabi</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="shortcut icon" type="image/x-icon" href="crepes icon.png" alt="palicon"/>
+        <style>
+            body{
+                height:100%;
+                
+            }
+            .row{
+                display: table;
+                min-height:78.5vh;
+                background-image: url(https://wallpaperaccess.com/full/1770140.jpg);
+                background-size: cover;
+            }
+            .column{
+                float:left;
+            }
+            .column.left{
+                width:55%;
+            }
+            .box.text{
+                display: inline-block;
+                margin:15% 5% 0% 5%;
+                
+            }
+            .box.pic{
+                width:90%;
+                margin-top:3%;
+                border-style: groove;
+                
+            }
+            .column.right{  
+                width:45%;
+                
+            }
+            .footer{
+                bottom:0;
+                
+                width:100%;
+            }
+            @media screen and (max-width: 760px) {
+	            .column.right, .column.left{
+		            width:100%;
+	            }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img id="mainicon" src="crepes icon.png" alt="palicon">
+            <h1>Palačinky</h1>
+        </div>
+        <div class="menu">
+            
+            <ul 1>
+                <li 1><a href="Weby final -  palačinky.html">Co to je</a></li 1>
+                <li 1><a href="Historie palačinek.html">Historie palačinek</a></li 1>
+
+                <li 1 class="dropdown">
+                    <a href="Typy a obdoby palačinek.html">Typy a obdoby palačinek</a>
+                        <div class="dropdown-content">
+                        <a href="Pancakes.html">Pancakes</a>
+                        <a href="Bliny.html">блины (bliny)</a>
+                        <a href="Crepes.html">Crêpes</a>
+                        <a href="Injera.html">Injera</a>
+                        <a href="Serabi.html">Serabi</a>
+                    </div>
+                </li 1>
+                <li 1><a href="Příprava.html">Příprava</a></li>
+            </ul 1>
+        </div>
+
+
+        <div class="row">
+            <div class="column"> 
+                <div class="column left">
+                    <div class="box text">
+                        <h1>Serabi</h1>
+                        <p>Serabi, také nazývaná surabi, také známý v Thajsku jako khanom khrok, je indonéská palačinka, která se vyrábí z rýžové mouky s kokosovým mlékem nebo drceným kokosem jako emulgátor. Většina tradičních serabi chutná sladce, protože palačinka se obvykle konzumuje s hustým zlatohnědým sirupem z kokosového cukru. Existuje však také pikantní verze, která používá polevy oncom. Různé provincie v různých asijských zemích mají své vlastní recepty serabi odpovídající místním zvyklostem.</p>
+                        <br>
+                        <p>Serabi je tradiční zákusek, který podle všeho pochází z Jávy v Indonésii.</p>
+                    </div>
+                </div>
+                <div class="column right">
+                    <div class="box pic">
+                        <img id="serabi" src="https://blog.tokowahab.com/wp-content/uploads/2019/11/Resep-Kue-Serabi-Solo.jpg" alt="serabi" width=100%>
+                    </div>                    
+                </div>
+            </div>
+        </div> 
+        <div class="footer">
+            <div class="end credits">
+                <p>Vypracováno: David Pekař 2021</p>
+            </div>
+            <div class="livsite">
+                <p>Pokud jste nechtěli palačinky klikněte <a href="Mini pancake site/Lívance.html"><img id=pancakeicon src="Mini pancake site/icon pancake.png"></a></p>
+            </div>
+            <div id="seconds-counter"></div>
+        </div>
+    </body>
+    <script src="scripts.js"></script>
+    </body>
+</html>

@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0%;
+}
+
+p
+{
+    font-size: 25px;
+    color: white;
+}
+#bryle
+{
+    display: none;
+}
+body
+{
+    background-color: #375E97;
+}
+
+#hmm
+{
+    display: none;
+}
+
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+	.sloupec.main{
+		width:100%;
+	}
+    #levy
+    {
+        display: none;
+    }
+    #pravy
+    {
+        display: none;
+    }
+    #buttonlevy
+    {
+        display: none;
+    }
+    #buttonpravy
+    {
+        display: none;
+    }
+}
+
+@media screen and (height: 1080px) {
+    body
+    {
+        background-image: url("bsod.jpg");
+        background-size: cover;
+    }
+    #bsod
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 384px) {
+    #hmm
+    {
+        color: red;
+        text-align: center;
+       display: block;
+
+    }
+    #bsod
+    {
+        display: none;
+    }
+
+    #bryle{
+        animation-name: spin;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        display: block;
+        width: 350px;
+        height: 200px;
+    }
+}
+

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Palačinky</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="shortcut icon" type="image/x-icon" href="crepes icon.png" alt="palicon"/>
+        <style>
+            body{
+                background-color:#fff2a4;
+            }
+            .row{
+                display: table;
+            }
+            .column{
+                float:left;
+            }
+            .column.left{
+                background-color: #f8c281;
+                width:50%;
+                border-style: solid;
+                margin:0.5%;
+            }
+            .column.right{
+                background-color: #f8c281;
+                padding:1%;
+                text-align: center;
+                width:45%;
+                margin-left:2%;
+                margin-right:2%;
+                margin-top:0.5%;
+                border-style: solid;
+                border-radius: 5%;
+            }
+            #palpic{
+                width:100%;
+                border-style: solid;
+                border-radius: 10%;
+                box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+            .button{
+                outline: none;
+                text-align: center;
+                border:none;
+                font-size: 50px;
+                margin: 3% 5%;
+                width: 25%;
+                border-radius: 30%;
+                cursor: pointer;
+                box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+            .button.Yes{
+                background-color: rgb(177, 243, 177);
+                
+            }
+            .button.Yes:hover{
+                background-color: rgb(133, 241, 133);
+            }
+            .button.No{
+                background-color: rgb(255, 43, 43);
+            }
+            .button.No:hover{
+                background-color: rgb(248, 17, 17);
+            }
+            .box{
+                margin:0.5%;
+            }
+            .box.title{
+                text-align: center;
+            }
+            .box.popis{
+                margin:0 3%;
+                padding:1%;
+                border-style: inset;
+                border-color: #262453;
+            }
+            .table{
+                
+                margin-left: 5%;
+                margin-bottom: 5%;
+                margin-top: 5%;
+                width:45%;
+
+            }
+            .table.one{
+                float:left;
+            }
+            .table.two{
+                float:right;
+            }
+            table{
+                
+                box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+                width:60%;
+                border: 3px solid black;             
+                border-collapse: collapse;
+                
+            }
+            th,td{
+                border: 1px solid rgb(82, 78, 78);
+                padding: 4% 0%;
+                text-align: center;
+            }
+            .flagpic{
+                width:60%;
+                border-style: solid;
+                border-color:#3f2020;
+                border-radius: 5%;    
+            }
+            .audiobutton{
+                margin:15%;
+                padding:5%;
+                background-color:#fedeb6;
+                border-radius: 15%;
+                cursor: pointer;
+                box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+                outline: none;
+            }
+            .audiobutton:hover{
+                background-color:#fab157 ;
+            }
+            @media screen and (max-width: 760px) {
+	            .column.right, .column.left{
+		            width:100%;
+	            }
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+
+        <div class="header">
+            <img id="mainicon" src="crepes icon.png" alt="palicon">
+            <h1>Palačinky</h1>
+        </div>
+        <div class="menu">
+            
+            <ul 1>
+                <li 1><a href="Weby final -  palačinky.html">Co to je</a></li 1>
+                <li 1><a href="Historie palačinek.html">Historie palačinek</a></li 1>
+
+                <li 1 class="dropdown">
+                    <a href="Typy a obdoby palačinek.html">Typy a obdoby palačinek</a>
+                       <div class="dropdown-content">
+                        <a href="Pancakes.html">Pancakes</a>
+                        <a href="Bliny.html">блины (bliny)</a>
+                        <a href="Crepes.html">Crêpes</a>
+                        <a href="Injera.html">Injera</a>
+                        <a href="Serabi.html">Serabi</a>
+                    </div>
+                </li 1>
+                <li 1><a href="Příprava.html">Příprava</a></li>
+            </ul 1>
+        </div>
+
+        <div class="row">
+            <div class="column"> 
+                <div class="column left">
+                    <div class="box title">
+                        <h1>Co to je</h1>
+                    </div>
+
+                    <div class="box popis">
+                        <p>Palačinka je nekynutý moučník, který je vyráběn z litého těsta.</p>
+                        <br>
+                        <p>Má podobu velmi tenké placky, pečené na pánvi nebo na rozpálené desce. Je populární v mnoha různých zemích pod různými názvy a s drobnými změnami v receptuře.</p>
+                    </div>
+
+                    <div class="table one">
+                        <table>
+                            <tr>
+                                <th>Jazyk</th>
+                                <th>Palačinky</th>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/255px-Flag_of_the_Czech_Republic.svg.png" alt="CZflag"></td>
+                                <td> Palačinky <button class="audiobutton" onclick="playAudio('Czaudio')">
+                                    <audio id="Czaudio" src="Audio files/Palačinky.mp3"></audio> 
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png" alt="UKflag"></td>
+                                <td> Pancakes (nepřesné) <button class="audiobutton" onclick="playAudio('Engaudio')">
+                                    <audio id="Engaudio" src="Audio files/Pancakes.mp3"></audio> 
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png" alt="RUflag"></td>
+                                <td> блины (nepřesné) <button class="audiobutton" onclick="playAudio('Ruaudio')">
+                                    <audio id="Ruaudio" src="Audio files/блины.mp3"></audio> 
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="GERflag"></td>
+                                <td> die Palatschinken <button class="audiobutton" onclick="playAudio('Geraudio')">
+                                    <audio id="Geraudio" src="Audio files/die Palatschinken.mp3"></audio> 
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png" alt="FRflag"></td>
+                                <td> Crêpes (nepřesné) <button class="audiobutton" onclick="playAudio('Fraudio')">
+                                    <audio id="Fraudio" src="Audio files/Crêpes.mp3"></audio>
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="table two">
+                        <table>
+                            <tr>
+                                <th>Jazyk</th>
+                                <th>Palačinky</th>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png" alt="SPAflag"></td>
+                                <td> Panqueques <button class="audiobutton" onclick="playAudio('Spanaudio')">
+                                    <audio id="Spanaudio" src="Audio files/Panqueques.mp3"></audio>
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1920px-Flag_of_Italy.svg.png" alt="ITflag"></td>
+                                <td> Frittelle <button class="audiobutton" onclick="playAudio('Itaudio')">
+                                    <audio id="Itaudio" src="Audio files/Frittelle.mp3"></audio>
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1920px-Flag_of_the_People%27s_Republic_of_China.svg.png" alt="CHIflag"></td>
+                                <td> 煎餅 <button class="audiobutton" onclick="playAudio('Chaudio')">
+                                    <audio id="Chaudio" src="Audio files/煎餅.mp3"></audio>
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png" alt="INDflag"></td>
+                                <td> पेनकेक्स <button class="audiobutton" onclick="playAudio('Indaudio')">
+                                    <audio id="Indaudio" src="Audio files/पेनकेक्स.mp3"></audio>
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                            <tr>
+                                <td> <img class="flagpic" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png" alt="JAPflag"></td>
+                                <td> パンケーキ (nepřesné) <button class="audiobutton" onclick="playAudio('Japaudio')">
+                                    <audio id="Japaudio" src="Audio files/パンケーキ.mp3"></audio>
+                                    <img class="speaker" src="Speaker.png" alt="speakericon" width=30px;></button></td>
+                            </tr>
+                        </table>
+                    </div>
+                   
+                </div>
+                <div class="column right">
+                    <h1 id="Y/Ntitle">Lívance nejsou palačinky !😠</h1>
+                    <img id="palpic" src="Not palačinky.jpg" alt="pancake">
+
+                    <div>
+                        <button class="button Yes" onclick="getYes()">&#x2714</button>
+                        <button class="button No"  onclick="getNo()">&#x2716</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="end credits">
+                <p>Vypracováno: David Pekař 2021</p>
+            </div>
+            <div class="livsite">
+                <p>Pokud jste nechtěli palačinky klikněte <a href="Mini pancake site/Lívance.html"><img id=pancakeicon src="Mini pancake site/icon pancake.png"></a></p>
+            </div>
+            <div id="seconds-counter"></div>
+        </div>
+    </body>
+    <script>
+
+        //yes no pictures
+        var yesvar=0;
+        var novar=0;
+
+        var nameArray = ["Palačinky jsou dobrota !😄","Lívance nejsou palačinky !😠"];
+        var imgArray = [src="Palačinky banán čoko.jpg",src="Not palačinky.jpg"];
+       
+        function getNo(){
+            novar++;
+            document.getElementById("palpic").src = imgArray[1];
+            document.getElementById("Y/Ntitle").innerHTML = nameArray[1];
+        }
+        function getYes(){
+            yesvar++;
+            if(yesvar>5 && novar == 0){
+                document.onclick = yesyes();
+                yesvar=0;
+                }
+            document.getElementById("palpic").src = imgArray[0];
+            document.getElementById("Y/Ntitle").innerHTML = nameArray[0];;
+        }
+
+        function playAudio(mp3path){
+            var audio = document.getElementById(mp3path);
+            audio.play();
+        }
+
+        //easter egg
+        function yesyes(){
+            location.href = "https://www.youtube.com/watch?v=sq_Fm7qfRQk";
+        }
+    </script>
+    <script src="scripts.js"></script>
+</html>

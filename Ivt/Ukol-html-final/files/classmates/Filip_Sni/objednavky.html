@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Koblihárna</title>
+    <script>
+        function Vypocitat() {
+            var ceny = [0, 0, 0, 0, 0, 0];
+            var cenik = [20, 18, 10, 20, 30, 21];
+            ceny[0] = parseInt(document.getElementById("cokolada").value);
+            ceny[1] = parseInt(document.getElementById("jahoda").value);
+            ceny[2] = parseInt(document.getElementById("boruvka").value);
+            ceny[3] = parseInt(document.getElementById("bila").value);
+            ceny[4] = parseInt(document.getElementById("jablko").value);
+            ceny[5] = parseInt(document.getElementById("oreo").value);
+            var vysledek = 0;
+            for(var i = 0; i < 6; i++) {
+                if(!isNaN(ceny[i])) {
+                    vysledek += cenik[i] * ceny[i];
+                }
+            }
+            if(vysledek > 0) {
+                vysledek += 100;
+            }
+            document.getElementById("vysledna_cena").innerHTML = "Celková cena je: " + vysledek;
+        }
+        function Privest() {
+            document.getElementById("hlaska").innerHTML = "Vaše objednávka je na cestě!";
+        }
+    </script>
+    <link rel="stylesheet" href="rozlozeni.style.css">
+    <link rel="shortcut icon" type="image/svg+xml" href="favicon.png">
+    <style>
+        #obsah {
+            max-width:50%;
+            padding: 10px;
+            margin-left: 25%;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hlavicka">
+        <h1>Koblihy tety Liběny</h1>
+    </div>
+    
+    <div class="menu">
+        <ul>
+                <li><a href="hlavni_stranka.html">Hlavní Stránka</a></li>
+                <li><a href="nabidka.html">Nabídka</a></li>
+                <li><a href="cenik.html">Ceník</a></li>
+                <li class="dropdown">
+                    <a href="objednavky.html">Ostatní</a>
+                    <div class=dropdown-obsah>
+                        <a href="kupon.html">Slevový kupon</a>
+                        <a href="objednavky.html">Objednávky</a>
+                    </div>
+                </li>
+            </ul>
+    </div>
+    
+    <div id="obsah">
+        <h2>Vaše objednávka</h2>
+        <p>Čokoládové donuty: <input type="number" id="cokolada"></p>
+        <p>Jahodové donuty: <input type="number" id="jahoda"></p>
+        <p>Borůvkové donuty: <input type="number" id="boruvka"></p>
+        <p>Bílé donuty: <input type="number" id="bila"></p>
+        <p>Jablečné donuty: <input type="number" id="jablko"></p>
+        <p>Oreové donuty: <input type="number" id="oreo"></p>
+        <p>Adresu nám psát nemusíte, my už ji známe ;)</p>
+        <button onclick="Vypocitat()">Vypočítat!</button>
+        <p id="vysledna_cena">Celková cena je:</p>
+        <button onclick="Privest()">Nechat si to přivést!</button>
+        <p id="hlaska"></p>
+    </div>
+
+    <div class="zapati">
+        <h3>Kontakt:</h3>
+        <p>tel.: +420 730 522 283</p>
+        <p>email: press@mvcr.cz</p>
+    </div>
+    
+
+</body>
+
+</html>
+
